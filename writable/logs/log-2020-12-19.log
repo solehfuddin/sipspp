@@ -1,0 +1,58 @@
+CRITICAL - 2020-12-19 02:00:23 --> Invalid file: components/com_head.php
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('components/com_...')
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('components/com_...', Array, true)
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Login.php(8): view('components/com_...')
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->index()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-19 04:47:18 --> Invalid file: template_login.php
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template_login....')
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(257): CodeIgniter\View\View->render('template_login', Array, true)
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_login', Array, true)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Login.php(8): view('view_login')
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->index()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#9 {main}
+CRITICAL - 2020-12-19 04:47:40 --> Invalid file: template_login.php
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template_login....')
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(257): CodeIgniter\View\View->render('template_login', Array, true)
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_login', Array, true)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Login.php(8): view('view_login')
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->index()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#9 {main}
+CRITICAL - 2020-12-19 04:58:58 --> Invalid file: components/comp_header.php
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('components/comp...')
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('components/comp...', Array, true)
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Views/view_login.php(7): view('components/comp...')
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/muhamads...')
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_login', Array, true)
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Login.php(8): view('view_login')
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->index()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#11 {main}
+CRITICAL - 2020-12-19 04:59:28 --> Invalid file: components/comp_header.php
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('components/comp...')
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('components/comp...', Array, true)
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Views/view_login.php(7): view('components/comp...')
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/muhamads...')
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_login', Array, true)
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Login.php(8): view('view_login')
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->index()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#11 {main}

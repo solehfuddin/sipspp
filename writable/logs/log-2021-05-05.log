@@ -1,0 +1,89 @@
+CRITICAL - 2021-05-05 08:18:48 --> Class 'App\Models\DashboardModel' not found
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(890): App\Controllers\Dashboard->__construct()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-05-05 08:19:16 --> Undefined variable: table
+#0 /Applications/MAMP/htdocs/sipspp/app/Models/DashboardModel.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 8, Array)
+#1 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(23): App\Models\DashboardModel->menu()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-05-05 08:19:32 --> Argument 1 passed to CodeIgniter\Database\BaseBuilder::get() must be of the type int or null, string given, called in /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Model.php on line 1818
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Model.php(1818): CodeIgniter\Database\BaseBuilder->get('master_menu')
+#1 /Applications/MAMP/htdocs/sipspp/app/Models/DashboardModel.php(8): CodeIgniter\Model->__call('get', Array)
+#2 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(23): App\Models\DashboardModel->menu()
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-05 08:25:59 --> Undefined variable: data
+#0 /Applications/MAMP/htdocs/sipspp/app/Views/view_dashboard.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 5, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_dashboard', Array, true)
+#3 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(18): view('view_dashboard', Array)
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-05 08:27:53 --> Array to string conversion
+#0 /Applications/MAMP/htdocs/sipspp/app/Views/view_dashboard.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', '/Applications/M...', 5, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_dashboard', Array, true)
+#3 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(21): view('view_dashboard', Array)
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-05 08:34:24 --> Cannot use object of type stdClass as array
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('components/side...', NULL, true)
+#2 /Applications/MAMP/htdocs/sipspp/app/Views/components/template_admin.php(60): CodeIgniter\View\View->include('components/side...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(257): CodeIgniter\View\View->render('components/temp...', Array, true)
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_dashboard', Array, true)
+#6 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(21): view('view_dashboard', Array)
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-05-05 09:27:09 --> Undefined variable: menu
+#0 /Applications/MAMP/htdocs/sipspp/app/Views/components/sidenav_admin.php(26): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 26, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('components/side...', NULL, true)
+#3 /Applications/MAMP/htdocs/sipspp/app/Views/components/template_admin.php(60): CodeIgniter\View\View->include('components/side...')
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(257): CodeIgniter\View\View->render('components/temp...', Array, true)
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('menumaster/view...', Array, true)
+#7 /Applications/MAMP/htdocs/sipspp/app/Controllers/Master/Agamacontroller.php(16): view('menumaster/view...')
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Master\Agamacontroller->index()
+#9 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Master\Agamacontroller))
+#10 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-05-05 09:36:29 --> Undefined property: stdClass::$status
+#0 /Applications/MAMP/htdocs/sipspp/app/Controllers/Master/Agamacontroller.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 57, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Master\Agamacontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Master\Agamacontroller))
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-05 09:43:58 --> Invalid file: menumaster/edit_masteragama.php
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('menumaster/edit...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('menumaster/edit...', NULL, true)
+#2 /Applications/MAMP/htdocs/sipspp/app/Views/menumaster/view_masteragama.php(67): CodeIgniter\View\View->include('menumaster/edit...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('menumaster/view...', Array, true)
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Master/Agamacontroller.php(27): view('menumaster/view...', Array)
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Master\Agamacontroller->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Master\Agamacontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

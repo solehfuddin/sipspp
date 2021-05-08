@@ -1,0 +1,62 @@
+CRITICAL - 2021-01-08 08:39:06 --> Class 'App\Models\Account\Master\AnggotaModel' not found
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Master\Anggotacontroller->ajax_list()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Master\Anggotacontroller))
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-01-08 08:39:21 --> Class 'App\Models\Account\Master\AnggotaModel' not found
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Master\Anggotacontroller->ajax_list()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Master\Anggotacontroller))
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-01-08 08:40:49 --> Unknown column 'fullname' in 'order clause'
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/backend/app/Models/Account/Master/AnggotaModel.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Master/Anggotacontroller.php(33): App\Models\Account\Master\AnggotaModel->get_datatables()
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Master\Anggotacontroller->ajax_list()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Master\Anggotacontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-08 10:51:39 --> Invalid file: menuaccount/add_accountadministrator.php
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('menuaccount/add...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('menuaccount/add...', NULL, true)
+#2 /Applications/MAMP/htdocs/backend/app/Views/menuaccount/view_accountadministrator.php(67): CodeIgniter\View\View->include('menuaccount/add...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#4 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('menuaccount/vie...', Array, true)
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Administratorcontroller.php(16): view('menuaccount/vie...')
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Administratorcontroller->index()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Administratorcontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-08 10:52:59 --> Invalid file: menuaccount/add_accountadministrator.php
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('menuaccount/add...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('menuaccount/add...', NULL, true)
+#2 /Applications/MAMP/htdocs/backend/app/Views/menuaccount/view_accountadministrator.php(67): CodeIgniter\View\View->include('menuaccount/add...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#4 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('menuaccount/vie...', Array, true)
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Administratorcontroller.php(16): view('menuaccount/vie...')
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Administratorcontroller->index()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Administratorcontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-08 11:11:02 --> Undefined variable: msg
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Administratorcontroller.php(199): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 199, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Administratorcontroller->simpandata()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Administratorcontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-08 12:34:48 --> Undefined variable: msg
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Administratorcontroller.php(393): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 393, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Administratorcontroller->perbaruipassword()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Administratorcontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

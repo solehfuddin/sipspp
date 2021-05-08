@@ -1,0 +1,52 @@
+CRITICAL - 2021-01-09 02:26:44 --> Column 'keterangan' in order clause is ambiguous
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/backend/app/Models/Package/PriceModel.php(57): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(33): App\Models\Package\PriceModel->get_datatables()
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->ajax_list()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-09 02:26:59 --> Column 'keterangan' in order clause is ambiguous
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/backend/app/Models/Package/PriceModel.php(57): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(33): App\Models\Package\PriceModel->get_datatables()
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->ajax_list()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-09 02:27:52 --> Undefined property: stdClass::$name_level
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(51): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 51, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-09 02:28:19 --> Undefined property: stdClass::$name_level
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(51): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 51, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-09 02:30:19 --> Undefined property: stdClass::$m_jenis_member
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 50, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-09 02:30:32 --> Undefined property: stdClass::$m_jenis_member
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 50, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

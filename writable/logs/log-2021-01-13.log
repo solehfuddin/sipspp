@@ -1,0 +1,27 @@
+CRITICAL - 2021-01-13 00:03:38 --> Undefined index: keterangan
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Membercontroller.php(187): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/M...', 187, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Membercontroller->pilihdata()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Membercontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-13 00:03:55 --> Undefined index: keterangan
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Account/Membercontroller.php(187): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/M...', 187, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Membercontroller->pilihdata()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Membercontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-13 00:22:01 --> Class 'App\Controllers\Package\UserlevelModel' not found
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->index()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-01-13 01:55:01 --> Undefined variable: m_cat
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Package/Pricecontroller.php(174): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 174, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Pricecontroller->simpandata()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Pricecontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

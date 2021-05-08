@@ -1,0 +1,44 @@
+CRITICAL - 2021-01-01 08:10:02 --> Unable to connect to the database.
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /Applications/MAMP/htdocs/backend/app/Models/LoginModel.php(9): CodeIgniter\Model->find()
+#4 /Applications/MAMP/htdocs/backend/app/Controllers/Login.php(65): App\Models\LoginModel->login('udin@trl.co')
+#5 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->auth()
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-01-01 08:36:27 --> Trying to access array offset on value of type null
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Setting/Benefitcontroller.php(197): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/M...', 197, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Setting\Benefitcontroller->pilihdata()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setting\Benefitcontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-01 08:44:10 --> Trying to access array offset on value of type null
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Setting/Benefitcontroller.php(197): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/M...', 197, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Setting\Benefitcontroller->pilihdata()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setting\Benefitcontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-01 10:03:57 --> Class 'App\Models\Feedback\SubscriberModel' not found
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Feedback\Subscribercontroller->ajax_list()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Feedback\Subscribercontroller))
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-01-01 10:04:04 --> Class 'App\Models\Feedback\SubscriberModel' not found
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Feedback\Subscribercontroller->ajax_list()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Feedback\Subscribercontroller))
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-01-01 10:05:29 --> Undefined property: stdClass::$id_subsriber
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Feedback/Subscribercontroller.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 42, Array)
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Feedback\Subscribercontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Feedback\Subscribercontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

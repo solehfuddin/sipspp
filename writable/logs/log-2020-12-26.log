@@ -1,0 +1,333 @@
+CRITICAL - 2020-12-26 06:32:24 --> Undefined index: kode_kategori_pengumuman
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Categorycontroller.php(191): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Users/muhamads...', 191, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 06:33:47 --> Undefined index: kode_kategori_pengumuman
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Categorycontroller.php(191): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Users/muhamads...', 191, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 06:34:15 --> Undefined index: kode_kategori_pengumuman
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Categorycontroller.php(191): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Users/muhamads...', 191, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 06:35:55 --> Undefined index: kode_kategori_pengumuman
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Categorycontroller.php(191): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Users/muhamads...', 191, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 07:16:58 --> Call to undefined method App\Controllers\Information\Categorycontroller::include()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-26 07:18:17 --> Call to undefined method App\Controllers\Information\Categorycontroller::include()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-26 09:09:46 --> Too few arguments to function App\Models\Information\TypeModel::__construct(), 0 passed in /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/BaseController.php on line 46 and exactly 1 expected
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/BaseController.php(46): App\Models\Information\TypeModel->__construct()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 09:10:52 --> Undefined variable: kodegen
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Views/menuinformation/add_infotype.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 18, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/muhamads...')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('menuinformation...', NULL, true)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Views/menuinformation/view_infotype.php(64): CodeIgniter\View\View->include('menuinformation...')
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/muhamads...')
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('menuinformation...', Array, true)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Typecontroller.php(17): view('menuinformation...')
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Typecontroller->index()
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Typecontroller))
+#9 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#11 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#12 {main}
+CRITICAL - 2020-12-26 09:13:45 --> Class 'App\Controllers\Information\TypeModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Typecontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Typecontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-26 09:14:10 --> Class 'App\Controllers\Information\TypeModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Typecontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Typecontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-26 09:15:43 --> Class 'App\Controllers\Information\TypeModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Typecontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Typecontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-26 09:31:45 --> Undefined property: App\Controllers\Information\Typecontroller::$infotypemodel
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Typecontroller.php(154): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Users/muhamads...', 154, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Typecontroller->simpandata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Typecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 09:33:54 --> Trying to access array offset on value of type null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Categorycontroller.php(189): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Users/muhamads...', 189, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Categorycontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Categorycontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 09:44:38 --> Undefined variable: msg
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Information/Typecontroller.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 193, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Typecontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Typecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:29:10 --> Class 'App\Controllers\Package\UserlevelModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-26 22:29:53 --> whereNotIn() expects $values to be of type array or closure
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(891): CodeIgniter\Database\BaseBuilder->_whereIn('alias_level', 'Admin', true, 'AND ', NULL)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Model.php(1818): CodeIgniter\Database\BaseBuilder->whereNotIn('alias_level', 'Admin')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(25): CodeIgniter\Model->__call('whereNotIn', Array)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#9 {main}
+CRITICAL - 2020-12-26 22:30:47 --> whereNotIn() expects $values to be of type array or closure
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(891): CodeIgniter\Database\BaseBuilder->_whereIn('alias_level', 'Admin', true, 'AND ', NULL)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(25): CodeIgniter\Database\BaseBuilder->whereNotIn('alias_level', 'Admin')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:32:21 --> whereNotIn() expects $values to be of type array or closure
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(891): CodeIgniter\Database\BaseBuilder->_whereIn('alias_level', 'Admin', true, 'AND ', NULL)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(25): CodeIgniter\Database\BaseBuilder->whereNotIn('alias_level', 'Admin')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:32:33 --> whereNotIn() expects $values to be of type array or closure
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(891): CodeIgniter\Database\BaseBuilder->_whereIn('alias_level', 'Admin', true, 'AND ', NULL)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(25): CodeIgniter\Database\BaseBuilder->whereNotIn('alias_level', 'Admin')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:35:19 --> whereNotIn() expects $values to be of type array or closure
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(891): CodeIgniter\Database\BaseBuilder->_whereIn('alias_level', 'Admin', true, 'AND ', NULL)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(26): CodeIgniter\Database\BaseBuilder->whereNotIn('alias_level', 'Admin')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:36:34 --> Argument 1 passed to CodeIgniter\Database\BaseBuilder::get() must be of the type int or null, string given, called in /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php on line 27
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(27): CodeIgniter\Database\BaseBuilder->get('m_user_level')
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#7 {main}
+CRITICAL - 2020-12-26 22:36:49 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:38:38 --> Undefined variable: db
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 25, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#7 {main}
+CRITICAL - 2020-12-26 22:38:58 --> Call to a member function get() on null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:39:43 --> Call to a member function get() on null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:40:07 --> Call to a member function get() on null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:40:33 --> Call to undefined method App\Models\Account\UserlevelModel::_get_datatables_query
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): CodeIgniter\Model->__call('_get_datatables...', Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:40:34 --> Call to undefined method App\Models\Account\UserlevelModel::_get_datatables_query
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): CodeIgniter\Model->__call('_get_datatables...', Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:41:01 --> Trying to access array offset on value of type null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Users/muhamads...', 32, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(56): App\Models\Account\UserlevelModel->_get_datatables_query()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->get_datatables()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:41:15 --> Trying to access array offset on value of type null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Users/muhamads...', 32, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(56): App\Models\Account\UserlevelModel->_get_datatables_query()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->get_datatables()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:41:48 --> Trying to access array offset on value of type null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Users/muhamads...', 32, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(56): App\Models\Account\UserlevelModel->_get_datatables_query()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->get_datatables()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}
+CRITICAL - 2020-12-26 22:42:14 --> Call to a member function get() on null
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:43:18 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::result()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:43:19 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::result()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:43:20 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::result()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:44:04 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::get()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:44:48 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:45:12 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::whereNptIn()
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-26 22:45:21 --> whereNotIn() expects $values to be of type array or closure
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(891): CodeIgniter\Database\BaseBuilder->_whereIn('alias_level', 'Admin', true, 'AND ', NULL)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Models/Account/UserlevelModel.php(25): CodeIgniter\Database\BaseBuilder->whereNotIn('alias_level', 'Admin')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Package/Featurecontroller.php(82): App\Models\Account\UserlevelModel->getkodeuser()
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Package\Featurecontroller->getkodeuser()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Package\Featurecontroller))
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#8 {main}

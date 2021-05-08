@@ -1,0 +1,68 @@
+CRITICAL - 2020-12-27 00:44:53 --> Undefined variable: msg
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Account/Userlevelcontroller.php(180): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 180, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Userlevelcontroller->simpandata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Userlevelcontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-27 01:06:59 --> Undefined index: aliaslevel
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Account/Userlevelcontroller.php(205): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Users/muhamads...', 205, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Userlevelcontroller->pilihdata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Userlevelcontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-27 01:18:08 --> Class 'App\Controllers\Account\CategoryModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Userlevelcontroller->perbaruidata()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Userlevelcontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-27 01:41:12 --> Class 'App\Models\Account\MemberModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Account\Membercontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account\Membercontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-27 08:15:28 --> Class 'App\Models\Media\FiltermedModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Media\Filtermedcontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Media\Filtermedcontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-27 08:18:05 --> Class 'App\Models\Media\FiltermedModel' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Media\Filtermedcontroller->ajax_list()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Media\Filtermedcontroller))
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#5 {main}
+CRITICAL - 2020-12-27 08:38:02 --> Undefined variable: msg
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Media/Filtermedcontroller.php(166): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 166, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Media\Filtermedcontroller->simpandata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Media\Filtermedcontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-27 08:51:24 --> Undefined variable: msg
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Media/Filtermedcontroller.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 247, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Media\Filtermedcontroller->perbaruidata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Media\Filtermedcontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}
+CRITICAL - 2020-12-27 08:52:31 --> Undefined variable: msg
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/Media/Filtermedcontroller.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 247, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Media\Filtermedcontroller->perbaruidata()
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Media\Filtermedcontroller))
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#6 {main}

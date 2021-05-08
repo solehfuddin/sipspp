@@ -1,0 +1,23 @@
+CRITICAL - 2020-12-24 20:43:07 --> Undefined variable: data
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Views/menuinformation/data_infotype.php(13): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/muhamads...', 13, Array)
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/muhamads...')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('menuinformation...', Array, true)
+#3 /Users/muhamadsolehfuddin/Documents/panen saham/backend/app/Controllers/TypeController.php(26): view('menuinformation...', Array)
+#4 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\TypeController->tampildata()
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TypeController))
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#9 {main}
+CRITICAL - 2020-12-24 22:14:01 --> Class 'App\Controller\BaseController' not found
+#0 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(365): require_once()
+#1 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/Users/muhamads...')
+#2 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#4 [internal function]: spl_autoload_call('App\\Controllers...')
+#5 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#6 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#7 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/muhamadsolehfuddin/Documents/panen saham/backend/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 /Users/muhamadsolehfuddin/Documents/panen saham/backend/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/muhamads...')
+#10 {main}

@@ -1,0 +1,51 @@
+CRITICAL - 2021-01-02 02:03:00 --> Class 'App\Models\Information\NewsModel' not found
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Newscontroller->ajax_list()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Newscontroller))
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-01-02 02:20:38 --> Column 'kode_kategori_pengumuman' in on clause is ambiguous
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/backend/app/Models/Information/NewsModel.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Information/Newscontroller.php(33): App\Models\Information\NewsModel->get_datatables()
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Newscontroller->ajax_list()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Newscontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-02 02:20:49 --> Column 'kode_kategori_pengumuman' in on clause is ambiguous
+#0 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/backend/app/Models/Information/NewsModel.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/backend/app/Controllers/Information/Newscontroller.php(33): App\Models\Information\NewsModel->get_datatables()
+#6 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Newscontroller->ajax_list()
+#7 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Newscontroller))
+#8 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-01-02 02:35:34 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::where()
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Information/Newscontroller.php(33): App\Models\Information\NewsModel->get_datatables()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Newscontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Newscontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-02 02:40:14 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::table()
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Information/Newscontroller.php(61): App\Models\Information\NewsModel->count_filtered()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Newscontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Newscontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-01-02 02:40:27 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::table()
+#0 /Applications/MAMP/htdocs/backend/app/Controllers/Information/Newscontroller.php(61): App\Models\Information\NewsModel->count_filtered()
+#1 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Information\Newscontroller->ajax_list()
+#2 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Information\Newscontroller))
+#3 /Applications/MAMP/htdocs/backend/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/backend/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
