@@ -3,13 +3,13 @@ namespace App\Models\Master;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class AgamaModel extends Model {
-    protected $table = 'master_agama';
-    protected $primaryKey = 'id_agama';
-    protected $allowedFields = ['inc_agama', 'id_agama', 'nama_agama', 'deskripsi_agama', 'isactive_agama'];
-    protected $column_order = array('', 'isactive_agama','nama_agama', 'deskripsi_agama', '');
-    protected $column_search = array('isactive_agama','nama_agama', 'deskripsi_agama');
-    protected $order = array('nama_agama' => 'asc');
+class LevelModel extends Model {
+    protected $table = 'master_level';
+    protected $primaryKey = 'id_level';
+    protected $allowedFields = ['inc_level', 'id_level', 'nama_level', 'deskripsi_level', 'isactive_level'];
+    protected $column_order = array('', 'isactive_level','nama_level', 'deskripsi_level', '');
+    protected $column_search = array('isactive_level','nama_level', 'deskripsi_level');
+    protected $order = array('nama_level' => 'asc');
     protected $request;
     protected $db;
     protected $dt;
@@ -22,11 +22,11 @@ class AgamaModel extends Model {
     }
 
     public function checkalias($kode){
-        return $this->where(['id_agama' => $kode])->find();
+        return $this->where(['id_level' => $kode])->find();
     }
 
     public function getLastData() {
-        $query = $this->dt->orderBy('inc_agama', 'DESC')->limit(1)->get();
+        $query = $this->dt->orderBy('inc_level', 'DESC')->limit(1)->get();
 
         return $query->getRow();
     }

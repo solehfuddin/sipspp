@@ -1,12 +1,12 @@
 <?php 
 namespace App\Controllers\Master;
 use App\Controllers\BaseController;
-use App\Models\Master\AgamaModel;
+use App\Models\Master\LevelModel;
 use App\Models\MenuModel;
 use App\Models\SubmenuModel;
 use Config\Services;
 
-class Agamacontroller extends BaseController
+class Levelcontroller extends BaseController
 {
 	public function index() {
         if(!$this->session->get('islogin'))
@@ -24,7 +24,7 @@ class Agamacontroller extends BaseController
                 'submenu' => $submenuModel->submenu(),
             ];
 
-            return view('menumaster/view_masteragama', $data);
+            return view('menumaster/view_masterlevel', $data);
         }
     }
 
@@ -38,10 +38,10 @@ class Agamacontroller extends BaseController
             if ($this->request->isAJAX())
             {
                 $request = Services::request();
-                $m_agama  = new AgamaModel($request);
+                $m_level  = new LevelModel($request);
 
                 if($request->getMethod(true)=='POST'){
-                    $lists = $m_agama->get_datatables();
+                    $lists = $m_level->get_datatables();
                         $data = [];
                         $no = $request->getPost("start");
 
@@ -50,15 +50,15 @@ class Agamacontroller extends BaseController
                                 $row = [];
 
                                 $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditinfocategory\"
-                                                onclick=\"editmasteragama('" .$list->id_agama. "')\">
+                                                onclick=\"editmasterlevel('" .$list->id_level. "')\">
                                                 <i class=\"fa fa-edit\"></i></button>";
 
                                 $tombolhapus = "<button type=\"button\" class=\"btn btn-danger btn-sm\" 
-                                                onclick=\"deletemasteragama('" .$list->id_agama. "')\"> 
+                                                onclick=\"deletemasterlevel('" .$list->id_level. "')\"> 
                                                 <i class=\"fa fa-trash\"></i></button>";
 
                                 $row[] = $no;
-                                if ($list->isactive_agama == 1)
+                                if ($list->isactive_level == 1)
                                 {
                                     $isactive = "<span style='color:#2dce89;'>Aktif</span";
                                 }
@@ -68,16 +68,16 @@ class Agamacontroller extends BaseController
                                 }
                                 
                                 $row[] = $isactive;
-                                $row[] = $list->nama_agama;
-                                $row[] = $list->deskripsi_agama;
+                                $row[] = $list->nama_level;
+                                $row[] = $list->deskripsi_level;
                                 $row[] = $tomboledit . ' ' . $tombolhapus;
                                 $data[] = $row;
                         }
                     
                         $output = [
                             "draw" => $request->getPost('draw'),
-                            "recordsTotal" => $m_agama->count_all(),
-                            "recordsFiltered" => $m_agama->count_filtered(),
+                            "recordsTotal" => $m_level->count_all(),
+                            "recordsFiltered" => $m_level->count_filtered(),
                             "data" => $data
                         ];
 
@@ -101,11 +101,11 @@ class Agamacontroller extends BaseController
             if ($this->request->isAJAX())
             {
                 $request = Services::request();
-                $m_agama = new AgamaModel($request);
+                $m_level = new LevelModel($request);
 
-                $getdata = $m_agama->getLastData();
-                $max  = substr($getdata->id_agama, 3) + 1;
-                $gen  = "MAG" . str_pad($max, 3, 0, STR_PAD_LEFT);
+                $getdata = $m_level->getLastData();
+                $max  = substr($getdata->id_level, 3) + 1;
+                $gen  = "MLV" . str_pad($max, 2, 0, STR_PAD_LEFT);
 
                 $data = [
                     'kodegen' => $gen
@@ -130,11 +130,11 @@ class Agamacontroller extends BaseController
             if ($this->request->isAJAX())
             {
                 $validationCheck = $this->validate([
-                    'masteragama_kode' => [
-                        'label' => 'Kode agama',
+                    'masterlevel_kode' => [
+                        'label' => 'Kode level',
                         'rules' => [
                             'required',
-                            'is_unique[master_agama.id_agama]',
+                            'is_unique[master_level.id_level]',
                         ],
                         'errors' => [
                             'required' 		=> '{field} wajib terisi',
@@ -142,20 +142,20 @@ class Agamacontroller extends BaseController
                         ],
                     ],
     
-                    'masteragama_nama' => [
-                        'label' => 'Nama Agama',
+                    'masterlevel_nama' => [
+                        'label' => 'Nama level',
                         'rules' => [
                             'required',
-                            'is_unique[master_agama.nama_agama]',
+                            'is_unique[master_level.nama_level]',
                         ],
                         'errors' => [
                             'required' 		=> '{field} wajib terisi',
-                            'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
+                            'is_unique'	    => '{field} tidak boleh sama, masukkan nama level yang lain'
                         ],
                     ],
 
-                    'masteragama_desc' => [
-                        'label' => 'Deskripsi agama',
+                    'masterlevel_desc' => [
+                        'label' => 'Deskripsi level',
                         'rules' => 'required',
                         'errors' => [
                             'required' 		=> '{field} wajib terisi'
@@ -171,25 +171,25 @@ class Agamacontroller extends BaseController
             if (!$validationCheck) {
 				$msg = [
 					'error' => [
-						"masteragama_kode" => $this->validation->getError('masteragama_kode'),
-                        "masteragama_nama" => $this->validation->getError('masteragama_nama'),
-						"masteragama_desc" => $this->validation->getError('masteragama_desc'),
+						"masterlevel_kode" => $this->validation->getError('masterlevel_kode'),
+                        "masterlevel_nama" => $this->validation->getError('masterlevel_nama'),
+						"masterlevel_desc" => $this->validation->getError('masterlevel_desc'),
 					]
 				];
 			}
 			else
 			{
                 $data = [
-                    'id_agama' => $this->request->getVar('masteragama_kode'),
-                    'nama_agama' => $this->request->getVar('masteragama_nama'),
-                    'deskripsi_agama' => $this->request->getVar('masteragama_desc'),
-                    'isactive_agama' => $this->request->getVar('masteragama_isactive'),
+                    'id_level' => $this->request->getVar('masterlevel_kode'),
+                    'nama_level' => $this->request->getVar('masterlevel_nama'),
+                    'deskripsi_level' => $this->request->getVar('masterlevel_desc'),
+                    'isactive_level' => $this->request->getVar('masterlevel_isactive'),
                 ];
 
                 $request = Services::request();
-                $m_agama = new AgamaModel($request);
+                $m_level = new LevelModel($request);
 
-                $m_agama->insert($data);
+                $m_level->insert($data);
 
                 $msg = [
                     'success' => [
@@ -213,16 +213,16 @@ class Agamacontroller extends BaseController
             if ($this->request->isAJAX()) {
                 $kode = $this->request->getVar('kode');
                 $request = Services::request();
-                $m_agama = new AgamaModel($request);
+                $m_level = new LevelModel($request);
 
-                $item = $m_agama->find($kode);
+                $item = $m_level->find($kode);
     
                 $data = [
                     'success' => [
-                        'kode' => $item['id_agama'],
-                        'nama' => $item['nama_agama'],
-                        'deskripsi' => $item['deskripsi_agama'],
-                        'is_active' => $item['isactive_agama'],
+                        'kode' => $item['id_level'],
+                        'nama' => $item['nama_level'],
+                        'deskripsi' => $item['deskripsi_level'],
+                        'is_active' => $item['isactive_level'],
                     ]
                 ];
     
@@ -245,8 +245,8 @@ class Agamacontroller extends BaseController
             if ($this->request->isAJAX())
             {
                 $check = $this->validate([
-                    'masteragama_descubah' => [
-                        'label' => 'Ubah deskripsi agama',
+                    'masterlevel_descubah' => [
+                        'label' => 'Ubah deskripsi level',
                         'rules' => 'required',
                         'errors' => [
                             'required' 		=> '{field} wajib terisi'
@@ -257,35 +257,35 @@ class Agamacontroller extends BaseController
                 if (!$check) {
                     $msg = [
                         'error' => [
-                            "masteragama_namaubah" => $this->validation->getError('masteragama_namaubah'),
-                            "masteragama_descubah" => $this->validation->getError('masteragama_descubah'),
+                            "masterlevel_namaubah" => $this->validation->getError('masterlevel_namaubah'),
+                            "masterlevel_descubah" => $this->validation->getError('masterlevel_descubah'),
                         ]
                     ];
                 }
                 else
                 {
                     $request = Services::request();
-                    $m_agama = new AgamaModel($request);
+                    $m_level = new LevelModel($request);
 
-                    $kode  = $this->request->getVar('masteragama_kodeubah');
-                    $tmp   = $m_agama->checkalias($kode);
-                    $tmpCheck = $tmp[0]['nama_agama'];
-                    $alias = $this->request->getVar('masteragama_namaubah');
+                    $kode  = $this->request->getVar('masterlevel_kodeubah');
+                    $tmp   = $m_level->checkalias($kode);
+                    $tmpCheck = $tmp[0]['nama_level'];
+                    $alias = $this->request->getVar('masterlevel_namaubah');
 
                     if ($tmpCheck == $alias)
                     {
                         $data = [
-                            'nama_agama' => $this->request->getVar('masteragama_namaubah'),
-                            'deskripsi_agama' => $this->request->getVar('masteragama_descubah'),
-                            'isactive_agama' => $this->request->getVar('masteragama_isactiveubah'),
+                            'nama_level' => $this->request->getVar('masterlevel_namaubah'),
+                            'deskripsi_level' => $this->request->getVar('masterlevel_descubah'),
+                            'isactive_level' => $this->request->getVar('masterlevel_isactiveubah'),
                         ];
         
-                        $kode = $this->request->getVar('masteragama_kodeubah');
+                        $kode = $this->request->getVar('masterlevel_kodeubah');
         
                         $request = Services::request();
-                        $m_agama = new AgamaModel($request);
+                        $m_level = new LevelModel($request);
     
-                        $m_agama->update($kode, $data);
+                        $m_level->update($kode, $data);
         
                         $msg = [
                             'success' => [
@@ -297,15 +297,15 @@ class Agamacontroller extends BaseController
                     else
                     {
                         $checkalias = $this->validate([
-                            'masteragama_namaubah' => [
-                                'label' => 'Ubah nama agama',
+                            'masterlevel_namaubah' => [
+                                'label' => 'Ubah nama level',
                                 'rules' => [
                                     'required',
-                                    'is_unique[master_agama.nama_agama]',
+                                    'is_unique[master_level.nama_level]',
                                 ],
                                 'errors' => [
                                     'required' 		=> '{field} wajib terisi',
-                                    'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
+                                    'is_unique'	    => '{field} tidak boleh sama, masukkan nama level yang lain'
                                 ],
                             ],
                         ]);
@@ -313,24 +313,24 @@ class Agamacontroller extends BaseController
                         if (!$checkalias) {
                             $msg = [
                                 'error' => [
-                                    "masteragama_namaubah" => $this->validation->getError('masteragama_namaubah'),
+                                    "masterlevel_namaubah" => $this->validation->getError('masterlevel_namaubah'),
                                 ]
                             ];
                         }
                         else
                         {
                             $data = [
-                                'nama_agama' => $this->request->getVar('masteragama_namaubah'),
-                                'deskripsi_agama' => $this->request->getVar('masteragama_descubah'),
-                                'isactive_agama' => $this->request->getVar('masteragama_isactiveubah'),
+                                'nama_level' => $this->request->getVar('masterlevel_namaubah'),
+                                'deskripsi_level' => $this->request->getVar('masterlevel_descubah'),
+                                'isactive_level' => $this->request->getVar('masterlevel_isactiveubah'),
                             ];
             
-                            $kode = $this->request->getVar('masteragama_kodeubah');
+                            $kode = $this->request->getVar('masterlevel_kodeubah');
             
                             $request = Services::request();
-                            $m_agama = new AgamaModel($request);
+                            $m_level = new LevelModel($request);
         
-                            $m_agama->update($kode, $data);
+                            $m_level->update($kode, $data);
             
                             $msg = [
                                 'success' => [
@@ -361,9 +361,9 @@ class Agamacontroller extends BaseController
             if ($this->request->isAJAX()) {
                 $kode = $this->request->getVar('kode');
                 $request = Services::request();
-                $m_agama = new AgamaModel($request);
+                $m_level = new LevelModel($request);
     
-                $m_agama->delete($kode);
+                $m_level->delete($kode);
     
                 $msg = [
                     'success' => [

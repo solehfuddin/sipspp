@@ -1,7 +1,7 @@
 //Datatables server side
 $(document).ready( function () {
-    var url = '/master/agamacontroller/ajax_list';
-    var table = $('#datatable-masteragama').DataTable({ 
+    var url = '/master/levelcontroller/ajax_list';
+    var table = $('#datatable-masterlevel').DataTable({ 
       "processing": true,
       "serverSide": true,
       "order": [],
@@ -28,13 +28,13 @@ $(document).ready( function () {
 });
 
 //Fungsi generate kode
-function generatekodemasteragama() {
-    var url = "/master/agamacontroller/getdata";
+function generatekodemasterlevel() {
+    var url = "/master/levelcontroller/getdata";
     $.ajax({
         url: BASE_URL + url,
         dataType: "JSON",
         success: function(response) {
-            $('#masteragama_kode').val(response.kodegen);
+            $('#masterlevel_kode').val(response.kodegen);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
@@ -44,21 +44,21 @@ function generatekodemasteragama() {
 
 //Fungsi modal add data
 $(document).ready(function() {
-    $('.formModaltambahmasteragama').submit(function(e) {
+    $('.formModaltambahmasterlevel').submit(function(e) {
         e.preventDefault();
 
         let data = new FormData(this);
 
-        $('.masteragama_isactive').each(function() {
+        $('.masterlevel_isactive').each(function() {
             if ($(this).is(":checked"))
             {
                 // alert(1);
-                data.append('masteragama_isactive', 1);
+                data.append('masterlevel_isactive', 1);
             }
             else
             {
                 // alert(0);
-                data.append('masteragama_isactive', 0);
+                data.append('masterlevel_isactive', 0);
             }
         });
 
@@ -72,59 +72,59 @@ $(document).ready(function() {
             data: data,
             dataType: "json",
             beforeSend: function() {
-                $('.btnmodaltambahmasteragama').prop('disabled', true);
-                $('.btnmodaltambahmasteragama').html('<i class="fa fa-spin fa-spinner"></i> Processing');
+                $('.btnmodaltambahmasterlevel').prop('disabled', true);
+                $('.btnmodaltambahmasterlevel').html('<i class="fa fa-spin fa-spinner"></i> Processing');
             },
             complete: function() {
-                $('.btnmodaltambahmasteragama').prop('disabled', false);
-                $('.btnmodaltambahmasteragama').html('Simpan');
+                $('.btnmodaltambahmasterlevel').prop('disabled', false);
+                $('.btnmodaltambahmasterlevel').html('Simpan');
             },
             success: function(response) {
                 if (response.error){
-                    if (response.error.masteragama_kode){
-                        $('#masteragama_kode').addClass('is-invalid');
-                        $('.errormasteragamaKode').html(response.error.masteragama_kode);
+                    if (response.error.masterlevel_kode){
+                        $('#masterlevel_kode').addClass('is-invalid');
+                        $('.errormasterlevelKode').html(response.error.masterlevel_kode);
                     }
                     else
                     {
-                        $('#masteragama_kode').removeClass('is-invalid');
-                        $('.errormasteragamaKode').html('');
+                        $('#masterlevel_kode').removeClass('is-invalid');
+                        $('.errormasterlevelKode').html('');
                     }
 
-                    if (response.error.masteragama_nama){
-                        $('#masteragama_nama').addClass('is-invalid');
-                        $('.errormasteragamaNama').html(response.error.masteragama_nama);
+                    if (response.error.masterlevel_nama){
+                        $('#masterlevel_nama').addClass('is-invalid');
+                        $('.errormasterlevelNama').html(response.error.masterlevel_nama);
                     }
                     else
                     {
-                        $('#masteragama_nama').removeClass('is-invalid');
-                        $('.errormasteragamaNama').html('');
+                        $('#masterlevel_nama').removeClass('is-invalid');
+                        $('.errormasterlevelNama').html('');
                     }
 
-                    if (response.error.masteragama_desc){
-                        $('#masteragama_desc').addClass('is-invalid');
-                        $('.errormasteragamaDesc').html(response.error.masteragama_desc);
+                    if (response.error.masterlevel_desc){
+                        $('#masterlevel_desc').addClass('is-invalid');
+                        $('.errormasterlevelDesc').html(response.error.masterlevel_desc);
                     }
                     else
                     {
-                        $('#masteragama_desc').removeClass('is-invalid');
-                        $('.errormasteragamaDesc').html('');
+                        $('#masterlevel_desc').removeClass('is-invalid');
+                        $('.errormasterlevelDesc').html('');
                     }
                 }
                 else
                 {
-                    $('#modaltambahmasteragama').modal('hide');
+                    $('#modaltambahmasterlevel').modal('hide');
 
                     Swal.fire(
                         'Pemberitahuan',
                         response.success.data,
                         'success',
                     ).then(function() {
-                        $('#masteragama_kode').val('');
-                        $('#masteragama_nama').val('');
-                        $('#masteragama_desc').val('');
-                        $('#masteragama_isactive').prop("checked", false);
-                        $('#datatable-masteragama').DataTable().ajax.reload();
+                        $('#masterlevel_kode').val('');
+                        $('#masterlevel_nama').val('');
+                        $('#masterlevel_desc').val('');
+                        $('#masterlevel_isactive').prop("checked", false);
+                        $('#datatable-masterlevel').DataTable().ajax.reload();
                     });
                 }
             },
@@ -136,8 +136,8 @@ $(document).ready(function() {
 });
 
 //Fungsi select data 
-function editmasteragama($kode) {
-    var url = "/master/agamacontroller/pilihdata";
+function editmasterlevel($kode) {
+    var url = "/master/levelcontroller/pilihdata";
     $.ajax({
         url: BASE_URL + url,
         type: "post",
@@ -146,26 +146,26 @@ function editmasteragama($kode) {
         },
         dataType: "JSON",
         success: function(response) {
-            $('#masteragama_kodeubah').val(response.success.kode);
-            $('#masteragama_namaubah').val(response.success.nama);
-            $('#masteragama_descubah').val(response.success.deskripsi);
+            $('#masterlevel_kodeubah').val(response.success.kode);
+            $('#masterlevel_namaubah').val(response.success.nama);
+            $('#masterlevel_descubah').val(response.success.deskripsi);
 
             if (response.success.is_active == 1)
             {
-                $('#masteragama_isactiveubah').prop("checked", true);
+                $('#masterlevel_isactiveubah').prop("checked", true);
             }
             else
             {
-                $('#masteragama_isactiveubah').prop("checked", false);
+                $('#masterlevel_isactiveubah').prop("checked", false);
             }
 
-            $('#masteragama_namaubah').removeClass('is-invalid');
-            $('.errormasteragamaNamaubah').html('');
+            $('#masterlevel_namaubah').removeClass('is-invalid');
+            $('.errormasterlevelNamaubah').html('');
 
-            $('#masteragama_descubah').removeClass('is-invalid');
-            $('.errormasteragamaDescubah').html('');
+            $('#masterlevel_descubah').removeClass('is-invalid');
+            $('.errormasterlevelDescubah').html('');
 
-            $('#modalubahmasteragama').modal('show');
+            $('#modalubahmasterlevel').modal('show');
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
@@ -175,21 +175,21 @@ function editmasteragama($kode) {
 
 //Fungsi modal update gambar
 $(document).ready(function() {
-    $('.formModalubahmasteragama').submit(function(e) {
+    $('.formModalubahmasterlevel').submit(function(e) {
         e.preventDefault();
 
         let data = new FormData(this);
 
-        $('.masteragama_isactiveubah').each(function() {
+        $('.masterlevel_isactiveubah').each(function() {
             if ($(this).is(":checked"))
             {
                 // alert(1);
-                data.append('masteragama_isactiveubah', 1);
+                data.append('masterlevel_isactiveubah', 1);
             }
             else
             {
                 // alert(0);
-                data.append('masteragama_isactiveubah', 0);
+                data.append('masterlevel_isactiveubah', 0);
             }
         });
 
@@ -203,45 +203,45 @@ $(document).ready(function() {
             data: data,
             dataType: "json",
             beforeSend: function() {
-                $('.btnmodalubahmasteragama').prop('disabled', true);
-                $('.btnmodalubahmasteragama').html('<i class="fa fa-spin fa-spinner"></i> Processing');
+                $('.btnmodalubahmasterlevel').prop('disabled', true);
+                $('.btnmodalubahmasterlevel').html('<i class="fa fa-spin fa-spinner"></i> Processing');
             },
             complete: function() {
-                $('.btnmodalubahmasteragama').prop('disabled', false);
-                $('.btnmodalubahmasteragama').html('Ubah');
+                $('.btnmodalubahmasterlevel').prop('disabled', false);
+                $('.btnmodalubahmasterlevel').html('Ubah');
             },
             success: function(response) {
                 if (response.error){
-                    if (response.error.masteragama_namaubah){
-                        $('#masteragama_namaubah').addClass('is-invalid');
-                        $('.errormasteragamaNamaubah').html(response.error.masteragama_namaubah);
+                    if (response.error.masterlevel_namaubah){
+                        $('#masterlevel_namaubah').addClass('is-invalid');
+                        $('.errormasterlevelNamaubah').html(response.error.masterlevel_namaubah);
                     }
                     else
                     {
-                        $('#masteragama_namaubah').removeClass('is-invalid');
-                        $('.errormasteragamaNamaubah').html('');
+                        $('#masterlevel_namaubah').removeClass('is-invalid');
+                        $('.errormasterlevelNamaubah').html('');
                     }
 
-                    if (response.error.masteragama_descubah){
-                        $('#masteragama_descubah').addClass('is-invalid');
-                        $('.errormasteragamaDescubah').html(response.error.masteragama_descubah);
+                    if (response.error.masterlevel_descubah){
+                        $('#masterlevel_descubah').addClass('is-invalid');
+                        $('.errormasterlevelDescubah').html(response.error.masterlevel_descubah);
                     }
                     else
                     {
-                        $('#masteragama_descubah').removeClass('is-invalid');
-                        $('.errormasteragamaDescubah').html('');
+                        $('#masterlevel_descubah').removeClass('is-invalid');
+                        $('.errormasterlevelDescubah').html('');
                     }
                 }
                 else
                 {
-                    $('#modalubahmasteragama').modal('hide');
+                    $('#modalubahmasterlevel').modal('hide');
 
                     Swal.fire(
                         'Pemberitahuan',
                         response.success.data,
                         'success',
                     ).then(function() {
-                        $('#datatable-masteragama').DataTable().ajax.reload();
+                        $('#datatable-masterlevel').DataTable().ajax.reload();
                     });
                 }
             },
@@ -255,7 +255,7 @@ $(document).ready(function() {
 });
 
 // Handle Modal hapus
-function deletemasteragama($kode) {
+function deletemasterlevel($kode) {
     Swal.fire({
         title: 'Apakah anda yakin?',
         text: 'Data akan terhapus permanen dari sistem',
@@ -268,7 +268,7 @@ function deletemasteragama($kode) {
     }).then(function(result) {
         if (result.value)
         {
-            var url =  '/master/agamacontroller/hapusdata';
+            var url =  '/master/levelcontroller/hapusdata';
 
             $.ajax({
                 type: "post",
@@ -284,7 +284,7 @@ function deletemasteragama($kode) {
                             response.success.data,
                             'success',
                         ).then(function() {
-                            $('#datatable-masteragama').DataTable().ajax.reload();
+                            $('#datatable-masterlevel').DataTable().ajax.reload();
                         });
                     }
                 },

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 08 Bulan Mei 2021 pada 01.19
+-- Waktu pembuatan: 08 Bulan Mei 2021 pada 04.41
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `master_agama` (
+  `inc_agama` int(3) NOT NULL,
   `id_agama` varchar(10) NOT NULL,
   `nama_agama` varchar(20) NOT NULL,
   `deskripsi_agama` varchar(100) NOT NULL,
@@ -31,13 +32,14 @@ CREATE TABLE `master_agama` (
 -- Dumping data untuk tabel `master_agama`
 --
 
-INSERT INTO `master_agama` (`id_agama`, `nama_agama`, `deskripsi_agama`, `isactive_agama`) VALUES
-('MAG001', 'Islam', 'Agama islam', 1),
-('MAG002', 'Kristen Protestan', 'Agama kristen', 1),
-('MAG003', 'Kristen Katolik', 'Agama kristen', 1),
-('MAG004', 'Hindu', 'Agama Hindu', 1),
-('MAG005', 'Budha', 'Agama Budha', 1),
-('MAG006', 'Khonghucu', 'Agama khonghucu', 1);
+INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_agama`, `isactive_agama`) VALUES
+(1, 'MAG001', 'Islam', 'Agama islam', 1),
+(2, 'MAG002', 'Kristen Protestan', 'Agama kristen', 1),
+(3, 'MAG003', 'Kristen Katolik', 'Agama kristen', 1),
+(4, 'MAG004', 'Hindu', 'Agama Hindu', 1),
+(5, 'MAG005', 'Budha', 'Agama Budha', 1),
+(6, 'MAG006', 'Khonghucu', 'Agama khonghucu', 1),
+(7, 'MAG007', 'Atheis', 'Tidak memiliki keyakinan terhadap tuhan', 0);
 
 -- --------------------------------------------------------
 
@@ -46,6 +48,7 @@ INSERT INTO `master_agama` (`id_agama`, `nama_agama`, `deskripsi_agama`, `isacti
 --
 
 CREATE TABLE `master_kelas` (
+  `inc_kelas` int(3) NOT NULL,
   `id_kelas` varchar(10) NOT NULL,
   `nama_kelas` varchar(15) NOT NULL,
   `deskripsi_kelas` varchar(100) DEFAULT NULL,
@@ -56,16 +59,18 @@ CREATE TABLE `master_kelas` (
 -- Dumping data untuk tabel `master_kelas`
 --
 
-INSERT INTO `master_kelas` (`id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isactive_kelas`) VALUES
-('MKLS001', '7-1', 'Kelas 7 kelompok 1', 1),
-('MKLS002', '7-2', 'Kelas 7 Kelompok 2', 1),
-('MKLS003', '7-3', 'Kelas 7 Kelompok 3', 1),
-('MKLS004', '8-1', 'Kelas 8 Kelompok 1', 1),
-('MKLS005', '8-2', 'Kelas 8 Kelompok 2', 1),
-('MKLS006', '8-3', 'Kelas 8 kelompok 3', 0),
-('MKLS007', '9-1', 'Kelas 9 kelompok 1', 1),
-('MKLS008', '9-2', 'Kelas 9 kelompok 2', 1),
-('MKLS009', '9-3', 'Kelas 9 kelompok 3', 0);
+INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isactive_kelas`) VALUES
+(1, 'MKLS001', '7-1', 'Kelas 7 kelompok 1', 1),
+(10, 'MKLS0010', '7-4', 'test', 1),
+(11, 'MKLS0011', '7-5', 'test', 0),
+(2, 'MKLS002', '7-2', 'Kelas 7 Kelompok 2', 1),
+(3, 'MKLS003', '7-3', 'Kelas 7 Kelompok 3', 1),
+(4, 'MKLS004', '8-1', 'Kelas 8 Kelompok 1', 1),
+(5, 'MKLS005', '8-2', 'Kelas 8 Kelompok 2', 1),
+(6, 'MKLS006', '8-3', 'Kelas 8 kelompok 3', 0),
+(7, 'MKLS007', '9-1', 'Kelas 9 kelompok 1', 1),
+(8, 'MKLS008', '9-2', 'Kelas 9 kelompok 2', 1),
+(9, 'MKLS009', '9-3', 'Kelas 9 kelompok 3', 0);
 
 -- --------------------------------------------------------
 
@@ -74,6 +79,7 @@ INSERT INTO `master_kelas` (`id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isacti
 --
 
 CREATE TABLE `master_level` (
+  `inc_level` int(3) NOT NULL,
   `id_level` varchar(5) NOT NULL,
   `nama_level` varchar(20) NOT NULL,
   `deskripsi_level` varchar(100) NOT NULL,
@@ -84,11 +90,11 @@ CREATE TABLE `master_level` (
 -- Dumping data untuk tabel `master_level`
 --
 
-INSERT INTO `master_level` (`id_level`, `nama_level`, `deskripsi_level`, `isactive_level`) VALUES
-('MLV01', 'Kasir', 'Hanya dapat akses menu pembayaran dan cetak kwitansi', 1),
-('MLV02', 'Kepala Sekolah', 'Melihat laporan spp yang sudah dibayarkan baik harian, bulanan maupun tahunan', 1),
-('MLV03', 'Admin', 'Dapat mengakses data siswa serta mendaftarkan user baru', 1),
-('MLV04', 'IT Administrator', 'Full akses', 1);
+INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_level`, `isactive_level`) VALUES
+(1, 'MLV01', 'Kasir', 'Hanya dapat akses menu pembayaran dan cetak kwitansi', 1),
+(2, 'MLV02', 'Kepala Sekolah', 'Melihat laporan spp yang sudah dibayarkan baik harian, bulanan maupun tahunan', 1),
+(3, 'MLV03', 'Admin', 'Dapat mengakses data siswa serta mendaftarkan user baru', 1),
+(4, 'MLV04', 'IT Administrator', 'Full akses', 1);
 
 -- --------------------------------------------------------
 
@@ -225,19 +231,22 @@ INSERT INTO `tb_user` (`id_user`, `email`, `username`, `password`, `id_level`, `
 -- Indeks untuk tabel `master_agama`
 --
 ALTER TABLE `master_agama`
-  ADD PRIMARY KEY (`id_agama`);
+  ADD PRIMARY KEY (`id_agama`),
+  ADD UNIQUE KEY `inc_agama` (`inc_agama`);
 
 --
 -- Indeks untuk tabel `master_kelas`
 --
 ALTER TABLE `master_kelas`
-  ADD PRIMARY KEY (`id_kelas`);
+  ADD PRIMARY KEY (`id_kelas`),
+  ADD UNIQUE KEY `inc_kelas` (`inc_kelas`);
 
 --
 -- Indeks untuk tabel `master_level`
 --
 ALTER TABLE `master_level`
-  ADD PRIMARY KEY (`id_level`);
+  ADD PRIMARY KEY (`id_level`),
+  ADD UNIQUE KEY `inc_level` (`inc_level`);
 
 --
 -- Indeks untuk tabel `master_menu`
@@ -269,3 +278,25 @@ ALTER TABLE `tb_siswa`
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email_user` (`email`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `master_agama`
+--
+ALTER TABLE `master_agama`
+  MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `master_kelas`
+--
+ALTER TABLE `master_kelas`
+  MODIFY `inc_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `master_level`
+--
+ALTER TABLE `master_level`
+  MODIFY `inc_level` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

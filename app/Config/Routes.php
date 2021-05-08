@@ -35,23 +35,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 $routes->get('/admdashboard', 'Dashboard::index');
 $routes->get('/admagama', 'Master/Agamacontroller::index');
-$routes->get('/adminfotype', 'Information/Typecontroller::index');
-$routes->get('/adminfocat', 'Information/Categorycontroller::index');
-$routes->get('/adminfonews', 'Information/Newscontroller::index');
-$routes->get('/admpackagefeature', 'Package/Featurecontroller::index');
-$routes->get('/admpackageprice', 'Package/Pricecontroller::index');
-$routes->get('/admaccountuserlevel', 'Account/Userlevelcontroller::index');
-$routes->get('/admaccountmember', 'Account/Membercontroller::index');
-$routes->get('/admaccountadministrator', 'Account/Administratorcontroller::index');
-$routes->get('/admaccountuser', 'Account/Usercontroller::index');
-$routes->get('/admmasteranggota', 'Account/Master/Anggotacontroller::index');
-$routes->get('/admmasterkomunitas', 'Account/Master/Komunitascontroller::index');
-$routes->get('/admmediafilter', 'Media/Filtermedcontroller::index');
-$routes->get('/admfeedbackquestion', 'Feedback/Questioncontroller::index');
-$routes->get('/admfeedbacksubscribe', 'Feedback/Subscribercontroller::index');
-$routes->get('/admsettingbenefit', 'Setting/Benefitcontroller::index');
-$routes->get('/admsettingcustom', 'Setting/Customcontroller::index');
-
+$routes->get('/admkelas', 'Master/Kelascontroller::index');
+$routes->get('/admlevel', 'Master/Levelcontroller::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

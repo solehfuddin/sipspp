@@ -3,13 +3,13 @@ namespace App\Models\Master;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class AgamaModel extends Model {
-    protected $table = 'master_agama';
-    protected $primaryKey = 'id_agama';
-    protected $allowedFields = ['inc_agama', 'id_agama', 'nama_agama', 'deskripsi_agama', 'isactive_agama'];
-    protected $column_order = array('', 'isactive_agama','nama_agama', 'deskripsi_agama', '');
-    protected $column_search = array('isactive_agama','nama_agama', 'deskripsi_agama');
-    protected $order = array('nama_agama' => 'asc');
+class KelasModel extends Model {
+    protected $table = 'master_kelas';
+    protected $primaryKey = 'id_kelas';
+    protected $allowedFields = ['inc_kelas', 'id_kelas', 'nama_kelas', 'deskripsi_kelas', 'isactive_kelas'];
+    protected $column_order = array('', 'isactive_kelas','nama_kelas', 'deskripsi_kelas', '');
+    protected $column_search = array('isactive_kelas','nama_kelas', 'deskripsi_kelas');
+    protected $order = array('nama_kelas' => 'asc');
     protected $request;
     protected $db;
     protected $dt;
@@ -22,11 +22,11 @@ class AgamaModel extends Model {
     }
 
     public function checkalias($kode){
-        return $this->where(['id_agama' => $kode])->find();
+        return $this->where(['id_kelas' => $kode])->find();
     }
 
     public function getLastData() {
-        $query = $this->dt->orderBy('inc_agama', 'DESC')->limit(1)->get();
+        $query = $this->dt->orderBy('inc_kelas', 'DESC')->limit(1)->get();
 
         return $query->getRow();
     }
