@@ -64,4 +64,5 @@
     </div>
     
     <?= $this->include('menumaster/add_masteragama'); ?>
+    <?= $this->include('menumaster/edit_masteragama'); ?>
 <?= $this->endSection(); ?>

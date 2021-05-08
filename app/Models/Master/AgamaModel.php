@@ -21,6 +21,16 @@ class AgamaModel extends Model {
         $this->dt = $this->db->table($this->table);
     }
 
+    public function checkalias($kode){
+        return $this->where(['id_agama' => $kode])->find();
+    }
+
+    public function getLastData() {
+        $query = $this->dt->selectMax('id_agama', 'kode')->get();
+
+        return $query->getRow();
+    }
+
     private function _get_datatables_query(){
         $i = 0;
         foreach ($this->column_search as $item){
