@@ -123,6 +123,7 @@
   <script src="<?= base_url() ?>/public/assets/js/master/agama.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/master/kelas.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/master/level.js"></script>
+  <script src="<?= base_url() ?>/public/assets/js/user.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/app.js"></script>
   <script>
     var BASE_URL = "<?= base_url(); ?>";

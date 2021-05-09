@@ -21,6 +21,11 @@ class AgamaModel extends Model {
         $this->dt = $this->db->table($this->table);
     }
 
+    public function getkodeagama($isactive){
+        $query = $this->dt->where('isactive_agama', $isactive)->get();
+        return $query->getResultArray();
+    }
+
     public function checkalias($kode){
         return $this->where(['id_agama' => $kode])->find();
     }

@@ -1,15 +1,18 @@
 <?php 
-namespace App\Models\Master;
+namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class LevelModel extends Model {
-    protected $table = 'master_level';
-    protected $primaryKey = 'id_level';
-    protected $allowedFields = ['inc_level', 'id_level', 'nama_level', 'deskripsi_level', 'isactive_level'];
-    protected $column_order = array('', 'isactive_level','nama_level', 'deskripsi_level', '');
-    protected $column_search = array('isactive_level','nama_level', 'deskripsi_level');
-    protected $order = array('nama_level' => 'asc');
+class UserModel extends Model {
+    protected $table = 'tb_user';
+    protected $primaryKey = 'id_user';
+    protected $allowedFields = ['inc_user', 'id_user', 'email', 'username', 'password', 'id_level', 'nama_lengkap',
+                                'jenis_kelamin', 'no_hp', 'id_agama', 'alamat', 'foto', 'isactive_user'];
+    protected $column_order = array('', 'nama_lengkap', 'email', 'username', 'nama_level',
+                                        'jenis_kelamin', 'no_hp', 'nama_agama', 'alamat', 'isactive_user', '');
+    protected $column_search = array('nama_lengkap', 'email', 'username', 'nama_level', 
+                                     'jenis_kelamin', 'no_hp', 'nama_agama', 'alamat', 'isactive_user');
+    protected $order = array('nama_lengkap' => 'asc');
     protected $request;
     protected $db;
     protected $dt;
@@ -18,20 +21,22 @@ class LevelModel extends Model {
         parent::__construct();
         $this->db = db_connect();
         $this->request = $request;
-        $this->dt = $this->db->table($this->table);
+        $this->dt = $this->db->table($this->table)
+                             ->select('*, master_level.nama_level, master_agama.nama_agama')
+                             ->join('master_level', 'tb_user.id_level = master_level.id_level')
+                             ->join('master_agama', 'tb_user.id_agama = master_agama.id_agama');
     }
 
-    public function getkodelevel($isactive){
-        $query = $this->dt->where('isactive_level', $isactive)->get();
-        return $query->getResultArray();
+    public function checkusername($kode){
+        return $this->where(['username' => $kode])->find();
     }
 
-    public function checkalias($kode){
-        return $this->where(['id_level' => $kode])->find();
+    public function checkemail($kode){
+        return $this->where(['email' => $kode])->find();
     }
 
     public function getLastData() {
-        $query = $this->dt->orderBy('inc_level', 'DESC')->limit(1)->get();
+        $query = $this->dt->orderBy('inc_user', 'DESC')->limit(1)->get();
 
         return $query->getRow();
     }

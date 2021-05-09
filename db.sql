@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 08 Bulan Mei 2021 pada 04.41
+-- Waktu pembuatan: 09 Bulan Mei 2021 pada 17.02
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -39,7 +39,8 @@ INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_ag
 (4, 'MAG004', 'Hindu', 'Agama Hindu', 1),
 (5, 'MAG005', 'Budha', 'Agama Budha', 1),
 (6, 'MAG006', 'Khonghucu', 'Agama khonghucu', 1),
-(7, 'MAG007', 'Atheis', 'Tidak memiliki keyakinan terhadap tuhan', 0);
+(7, 'MAG007', 'Atheis', 'Tidak memiliki keyakinan terhadap tuhan', 0),
+(8, 'MAG008', 'Amimisme', 'Agama kepercayaan leluhur', 0);
 
 -- --------------------------------------------------------
 
@@ -61,8 +62,8 @@ CREATE TABLE `master_kelas` (
 
 INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isactive_kelas`) VALUES
 (1, 'MKLS001', '7-1', 'Kelas 7 kelompok 1', 1),
-(10, 'MKLS0010', '7-4', 'test', 1),
-(11, 'MKLS0011', '7-5', 'test', 0),
+(10, 'MKLS0010', '7-4', 'Kelas 7 kelompok 4', 1),
+(12, 'MKLS0011', '7-5', 'Kelas 7 kelompok 5', 0),
 (2, 'MKLS002', '7-2', 'Kelas 7 Kelompok 2', 1),
 (3, 'MKLS003', '7-3', 'Kelas 7 Kelompok 3', 1),
 (4, 'MKLS004', '8-1', 'Kelas 8 Kelompok 1', 1),
@@ -94,7 +95,8 @@ INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_le
 (1, 'MLV01', 'Kasir', 'Hanya dapat akses menu pembayaran dan cetak kwitansi', 1),
 (2, 'MLV02', 'Kepala Sekolah', 'Melihat laporan spp yang sudah dibayarkan baik harian, bulanan maupun tahunan', 1),
 (3, 'MLV03', 'Admin', 'Dapat mengakses data siswa serta mendaftarkan user baru', 1),
-(4, 'MLV04', 'IT Administrator', 'Full akses', 1);
+(4, 'MLV04', 'IT Administrator', 'Full akses', 1),
+(6, 'MLV05', 'Guru', 'Guru hanya dapat mengakses data siswa', 0);
 
 -- --------------------------------------------------------
 
@@ -167,6 +169,7 @@ CREATE TABLE `setting_level` (
 --
 
 CREATE TABLE `tb_pembayaran` (
+  `inc_pembayaran` int(3) NOT NULL,
   `kode_pembayaran` varchar(15) NOT NULL,
   `tanggal_bayar` date NOT NULL,
   `insert_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -202,6 +205,7 @@ CREATE TABLE `tb_siswa` (
 --
 
 CREATE TABLE `tb_user` (
+  `inc_user` int(3) NOT NULL,
   `id_user` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `username` varchar(15) NOT NULL,
@@ -212,7 +216,7 @@ CREATE TABLE `tb_user` (
   `no_hp` varchar(12) DEFAULT NULL,
   `id_agama` varchar(10) NOT NULL,
   `alamat` text,
-  `foto` text,
+  `foto` varchar(250) DEFAULT 'default.png',
   `isactive_user` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -220,8 +224,10 @@ CREATE TABLE `tb_user` (
 -- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `email`, `username`, `password`, `id_level`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `id_agama`, `alamat`, `foto`, `isactive_user`) VALUES
-('USR001', 'solehfudin@trl.co.id', 'soleh', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'solehfuddin', 'Laki-laki', NULL, 'MAG001', NULL, NULL, 1);
+INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `id_level`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `id_agama`, `alamat`, `foto`, `isactive_user`) VALUES
+(1, 'USR001', 'solehfudin@trl.co.id', 'soleh', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'solehfuddin', 'Laki-laki', '085710035900', 'MAG001', 'Kp Rawa Badung Jakarta Timur', 'default.png', 1),
+(4, 'USR002', 'abdul.muis87@gmail.com', 'abdul_muis', 'e10adc3949ba59abbe56e057f20f883e', 'MLV03', 'Abdul Muis', 'Laki-laki', '', 'MAG001', 'Jalan kesehatan no 7 Jakarta Pusat', 'USR002_1.jpg', 1),
+(6, 'USR003', 'suparta@trl.co.id', 'suparta', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Suparta', 'Laki-laki', '', 'MAG003', 'test aja', 'default.png', 0);
 
 --
 -- Indexes for dumped tables
@@ -264,7 +270,8 @@ ALTER TABLE `master_submenu`
 -- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  ADD PRIMARY KEY (`kode_pembayaran`);
+  ADD PRIMARY KEY (`kode_pembayaran`),
+  ADD UNIQUE KEY `inc_pembayaran` (`inc_pembayaran`);
 
 --
 -- Indeks untuk tabel `tb_siswa`
@@ -277,7 +284,8 @@ ALTER TABLE `tb_siswa`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `email_user` (`email`);
+  ADD UNIQUE KEY `email_user` (`email`),
+  ADD UNIQUE KEY `inc_user` (`inc_user`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -287,16 +295,28 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `master_agama`
 --
 ALTER TABLE `master_agama`
-  MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `master_kelas`
 --
 ALTER TABLE `master_kelas`
-  MODIFY `inc_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `inc_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `master_level`
 --
 ALTER TABLE `master_level`
-  MODIFY `inc_level` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `inc_level` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
+--
+ALTER TABLE `tb_pembayaran`
+  MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `inc_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

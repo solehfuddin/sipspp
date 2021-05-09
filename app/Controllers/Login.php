@@ -70,34 +70,51 @@ class Login extends BaseController
 				{
 					$passCheck = $mailCheck[0]['password'];
 					$levelCheck= $mailCheck[0]['id_level'];
+					$activeCheck = $mailCheck[0]['isactive_user'];
 
 					if ($passCheck == md5($pass)) {
-						if ($levelCheck != "")
+						if ($activeCheck == 0)
 						{
-							$saveSession = [
-								'islogin' => true,
-								'kodeuser' => $mailCheck[0]['id_user'],
-								'username' => $mailCheck[0]['username'],
-								'namalengkap' => $mailCheck[0]['nama_lengkap'],
-								'alamatemail' => $mailCheck[0]['email'],
-								'namalevel' => $mailCheck[0]['nama_level']
-							];
-	
-							$this->session->set($saveSession);
-	
 							$msg = [
-								'success' => [
-									'link' => base_url() . '/admdashboard'
+								'error' => [
+									'errorauth' => 'Maaf akun anda tidak aktif hubungi IT administrator'
 								]
 							];
 						}
 						else
 						{
-							$msg = [
-								'error' => [
-									'errorauth' => 'Maaf akun anda tidak dapat akses ke sistem'
-								]
-							];
+							if ($levelCheck != "")
+							{
+								$saveSession = [
+									'islogin' => true,
+									'kodeuser' => $mailCheck[0]['id_user'],
+									'username' => $mailCheck[0]['username'],
+									'namalengkap' => $mailCheck[0]['nama_lengkap'],
+									'alamatemail' => $mailCheck[0]['email'],
+									'idlevel'	=> $mailCheck[0]['id_level'],
+									'namalevel' => $mailCheck[0]['nama_level'],
+									'jeniskelamin' => $mailCheck[0]['jenis_kelamin'],
+									'idagama'	=> $mailCheck[0]['id_agama'],
+									'alamat' => $mailCheck[0]['alamat'],
+									'foto' => $mailCheck[0]['foto'],
+								];
+		
+								$this->session->set($saveSession);
+		
+								$msg = [
+									'success' => [
+										'link' => base_url() . '/admdashboard'
+									]
+								];
+							}
+							else
+							{
+								$msg = [
+									'error' => [
+										'errorauth' => 'Maaf akun anda tidak dapat akses ke sistem'
+									]
+								];
+							}
 						}
 					}
 					else
