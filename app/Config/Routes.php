@@ -38,6 +38,7 @@ $routes->get('/admagama', 'Master/Agamacontroller::index');
 $routes->get('/admkelas', 'Master/Kelascontroller::index');
 $routes->get('/admlevel', 'Master/Levelcontroller::index');
 $routes->get('/admuser', 'Usercontroller::index');
+$routes->get('/admsiswa', 'Siswacontroller::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

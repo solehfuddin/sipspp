@@ -1,15 +1,18 @@
 <?php 
-namespace App\Models\Master;
+namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class KelasModel extends Model {
-    protected $table = 'master_kelas';
-    protected $primaryKey = 'id_kelas';
-    protected $allowedFields = ['inc_kelas', 'id_kelas', 'nama_kelas', 'deskripsi_kelas', 'isactive_kelas'];
-    protected $column_order = array('', 'isactive_kelas','nama_kelas', 'deskripsi_kelas', '');
-    protected $column_search = array('isactive_kelas','nama_kelas', 'deskripsi_kelas');
-    protected $order = array('nama_kelas' => 'asc');
+class SiswaModel extends Model {
+    protected $table = 'tb_siswa';
+    protected $primaryKey = 'nis';
+    protected $allowedFields = ['nis', 'nama_siswa', 'tempat_lahir', 'tanggal_lahir', 'id_kelas', 
+                                'jenis_kelamin', 'tlp_hp', 'id_agama', 'alamat', 'foto'];
+    protected $column_order = array('', 'nis', 'nama_siswa', 'nama_kelas', 'jenis_kelamin', 'tempat_lahir',
+                                        'tanggal_lahir', 'nama_agama', 'tlp_hp', 'alamat', '');
+    protected $column_search = array('nis', 'nama_siswa', 'nama_kelas', 'jenis_kelamin', 'tempat_lahir',
+                                     'tanggal_lahir', 'nama_agama', 'tlp_hp', 'alamat');
+    protected $order = array('nis' => 'asc');
     protected $request;
     protected $db;
     protected $dt;
@@ -18,22 +21,10 @@ class KelasModel extends Model {
         parent::__construct();
         $this->db = db_connect();
         $this->request = $request;
-        $this->dt = $this->db->table($this->table);
-    }
-
-    public function getkodekelas($isactive){
-        $query = $this->dt->where('isactive_kelas', $isactive)->get();
-        return $query->getResultArray();
-    }
-
-    public function checkalias($kode){
-        return $this->where(['id_kelas' => $kode])->find();
-    }
-
-    public function getLastData() {
-        $query = $this->dt->orderBy('inc_kelas', 'DESC')->limit(1)->get();
-
-        return $query->getRow();
+        $this->dt = $this->db->table($this->table)
+                             ->select('*, master_kelas.nama_kelas, master_agama.nama_agama')
+                             ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
+                             ->join('master_agama', 'tb_siswa.id_agama = master_agama.id_agama');
     }
 
     private function _get_datatables_query(){

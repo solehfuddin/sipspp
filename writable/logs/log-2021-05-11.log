@@ -1,0 +1,7 @@
+CRITICAL - 2021-05-11 03:50:14 --> Undefined property: stdClass::$no_hp
+#0 C:\xampp\htdocs\sipspp\app\Controllers\Siswacontroller.php(75): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 75, Array)
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Siswacontroller->ajax_list()
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswacontroller))
+#3 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
