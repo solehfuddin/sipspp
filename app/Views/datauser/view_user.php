@@ -60,4 +60,6 @@
     </div>
 
     <?= $this->include('datauser/add_datauser'); ?>
+    <?= $this->include('datauser/edit_datauser'); ?>
+    <?= $this->include('datauser/changepass_datauser'); ?>
 <?= $this->endSection(); ?>

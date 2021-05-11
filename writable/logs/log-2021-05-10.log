@@ -1,0 +1,29 @@
+CRITICAL - 2021-05-10 20:14:55 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\sipspp\app\Models\LoginModel.php(11): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\sipspp\app\Controllers\Login.php(65): App\Models\LoginModel->login('soleh')
+#5 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Login->auth()
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-10 20:15:11 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\sipspp\app\Models\LoginModel.php(11): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\sipspp\app\Controllers\Login.php(65): App\Models\LoginModel->login('soleh')
+#5 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Login->auth()
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-10 21:12:50 --> Call to undefined method App\Models\UserModel::checkalias
+#0 C:\xampp\htdocs\sipspp\app\Controllers\Usercontroller.php(519): CodeIgniter\Model->__call('checkalias', Array)
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Usercontroller->perbaruidata()
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usercontroller))
+#3 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

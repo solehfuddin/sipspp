@@ -59,6 +59,10 @@ class Usercontroller extends BaseController
                                                 onclick=\"edituser('" .$list->id_user. "')\">
                                                 <i class=\"fa fa-edit\"></i></button>";
 
+                                $changepass  = "<button type=\"button\" class=\"btn btn-info btn-sm\"
+                                                onclick=\"changepassuser('" .$list->id_user. "')\">
+                                                <i class=\"fa fa-lock\"></i></button>";
+
                                 $tombolhapus = "<button type=\"button\" class=\"btn btn-danger btn-sm\" 
                                                 onclick=\"deleteuser('" .$list->id_user. "')\"> 
                                                 <i class=\"fa fa-trash\"></i></button>";
@@ -82,7 +86,7 @@ class Usercontroller extends BaseController
                                 $row[] = $list->nama_agama;
                                 $row[] = $list->alamat;
                                 $row[] = $isactive;
-                                $row[] = $tomboledit . ' ' . $tombolhapus;
+                                $row[] = $tomboledit .' ' . $changepass . ' ' . $tombolhapus;
                                 $data[] = $row;
                         }
                     
@@ -369,16 +373,24 @@ class Usercontroller extends BaseController
             if ($this->request->isAJAX()) {
                 $kode = $this->request->getVar('kode');
                 $request = Services::request();
-                $m_agama = new AgamaModel($request);
+                $m_user = new UserModel($request);
 
-                $item = $m_agama->find($kode);
+                $item = $m_user->find($kode);
     
                 $data = [
                     'success' => [
-                        'kode' => $item['id_agama'],
-                        'nama' => $item['nama_agama'],
-                        'deskripsi' => $item['deskripsi_agama'],
-                        'is_active' => $item['isactive_agama'],
+                        'kode' => $item['id_user'],
+                        'fname' => $item['nama_lengkap'],
+                        'email' => $item['email'],
+                        'uname' => $item['username'],
+                        'pass' => $item['password'],
+                        'level' => $item['id_level'],
+                        'gender' => $item['jenis_kelamin'],
+                        'hp' => $item['no_hp'],
+                        'agama' => $item['id_agama'],
+                        'alamat' => $item['alamat'],
+                        'foto' => $item['foto'],
+                        'is_active' => $item['isactive_user'],
                     ]
                 ];
     
@@ -400,9 +412,155 @@ class Usercontroller extends BaseController
         {
             if ($this->request->isAJAX())
             {
+                if ( $_FILES AND $_FILES['user_photoubah']['name'] ) 
+                {
+                    $check = $this->validate([
+                        'user_fnameubah' => [
+                            'label' => 'Nama lengkap',
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' 		=> '{field} wajib terisi'
+                            ],
+                        ],
+    
+                        'user_photoubah' => [
+                            'label' => 'Gambar',
+                            'rules' => [
+                                'uploaded[user_photoubah]',
+                                'mime_in[user_photoubah,image/jpg,image/jpeg,image/gif,image/png]',
+                                'is_image[user_photoubah]',
+                                'max_size[user_photoubah,4096]',
+                            ],
+                            'errors' => [
+                                'uploaded'      => '{field} wajib diisi',
+                                'mime_in' 		=> '{field} tidak sesuai format standar',
+                                'is_image'      => '{field} tidak sesuai',
+                                'max-size'      => '{field} melebihi ukuran yang ditentukan',
+                            ],
+                        ],
+                    ]);
+                }
+                else
+                {
+                    $check = $this->validate([
+                        'user_fnameubah' => [
+                            'label' => 'Nama lengkap',
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' 		=> '{field} wajib terisi'
+                            ],
+                        ],
+                    ]);
+                }
+
+                if (!$check) {
+                    $msg = [
+                        'error' => [
+                            "user_fnameubah" => $this->validation->getError('user_fnameubah'),
+                            "user_unameubah" => $this->validation->getError('user_unameubah'),
+                            "user_emailubah" => $this->validation->getError('user_emailubah'),
+                            "user_photoubah" => $this->validation->getError('user_photoubah'),
+                        ]
+                    ];
+                }
+                else
+                {
+                    if ( $_FILES AND $_FILES['user_photoubah']['name'] ) 
+                    {   
+                        $kode = $this->request->getVar('user_kodeubah');
+                        $gambar = $this->request->getFile('user_photoubah');
+                        $filename = $kode . '.' . $gambar->getExtension();
+        
+                        $gambar->move('public/assets/img/profile/', $filename);
+                        $location = base_url() . '/public/assets/img/profile/thumbs/' . $filename;
+                        $this->compressImg($filename);
+                     
+                        $data = [
+                            'email' => $this->request->getVar('user_emailubah'),
+                            'username' => $this->request->getVar('user_unameubah'),
+                            'id_level' => $this->request->getVar('user_levelubah'),
+                            'nama_lengkap' => $this->request->getVar('user_fnameubah'),
+                            'jenis_kelamin' => $this->request->getVar('user_genderubah'),
+                            'no_hp' => $this->request->getVar('user_phoneubah'),
+                            'id_agama' => $this->request->getVar('user_religionubah'),
+                            'alamat' => $this->request->getVar('user_addressubah'),
+                            'foto' => $gambar->getName(),
+                            'isactive_user' => $this->request->getVar('user_isactiveubah'),
+                        ];
+
+                        $kode = $this->request->getVar('user_kodeubah');
+    
+                        $request = Services::request();
+                        $m_user = new UserModel($request);
+    
+                        $m_user->update($kode, $data);
+        
+                        $msg = [
+                            'success' => [
+                                'data' => 'Berhasil memperbarui data',
+                                'link' => '/admcattype'
+                            ]
+                        ];
+                    }
+                    else
+                    {
+                        $data = [
+                            'email' => $this->request->getVar('user_emailubah'),
+                            'username' => $this->request->getVar('user_unameubah'),
+                            'id_level' => $this->request->getVar('user_levelubah'),
+                            'nama_lengkap' => $this->request->getVar('user_fnameubah'),
+                            'jenis_kelamin' => $this->request->getVar('user_genderubah'),
+                            'no_hp' => $this->request->getVar('user_phoneubah'),
+                            'id_agama' => $this->request->getVar('user_religionubah'),
+                            'alamat' => $this->request->getVar('user_addressubah'),
+                            'isactive_user' => $this->request->getVar('user_isactiveubah'),
+                        ];
+
+                        $kode = $this->request->getVar('user_kodeubah');
+    
+                        $request = Services::request();
+                        $m_user = new UserModel($request);
+    
+                        $m_user->update($kode, $data);
+        
+                        $msg = [
+                            'success' => [
+                                'data' => 'Berhasil memperbarui data',
+                                'link' => '/admcattype'
+                            ]
+                        ];
+                    }
+                }
+    
+                echo json_encode($msg);
+            }
+            else
+            {
+                return view('errors/html/error_404');
+            }
+        }
+    }
+
+    public function ubahpassword() {
+        if(!$this->session->get('islogin'))
+		{
+			return view('view_login');
+        }
+        else
+        {
+            if ($this->request->isAJAX())
+            {
                 $check = $this->validate([
-                    'masteragama_descubah' => [
-                        'label' => 'Ubah deskripsi agama',
+                    'user_changepass' => [
+                        'label' => 'Password baru',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi'
+                        ],
+                    ],
+
+                    'user_confirmchangepass' => [
+                        'label' => 'Ulangi Password',
                         'rules' => 'required',
                         'errors' => [
                             'required' 		=> '{field} wajib terisi'
@@ -413,88 +571,45 @@ class Usercontroller extends BaseController
                 if (!$check) {
                     $msg = [
                         'error' => [
-                            "masteragama_namaubah" => $this->validation->getError('masteragama_namaubah'),
-                            "masteragama_descubah" => $this->validation->getError('masteragama_descubah'),
+                            "user_changepass" => $this->validation->getError('user_changepass'),
+                            "user_confirmchangepass" => $this->validation->getError('user_confirmchangepass'),
                         ]
                     ];
                 }
                 else
-                {
-                    $request = Services::request();
-                    $m_agama = new AgamaModel($request);
+                { 
+                    $newpass = $this->request->getVar('user_changepass');
+                    $repass  = $this->request->getVar('user_confirmchangepass'); 
 
-                    $kode  = $this->request->getVar('masteragama_kodeubah');
-                    $tmp   = $m_agama->checkalias($kode);
-                    $tmpCheck = $tmp[0]['nama_agama'];
-                    $alias = $this->request->getVar('masteragama_namaubah');
-
-                    if ($tmpCheck == $alias)
+                    if ($newpass == $repass)
                     {
                         $data = [
-                            'nama_agama' => $this->request->getVar('masteragama_namaubah'),
-                            'deskripsi_agama' => $this->request->getVar('masteragama_descubah'),
-                            'isactive_agama' => $this->request->getVar('masteragama_isactiveubah'),
+                            'password' => md5($newpass),
                         ];
-        
-                        $kode = $this->request->getVar('masteragama_kodeubah');
-        
-                        $request = Services::request();
-                        $m_agama = new AgamaModel($request);
+
+                        $kode = $this->request->getVar('user_kodechangepass');
     
-                        $m_agama->update($kode, $data);
+                        $request = Services::request();
+                        $m_user = new UserModel($request);
+    
+                        $m_user->update($kode, $data);
         
                         $msg = [
                             'success' => [
-                               'data' => 'Berhasil memperbarui data',
-                               'link' => '/admcattype'
+                                'data' => 'Berhasil memperbarui data',
+                                'link' => '/admcattype'
                             ]
                         ];
                     }
                     else
                     {
-                        $checkalias = $this->validate([
-                            'masteragama_namaubah' => [
-                                'label' => 'Ubah nama agama',
-                                'rules' => [
-                                    'required',
-                                    'is_unique[master_agama.nama_agama]',
-                                ],
-                                'errors' => [
-                                    'required' 		=> '{field} wajib terisi',
-                                    'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
-                                ],
-                            ],
-                        ]);
-    
-                        if (!$checkalias) {
-                            $msg = [
-                                'error' => [
-                                    "masteragama_namaubah" => $this->validation->getError('masteragama_namaubah'),
-                                ]
-                            ];
-                        }
-                        else
-                        {
-                            $data = [
-                                'nama_agama' => $this->request->getVar('masteragama_namaubah'),
-                                'deskripsi_agama' => $this->request->getVar('masteragama_descubah'),
-                                'isactive_agama' => $this->request->getVar('masteragama_isactiveubah'),
-                            ];
-            
-                            $kode = $this->request->getVar('masteragama_kodeubah');
-            
-                            $request = Services::request();
-                            $m_agama = new AgamaModel($request);
-        
-                            $m_agama->update($kode, $data);
-            
-                            $msg = [
-                                'success' => [
-                                   'data' => 'Berhasil memperbarui data',
-                                   'link' => '/admaccountuserlevel'
-                                ]
-                            ];
-                        }
+                        
+                        $msg = [
+                            'notmatch' => [
+                                'data' => 'Uppss, sepertinya passwordmu tidak sesuai',
+                                'link' => '/admcattype'
+                            ]
+                        ];
                     }
                 }
     
