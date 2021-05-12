@@ -60,7 +60,7 @@ CREATE TABLE `master_kelas` (
 
 insert  into `master_kelas`(`inc_kelas`,`id_kelas`,`nama_kelas`,`deskripsi_kelas`,`isactive_kelas`) values 
 (1,'MKLS001','7-1','Kelas 7 kelompok 1',1),
-(10,'MKLS0010','7-4','Kelas 7 kelompok 4',1),
+(10,'MKLS0010','7-4','Kelas 7 kelompok 4',0),
 (12,'MKLS0011','7-5','Kelas 7 kelompok 5',0),
 (2,'MKLS002','7-2','Kelas 7 Kelompok 2',1),
 (3,'MKLS003','7-3','Kelas 7 Kelompok 3',1),
@@ -192,8 +192,11 @@ CREATE TABLE `tb_siswa` (
 /*Data for the table `tb_siswa` */
 
 insert  into `tb_siswa`(`nis`,`id_agama`,`id_kelas`,`nama_siswa`,`jenis_kelamin`,`tempat_lahir`,`tanggal_lahir`,`tlp_hp`,`alamat`,`foto`) values 
-(2021586711,'MAG001','MKLS001','Desti Handayani','Perempuan','Jakarta','2006-07-20',NULL,'Jalan kamboja no 8 Jakarta','default.png'),
-(2021586712,'MAG001','MKLS001','Eiza Dini Islami','Perempuan','Jakarta','2006-10-12',NULL,'Jalan anggrek no 17 Jakarta','default.png');
+(2021586711,'MAG001','MKLS001','Desti Handayani','Perempuan','Jakarta','2007-02-05','','Jalan kamboja no 8 Jakarta','default.png'),
+(2021586712,'MAG001','MKLS001','Eiza Dini Islami','Perempuan','Jakarta','2006-10-12',NULL,'Jalan anggrek no 17 Jakarta','default.png'),
+(2021586713,'MAG001','MKLS001','Riki Apriadi','Laki-laki','Bogor','2007-01-02','','Kp rawa terate no 50 Jakarta','default.png'),
+(2021586714,'MAG001','MKLS001','Indra Fermana','Laki-laki','Tangerang','2006-08-10','','Jalan jagakarsa no 7 Jakarta','default.png'),
+(2021586715,'MAG001','MKLS001','Siti Amelia','Perempuan','Jakarta','2006-09-14','','Jalan kemakmuran no 14 Jakarta','default.png');
 
 /*Table structure for table `tb_user` */
 
