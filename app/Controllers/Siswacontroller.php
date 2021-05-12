@@ -4,6 +4,7 @@ use App\Controllers\BaseController;
 use App\Models\SiswaModel;
 use App\Models\MenuModel;
 use App\Models\SubmenuModel;
+use App\Models\SettingModel;
 use App\Models\Master\AgamaModel;
 use App\Models\Master\KelasModel;
 use Config\Services;
@@ -22,10 +23,11 @@ class Siswacontroller extends BaseController
             $submenuModel = new SubmenuModel($request);
             $masterKelas = new KelasModel($request);
             $masterAgama = new AgamaModel($request);
+            $settingModel = new SettingModel($request);
+		    $session = \Config\Services::session();
 
             $data = [
-                'menu' => $menuModel->menu(),
-                'submenu' => $submenuModel->submenu(),
+                'custommenu' => $settingModel->getMenu($session->get('idlevel')),
                 'kelascode' => $masterKelas->getkodekelas(1),
                 'agamacode' => $masterAgama->getkodeagama(1),
             ];

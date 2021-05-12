@@ -96,6 +96,7 @@ class Login extends BaseController
 									'jeniskelamin' => $mailCheck[0]['jenis_kelamin'],
 									'idagama'	=> $mailCheck[0]['id_agama'],
 									'alamat' => $mailCheck[0]['alamat'],
+									'nohp' => $mailCheck[0]['no_hp'],
 									'foto' => $mailCheck[0]['foto'],
 								];
 		

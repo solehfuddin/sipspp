@@ -1,14 +1,21 @@
 <?php 
 namespace App\Controllers;
 use App\Controllers\BaseController;
-use App\Models\ProfileModel;
+use App\Models\UserModel;
 use App\Models\MenuModel;
 use App\Models\SubmenuModel;
+use App\Models\SettingModel;
+use App\Models\LoginModel;
 use App\Models\Master\AgamaModel;
 use Config\Services;
 
 class Profilecontroller extends BaseController
 {
+    public function __construct()
+	{
+		$this->loginModel = new LoginModel();
+	}
+
 	public function index() {
         if(!$this->session->get('islogin'))
 		{
@@ -20,9 +27,11 @@ class Profilecontroller extends BaseController
             $menuModel = new MenuModel($request);
             $submenuModel = new SubmenuModel($request);
             $masterAgama = new AgamaModel($request);
+            $settingModel = new SettingModel($request);
+		    $session = \Config\Services::session();
 
             $data = [
-                'menu' => $menuModel->menu(),
+                'custommenu' => $settingModel->getMenu($session->get('idlevel')),
                 'submenu' => $submenuModel->submenu(),
                 'agamacode' => $masterAgama->getkodeagama(1),
             ];
@@ -31,211 +40,13 @@ class Profilecontroller extends BaseController
         }
     }
 
-    public function ajax_list() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX())
-            {
-                $request = Services::request();
-                $m_agama  = new AgamaModel($request);
-
-                if($request->getMethod(true)=='POST'){
-                    $lists = $m_agama->get_datatables();
-                        $data = [];
-                        $no = $request->getPost("start");
-
-                        foreach ($lists as $list) {
-                                $no++;
-                                $row = [];
-
-                                $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditinfocategory\"
-                                                onclick=\"editmasteragama('" .$list->id_agama. "')\">
-                                                <i class=\"fa fa-edit\"></i></button>";
-
-                                $tombolhapus = "<button type=\"button\" class=\"btn btn-danger btn-sm\" 
-                                                onclick=\"deletemasteragama('" .$list->id_agama. "')\"> 
-                                                <i class=\"fa fa-trash\"></i></button>";
-
-                                $row[] = $no;
-                                if ($list->isactive_agama == 1)
-                                {
-                                    $isactive = "<span style='color:#2dce89;'>Aktif</span";
-                                }
-                                else
-                                {
-                                    $isactive = "<span style='color:#f5365c;'>Tidak Aktif</span";
-                                }
-                                
-                                $row[] = $isactive;
-                                $row[] = $list->nama_agama;
-                                $row[] = $list->deskripsi_agama;
-                                $row[] = $tomboledit . ' ' . $tombolhapus;
-                                $data[] = $row;
-                        }
-                    
-                        $output = [
-                            "draw" => $request->getPost('draw'),
-                            "recordsTotal" => $m_agama->count_all(),
-                            "recordsFiltered" => $m_agama->count_filtered(),
-                            "data" => $data
-                        ];
-
-                    echo json_encode($output);
-                }
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-        }
-    }
-
-    public function getdata() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX())
-            {
-                $request = Services::request();
-                $m_agama = new AgamaModel($request);
-
-                $getdata = $m_agama->getLastData();
-                $max  = substr($getdata->id_agama, 3) + 1;
-                $gen  = "MAG" . str_pad($max, 3, 0, STR_PAD_LEFT);
-
-                $data = [
-                    'kodegen' => $gen
-                ];
-
-                echo json_encode($data);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-        }
-    }
-
-    public function simpandata() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX())
-            {
-                $validationCheck = $this->validate([
-                    'masteragama_kode' => [
-                        'label' => 'Kode agama',
-                        'rules' => [
-                            'required',
-                            'is_unique[master_agama.id_agama]',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi',
-                            'is_unique'	    => '{field} tidak boleh sama, coba dengan kode yang lain'
-                        ],
-                    ],
-    
-                    'masteragama_nama' => [
-                        'label' => 'Nama Agama',
-                        'rules' => [
-                            'required',
-                            'is_unique[master_agama.nama_agama]',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi',
-                            'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
-                        ],
-                    ],
-
-                    'masteragama_desc' => [
-                        'label' => 'Deskripsi agama',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi'
-                        ],
-                    ],
-                ]);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-
-            if (!$validationCheck) {
-				$msg = [
-					'error' => [
-						"masteragama_kode" => $this->validation->getError('masteragama_kode'),
-                        "masteragama_nama" => $this->validation->getError('masteragama_nama'),
-						"masteragama_desc" => $this->validation->getError('masteragama_desc'),
-					]
-				];
-			}
-			else
-			{
-                $data = [
-                    'id_agama' => $this->request->getVar('masteragama_kode'),
-                    'nama_agama' => $this->request->getVar('masteragama_nama'),
-                    'deskripsi_agama' => $this->request->getVar('masteragama_desc'),
-                    'isactive_agama' => $this->request->getVar('masteragama_isactive'),
-                ];
-
-                $request = Services::request();
-                $m_agama = new AgamaModel($request);
-
-                $m_agama->insert($data);
-
-                $msg = [
-                    'success' => [
-                       'data' => 'Berhasil menambahkan data',
-                       'link' => '/admcattype'
-                    ]
-                ];
-            }
-
-            echo json_encode($msg);
-        }
-    }
-
-    public function pilihdata() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX()) {
-                $kode = $this->request->getVar('kode');
-                $request = Services::request();
-                $m_agama = new AgamaModel($request);
-
-                $item = $m_agama->find($kode);
-    
-                $data = [
-                    'success' => [
-                        'kode' => $item['id_agama'],
-                        'nama' => $item['nama_agama'],
-                        'deskripsi' => $item['deskripsi_agama'],
-                        'is_active' => $item['isactive_agama'],
-                    ]
-                ];
-    
-                echo json_encode($data);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-        }
+    function compressImg($filename) {
+        $thumbnail = \Config\Services::image()
+        ->withFile('public/assets/img/profile/' . $filename)
+		//->withFile(WRITEPATH.'uploads/' . $filename)
+        ->fit(350, 350, 'center')
+		->save('public/assets/img/profile/thumbs/' . $filename, 75);
+        //->save(WRITEPATH.'uploads/thumbs/' . $filename, 75);
     }
 
     public function perbaruidata() {
@@ -247,101 +58,131 @@ class Profilecontroller extends BaseController
         {
             if ($this->request->isAJAX())
             {
-                $check = $this->validate([
-                    'masteragama_descubah' => [
-                        'label' => 'Ubah deskripsi agama',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi'
+                if ( $_FILES AND $_FILES['profile_photo']['name'] ) 
+                {
+                    $check = $this->validate([
+                        'profile_fname' => [
+                            'label' => 'Nama lengkap',
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' 		=> '{field} wajib terisi'
+                            ],
                         ],
-                    ],
-                ]);
+    
+                        'profile_photo' => [
+                            'label' => 'Gambar',
+                            'rules' => [
+                                'uploaded[profile_photo]',
+                                'mime_in[profile_photo,image/jpg,image/jpeg,image/gif,image/png]',
+                                'is_image[profile_photo]',
+                                'max_size[profile_photo,4096]',
+                            ],
+                            'errors' => [
+                                'uploaded'      => '{field} wajib diisi',
+                                'mime_in' 		=> '{field} tidak sesuai format standar',
+                                'is_image'      => '{field} tidak sesuai',
+                                'max-size'      => '{field} melebihi ukuran yang ditentukan',
+                            ],
+                        ],
+                    ]);
+                }
+                else
+                {
+                    $check = $this->validate([
+                        'profile_fname' => [
+                            'label' => 'Nama lengkap',
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' 		=> '{field} wajib terisi'
+                            ],
+                        ],
+                    ]);
+                }
 
                 if (!$check) {
                     $msg = [
                         'error' => [
-                            "masteragama_namaubah" => $this->validation->getError('masteragama_namaubah'),
-                            "masteragama_descubah" => $this->validation->getError('masteragama_descubah'),
+                            "profile_fname" => $this->validation->getError('profile_fname'),
+                            "profile_photo" => $this->validation->getError('profile_photo'),
                         ]
                     ];
                 }
                 else
                 {
-                    $request = Services::request();
-                    $m_agama = new AgamaModel($request);
-
-                    $kode  = $this->request->getVar('masteragama_kodeubah');
-                    $tmp   = $m_agama->checkalias($kode);
-                    $tmpCheck = $tmp[0]['nama_agama'];
-                    $alias = $this->request->getVar('masteragama_namaubah');
-
-                    if ($tmpCheck == $alias)
-                    {
+                    if ( $_FILES AND $_FILES['profile_photo']['name'] ) 
+                    {   
+                        $kode = $this->request->getVar('profile_kode');
+                        $gambar = $this->request->getFile('profile_photo');
+                        $filename = $kode . '.' . $gambar->getExtension();
+        
+                        $gambar->move('public/assets/img/profile/', $filename);
+                        $location = base_url() . '/public/assets/img/profile/thumbs/' . $filename;
+                        $this->compressImg($filename);
+                     
                         $data = [
-                            'nama_agama' => $this->request->getVar('masteragama_namaubah'),
-                            'deskripsi_agama' => $this->request->getVar('masteragama_descubah'),
-                            'isactive_agama' => $this->request->getVar('masteragama_isactiveubah'),
+                            'email' => $this->request->getVar('profile_email'),
+                            'nama_lengkap' => $this->request->getVar('profile_fname'),
+                            'no_hp' => $this->request->getVar('profile_phone'),
+                            'alamat' => $this->request->getVar('profile_address'),
+                            'foto' => $gambar->getName(),
                         ];
-        
-                        $kode = $this->request->getVar('masteragama_kodeubah');
-        
-                        $request = Services::request();
-                        $m_agama = new AgamaModel($request);
+
+                        $kode = $this->request->getVar('profile_kode');
     
-                        $m_agama->update($kode, $data);
+                        $request = Services::request();
+                        $m_user = new UserModel($request);
+                        $m_user->update($kode, $data);
+
+                        // $this->session->destroy();
+                        $mailCheck = $this->loginModel->loginbyuserid($kode);
+
+                        $saveSession = [
+                            'islogin' => true,
+                            'kodeuser' => $mailCheck[0]['id_user'],
+                            'username' => $mailCheck[0]['username'],
+                            'namalengkap' => $mailCheck[0]['nama_lengkap'],
+                            'alamatemail' => $mailCheck[0]['email'],
+                            'idlevel'	=> $mailCheck[0]['id_level'],
+                            'namalevel' => $mailCheck[0]['nama_level'],
+                            'jeniskelamin' => $mailCheck[0]['jenis_kelamin'],
+                            'idagama'	=> $mailCheck[0]['id_agama'],
+                            'alamat' => $mailCheck[0]['alamat'],
+                            'nohp' => $mailCheck[0]['no_hp'],
+                            'foto' => $mailCheck[0]['foto'],
+                        ];
+
+                        $this->session->set($saveSession);
         
                         $msg = [
                             'success' => [
-                               'data' => 'Berhasil memperbarui data',
-                               'link' => '/admcattype'
+                                // 'data' => 'Berhasil memperbarui data, harap logout aplikasi anda untuk melihat perubahan data profil',
+                                'data' => 'Berhasil memperbarui data',
+                                'link' => base_url() . '/admprofile'
                             ]
                         ];
                     }
                     else
                     {
-                        $checkalias = $this->validate([
-                            'masteragama_namaubah' => [
-                                'label' => 'Ubah nama agama',
-                                'rules' => [
-                                    'required',
-                                    'is_unique[master_agama.nama_agama]',
-                                ],
-                                'errors' => [
-                                    'required' 		=> '{field} wajib terisi',
-                                    'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
-                                ],
-                            ],
-                        ]);
+                        $data = [
+                            'email' => $this->request->getVar('profile_email'),
+                            'nama_lengkap' => $this->request->getVar('profile_fname'),
+                            'no_hp' => $this->request->getVar('profile_phone'),
+                            'alamat' => $this->request->getVar('profile_address'),
+                        ];
+
+                        $kode = $this->request->getVar('profile_kode');
     
-                        if (!$checkalias) {
-                            $msg = [
-                                'error' => [
-                                    "masteragama_namaubah" => $this->validation->getError('masteragama_namaubah'),
-                                ]
-                            ];
-                        }
-                        else
-                        {
-                            $data = [
-                                'nama_agama' => $this->request->getVar('masteragama_namaubah'),
-                                'deskripsi_agama' => $this->request->getVar('masteragama_descubah'),
-                                'isactive_agama' => $this->request->getVar('masteragama_isactiveubah'),
-                            ];
-            
-                            $kode = $this->request->getVar('masteragama_kodeubah');
-            
-                            $request = Services::request();
-                            $m_agama = new AgamaModel($request);
+                        $request = Services::request();
+                        $m_user = new UserModel($request);
+    
+                        $m_user->update($kode, $data);
         
-                            $m_agama->update($kode, $data);
-            
-                            $msg = [
-                                'success' => [
-                                   'data' => 'Berhasil memperbarui data',
-                                   'link' => '/admaccountuserlevel'
-                                ]
-                            ];
-                        }
+                        $msg = [
+                            'success' => [
+                                'data' => 'Berhasil memperbarui data',
+                                'link' => '/admcattype'
+                            ]
+                        ];
                     }
                 }
     
@@ -353,34 +194,4 @@ class Profilecontroller extends BaseController
             }
         }
     }
-
-    public function hapusdata() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX()) {
-                $kode = $this->request->getVar('kode');
-                $request = Services::request();
-                $m_agama = new AgamaModel($request);
-    
-                $m_agama->delete($kode);
-    
-                $msg = [
-                    'success' => [
-                        'data' => 'Berhasil menghapus data dengan kode ' . $kode,
-                        'link' => '/admcattype'
-                     ]
-                ];
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-    
-            echo json_encode($msg);
-        }
-    }    
 }

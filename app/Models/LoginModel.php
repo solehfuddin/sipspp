@@ -10,4 +10,10 @@ class LoginModel extends Model {
                     ->orWhere(['tb_user.username' => $mail])
                     ->find();
     }
+
+    public function loginbyuserid($id){
+        return $this->join('master_level', 'tb_user.id_level = master_level.id_level', 'left')
+                    ->where(['tb_user.id_user' => $id])
+                    ->find();
+    }
 }

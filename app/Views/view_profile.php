@@ -1,4 +1,8 @@
 <?= $this->extend('components/template_admin') ?>
+
+<?php
+  $session = \Config\Services::session();
+?>
     
 <?= $this->section('content') ?>
     <!-- Header -->
@@ -32,94 +36,68 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header">
-              <h5 class="h3 mb-0">Profile user</h5>
+              <h4 class="h3 mb-0 text-center">Data Profil</h4>
               <div class="card-header d-flex align-items-center">
                 <div class="d-flex align-items-center">
                     <a href="#">
-                    <img src="<?= base_url() ?>/public/assets/img/theme/team-1.jpg" class="avatar">
+                    <img src="<?= base_url() . '/public/assets/img/profile/' . $session->get('foto'); ?>" class="avatar">
                     </a>
                     <div class="mx-3">
-                    <a href="#" class="text-dark font-weight-600 text-sm">John Snow</a>
+                    <a href="#" class="text-dark font-weight-600 text-sm">@ <?= $session->get('username'); ?></a>
                     </div>
                 </div>
               </div>
+              <!-- Handle Form -->
+              <?= form_open_multipart('profilecontroller/perbaruidata', ['class' => 'formubahprofile']); ?>
+              <?= csrf_field(); ?>
+
               <div class="card-body">
                 <div class="form-group">
-                  <label for="kode-infocategory-input" class="form-control-label">Id User</label>
-                  <input class="form-control" type="text"  placeholder="USR001" 
-                        name="user_kode" id="user_kode" readonly />
-                  <!-- Error Validation -->
-                  <div class="invalid-feedback bg-secondary erroruserKode">test</div>
-                </div>
-
-                <div class="form-group">
+                  <input class="form-control" type="hidden"  placeholder="USR001" 
+                        name="profile_kode" id="profile_kode" value="<?= $session->get('kodeuser'); ?>" readonly />
                   <label for="nama-infocategory-input" class="form-control-label">Nama Lengkap *</label>
-                  <input class="form-control" type="text" placeholder="Abdul Rahman" 
-                        name="user_fname" id="user_fname" />
+                  <input class="form-control" type="text" placeholder="Abdul Rahman" value="<?= $session->get('namalengkap'); ?>"
+                        name="profile_fname" id="profile_fname" />
                   <!-- Error Validation -->
-                  <div class="invalid-feedback bg-secondary erroruserFname">testte</div>
-                </div>
-
-                <div class="form-group">
-                  <label for="nama-infocategory-input" class="form-control-label">Username *</label>
-                  <input class="form-control" type="text" placeholder="abdul" 
-                        name="user_uname" id="user_uname" />
-                  <!-- Error Validation -->
-                  <div class="invalid-feedback bg-secondary erroruserUname">testte</div>
-                </div>
-
-                <div class="form-group">
-                  <label for="kode-infonews-input" class="form-control-label">Pilih Gender</label>
-                  <select class="form-control" id="user_gender" name="user_gender">
-                    <option value="Laki-laki"> Laki-laki </option>
-                    <option value="Perempuan"> Perempuan </option>
-                  </select>
+                  <div class="invalid-feedback bg-secondary errorprofileFname">testte</div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama-infocategory-input" class="form-control-label">Alamat Email *</label>
                   <input class="form-control" type="text" placeholder="abdul.rahman77@gmail.com" 
-                        name="user_email" id="user_email" />
+                        name="profile_email" id="profile_email" value="<?= $session->get('alamatemail'); ?>" />
                   <!-- Error Validation -->
-                  <div class="invalid-feedback bg-secondary erroruserEmail">testte</div>
+                  <div class="invalid-feedback bg-secondary errorprofileEmail">testte</div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama-infocategory-input" class="form-control-label">Telp / Nomor Hp</label>
-                  <input class="form-control" type="text" placeholder="08578900200" 
-                        name="user_phone" id="user_phone" />
+                  <input class="form-control" type="text" placeholder="08578900200" value="<?= $session->get('nohp'); ?>"
+                        name="profile_phone" id="profile_phone" />
                   <!-- Error Validation -->
-                  <div class="invalid-feedback bg-secondary erroruserPhone">testte</div>
-                </div>
-
-                <div class="form-group">
-                  <label for="kode-infonews-input" class="form-control-label">Pilih Agama</label>
-                  <select class="form-control" id="user_religion" name="user_religion">
-                    <?php foreach($agamacode as $item): ?>
-                    <option value="<?= $item['id_agama']; ?>">
-                        <?= $item['nama_agama']; ?>
-                    </option>
-                    <?php endforeach ?>
-                  </select>
+                  <div class="invalid-feedback bg-secondary errorprofilePhone">testte</div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama-infocategory-input" class="form-control-label">Pilih Foto</label>
-                  <input type="file" name="user_photo" class="form-control" id="user_photo" accept=".jpg, .jpeg, .png" /></p>
-                  <div class="invalid-feedback bg-secondary erroruserPhoto">testte</div>
+                  <input type="file" name="profile_photo" class="form-control" id="profile_photo" accept=".jpg, .jpeg, .png" /></p>
+                  <div class="invalid-feedback bg-secondary errorprofilePhoto">testte</div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama-infocategory-input" class="form-control-label">Alamat Lengkap</label>
-                  <textarea class="form-control" rows="3" name="user_address" 
-                        id="user_address"></textarea>
+                  <textarea class="form-control" rows="3" name="profile_address"
+                        id="profile_address"><?= $session->get('alamat'); ?></textarea>
                   <!-- Error Validation -->
-                  <div class="invalid-feedback bg-secondary erroruserAddress">testte</div>
+                  <div class="invalid-feedback bg-secondary errorprofileAddress">testte</div>
                 </div>
 
                 <div class="text-right ml-auto">
-                    <button type="submit" class="btn btn-primary btnmodaltambahuser">Simpan Data</button>
+                    <button type="submit" class="btn btn-primary btnubahprofile">Perbarui Data</button>
                 </div>
+
+                <?= form_close(); ?>
+                <!-- Handle FORM -->
               </div>
             </div>
           </div>

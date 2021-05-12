@@ -4,6 +4,7 @@ use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\MenuModel;
 use App\Models\SubmenuModel;
+use App\Models\SettingModel;
 use App\Models\Master\AgamaModel;
 use App\Models\Master\LevelModel;
 use Config\Services;
@@ -22,9 +23,11 @@ class Usercontroller extends BaseController
             $submenuModel = new SubmenuModel($request);
             $masterLevel = new LevelModel($request);
             $masterAgama = new AgamaModel($request);
+            $settingModel = new SettingModel($request);
+		    $session = \Config\Services::session();
 
             $data = [
-                'menu' => $menuModel->menu(),
+                'custommenu' => $settingModel->getMenu($session->get('idlevel')),
                 'submenu' => $submenuModel->submenu(),
                 'levelcode' => $masterLevel->getkodelevel(1),
                 'agamacode' => $masterAgama->getkodeagama(1),

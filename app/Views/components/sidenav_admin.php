@@ -23,7 +23,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <?php foreach($menu as $dt): ?>
+              <?php foreach($custommenu as $dt): ?>
                 <?php if($dt->exist_submenu == 0) { ?>
                   <a class="nav-link" href="<?= site_url($dt->link_menu) ?>">
                     <i class="<?= $dt->icon . ' ' . $dt->style ?>"></i>

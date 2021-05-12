@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 09 Bulan Mei 2021 pada 17.02
+-- Waktu pembuatan: 12 Bulan Mei 2021 pada 15.15
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -62,7 +62,7 @@ CREATE TABLE `master_kelas` (
 
 INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isactive_kelas`) VALUES
 (1, 'MKLS001', '7-1', 'Kelas 7 kelompok 1', 1),
-(10, 'MKLS0010', '7-4', 'Kelas 7 kelompok 4', 1),
+(10, 'MKLS0010', '7-4', 'Kelas 7 kelompok 4', 0),
 (12, 'MKLS0011', '7-5', 'Kelas 7 kelompok 5', 0),
 (2, 'MKLS002', '7-2', 'Kelas 7 Kelompok 2', 1),
 (3, 'MKLS003', '7-3', 'Kelas 7 Kelompok 3', 1),
@@ -157,10 +157,28 @@ INSERT INTO `master_submenu` (`kode_submenu`, `kode_menu`, `nama_submenu`, `desk
 --
 
 CREATE TABLE `setting_level` (
+  `inc_setting` int(11) NOT NULL,
   `id_level` varchar(5) NOT NULL,
   `kode_menu` varchar(5) NOT NULL,
-  `kode_submenu` varchar(5) NOT NULL
+  `isactive_setting` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `setting_level`
+--
+
+INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_setting`) VALUES
+(1, 'MLV01', 'MM01', 1),
+(2, 'MLV01', 'MM03', 1),
+(3, 'MLV01', 'MM06', 0),
+(4, 'MLV02', 'MM01', 1),
+(5, 'MLV02', 'MM06', 1),
+(6, 'MLV03', 'MM01', 1),
+(7, 'MLV03', 'MM04', 1),
+(8, 'MLV04', 'MM01', 1),
+(9, 'MLV04', 'MM02', 1),
+(10, 'MLV04', 'MM05', 1),
+(11, 'MLV04', 'MM07', 1);
 
 -- --------------------------------------------------------
 
@@ -173,7 +191,7 @@ CREATE TABLE `tb_pembayaran` (
   `kode_pembayaran` varchar(15) NOT NULL,
   `tanggal_bayar` date NOT NULL,
   `insert_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `nis` int(11) NOT NULL,
+  `nis` int(20) NOT NULL,
   `id_user` varchar(10) NOT NULL,
   `tagihan_bulan` int(2) NOT NULL,
   `status` int(1) NOT NULL COMMENT '1 : Belum Bayar, 2 : Lunas'
@@ -186,7 +204,7 @@ CREATE TABLE `tb_pembayaran` (
 --
 
 CREATE TABLE `tb_siswa` (
-  `nis` int(11) NOT NULL,
+  `nis` int(20) NOT NULL,
   `id_agama` varchar(10) NOT NULL,
   `id_kelas` varchar(10) NOT NULL,
   `nama_siswa` varchar(50) NOT NULL,
@@ -195,8 +213,19 @@ CREATE TABLE `tb_siswa` (
   `tanggal_lahir` date NOT NULL,
   `tlp_hp` varchar(13) DEFAULT NULL,
   `alamat` text NOT NULL,
-  `foto` text
+  `foto` varchar(250) DEFAULT 'default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tb_siswa`
+--
+
+INSERT INTO `tb_siswa` (`nis`, `id_agama`, `id_kelas`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tlp_hp`, `alamat`, `foto`) VALUES
+(2021586711, 'MAG001', 'MKLS001', 'Desti Handayani', 'Perempuan', 'Jakarta', '2007-02-05', '', 'Jalan kamboja no 8 Jakarta', 'default.png'),
+(2021586712, 'MAG001', 'MKLS001', 'Eiza Dini Islami', 'Perempuan', 'Jakarta', '2006-10-12', NULL, 'Jalan anggrek no 17 Jakarta', 'default.png'),
+(2021586713, 'MAG001', 'MKLS001', 'Riki Apriadi', 'Laki-laki', 'Bogor', '2007-01-02', '', 'Kp rawa terate no 50 Jakarta', 'default.png'),
+(2021586714, 'MAG001', 'MKLS001', 'Indra Fermana', 'Laki-laki', 'Tangerang', '2006-08-10', '', 'Jalan jagakarsa no 7 Jakarta', 'default.png'),
+(2021586715, 'MAG001', 'MKLS001', 'Siti Amelia', 'Perempuan', 'Jakarta', '2006-09-14', '', 'Jalan kemakmuran no 14 Jakarta', 'default.png');
 
 -- --------------------------------------------------------
 
@@ -225,9 +254,10 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `id_level`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `id_agama`, `alamat`, `foto`, `isactive_user`) VALUES
-(1, 'USR001', 'solehfudin@trl.co.id', 'soleh', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'solehfuddin', 'Laki-laki', '085710035900', 'MAG001', 'Kp Rawa Badung Jakarta Timur', 'default.png', 1),
-(4, 'USR002', 'abdul.muis87@gmail.com', 'abdul_muis', 'e10adc3949ba59abbe56e057f20f883e', 'MLV03', 'Abdul Muis', 'Laki-laki', '', 'MAG001', 'Jalan kesehatan no 7 Jakarta Pusat', 'USR002_1.jpg', 1),
-(6, 'USR003', 'suparta@trl.co.id', 'suparta', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Suparta', 'Laki-laki', '', 'MAG003', 'test aja', 'default.png', 0);
+(1, 'USR001', 'solehfudin@trl.co.id', 'soleh', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'Solehfuddin', 'Laki-laki', '085710035900', 'MAG001', 'Kp Rawa Badung Jakarta Timur', 'USR001_4.png', 1),
+(2, 'USR002', 'abdul.muis87@gmail.com', 'abdul_muis', 'e10adc3949ba59abbe56e057f20f883e', 'MLV03', 'Abdul Muis', 'Laki-laki', '', 'MAG001', 'Jalan kesehatan no 7 Jakarta Pusat', 'USR002_1.jpg', 1),
+(3, 'USR003', 'suparta@trl.co', 'suparta', 'a45958517604f5cd90d6ee51ad9cfdb6', 'MLV02', 'Suparta', 'Laki-laki', '', 'MAG001', 'Test', 'USR003_3.jpg', 1),
+(0, 'USR004', 'ita@trl.co.id', 'ita', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Ita rosita', 'Perempuan', '', 'MAG001', 'Jalan rawa buntu no 15 Jakarta', 'default.png', 1);
 
 --
 -- Indexes for dumped tables
@@ -267,6 +297,12 @@ ALTER TABLE `master_submenu`
   ADD PRIMARY KEY (`kode_submenu`);
 
 --
+-- Indeks untuk tabel `setting_level`
+--
+ALTER TABLE `setting_level`
+  ADD PRIMARY KEY (`inc_setting`);
+
+--
 -- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
@@ -292,31 +328,7 @@ ALTER TABLE `tb_user`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `master_agama`
+-- AUTO_INCREMENT untuk tabel `setting_level`
 --
-ALTER TABLE `master_agama`
-  MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT untuk tabel `master_kelas`
---
-ALTER TABLE `master_kelas`
-  MODIFY `inc_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT untuk tabel `master_level`
---
-ALTER TABLE `master_level`
-  MODIFY `inc_level` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `tb_pembayaran`
---
-ALTER TABLE `tb_pembayaran`
-  MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `tb_user`
---
-ALTER TABLE `tb_user`
-  MODIFY `inc_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `setting_level`
+  MODIFY `inc_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
