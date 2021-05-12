@@ -127,6 +127,7 @@
   <script src="<?= base_url() ?>/public/assets/js/user.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/siswa.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/profile.js"></script>
+  <script src="<?= base_url() ?>/public/assets/js/setting.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/app.js"></script>
   <script>
     var BASE_URL = "<?= base_url(); ?>";

@@ -142,3 +142,103 @@ CRITICAL - 2021-05-12 10:10:50 --> Undefined variable: submenu
 #10 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #11 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
 #12 {main}
+CRITICAL - 2021-05-12 10:47:57 --> Column 'id_level' in where clause is ambiguous
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `mast...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `mast...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `mast...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `mast...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/SettingModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(30): App\Models\SettingModel->getMenu('MLV04')
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-12 10:49:07 --> Unknown column 'master_menu.id_level' in 'on clause'
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `mast...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `mast...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `mast...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `mast...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/SettingModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(30): App\Models\SettingModel->getMenu('MLV04')
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-12 10:50:02 --> Unknown column 'master_level.nama_level' in 'field list'
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `mast...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `mast...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `mast...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `mast...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/SettingModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(30): App\Models\SettingModel->getMenu('MLV04')
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-12 10:50:21 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+#0 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(30): App\Models\SettingModel->getMenu('MLV04')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-12 10:52:03 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::findAll()
+#0 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(30): App\Models\SettingModel->getMenu('MLV04')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-12 10:52:52 --> Unknown column 'master_level.nama_level' in 'field list'
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `mast...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `mast...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `mast...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `mast...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/SettingModel.php(23): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(30): App\Models\SettingModel->getMenu('MLV04')
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-12 11:08:57 --> Cannot use object of type stdClass as array
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(525): CodeIgniter\View\View->render('datasetting/add...', NULL, true)
+#2 /Applications/MAMP/htdocs/sipspp/app/Views/datasetting/view_setting.php(55): CodeIgniter\View\View->include('datasetting/add...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('datasetting/vie...', Array, true)
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(36): view('datasetting/vie...', Array)
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-12 11:19:15 --> Duplicate entry '0' for key 'inc_user'
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `tb...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(121): CodeIgniter\Model->insert(Array)
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->simpandata()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-12 11:23:33 --> Undefined property: stdClass::$inc_setting
+#0 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(116): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/M...', 116, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->simpandata()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-12 11:25:09 --> Undefined variable: m_user
+#0 /Applications/MAMP/htdocs/sipspp/app/Controllers/Settingcontroller.php(125): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 125, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Settingcontroller->simpandata()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Settingcontroller))
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
