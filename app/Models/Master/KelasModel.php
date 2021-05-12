@@ -22,7 +22,7 @@ class KelasModel extends Model {
     }
 
     public function getkodekelas($isactive){
-        $query = $this->dt->where('isactive_kelas', $isactive)->get();
+        $query = $this->dt->where('isactive_kelas', $isactive)->orderBy('nama_kelas', 'ASC')->get();
         return $query->getResultArray();
     }
 

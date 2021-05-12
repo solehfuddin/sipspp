@@ -65,12 +65,14 @@ class Siswacontroller extends BaseController
 
                                 $row[] = $no;
 
+                                $tgl = date("d-m-Y", strtotime($list->tanggal_lahir));
+
                                 $row[] = $list->nis;
                                 $row[] = $list->nama_siswa;
                                 $row[] = $list->nama_kelas;
                                 $row[] = $list->jenis_kelamin;
                                 $row[] = $list->tempat_lahir;
-                                $row[] = $list->tanggal_lahir;
+                                $row[] = $tgl;
                                 $row[] = $list->nama_agama;
                                 $row[] = $list->tlp_hp;
                                 $row[] = $list->alamat;
@@ -95,35 +97,6 @@ class Siswacontroller extends BaseController
         }
     }
 
-    public function getdata() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX())
-            {
-                $request = Services::request();
-                $m_user = new UserModel($request);
-
-                $getdata = $m_user->getLastData();
-                $max  = substr($getdata->id_user, 3) + 1;
-                $gen  = "USR" . str_pad($max, 3, 0, STR_PAD_LEFT);
-
-                $data = [
-                    'kodegen' => $gen
-                ];
-
-                echo json_encode($data);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-        }
-    }
-
     public function simpandata() {
         if(!$this->session->get('islogin'))
 		{
@@ -133,14 +106,14 @@ class Siswacontroller extends BaseController
         {
             if ($this->request->isAJAX())
             {
-                if ( $_FILES AND $_FILES['user_photo']['name'] ) 
+                if ( $_FILES AND $_FILES['siswa_photo']['name'] ) 
                 {
                     $validationCheck = $this->validate([
-                        'user_kode' => [
-                            'label' => 'Kode user',
+                        'siswa_nis' => [
+                            'label' => 'Nomor Induk Siswa',
                             'rules' => [
                                 'required',
-                                'is_unique[tb_user.id_user]',
+                                'is_unique[tb_siswa.nis]',
                             ],
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi',
@@ -148,53 +121,21 @@ class Siswacontroller extends BaseController
                             ],
                         ],
     
-                        'user_fname' => [
-                            'label' => 'Nama lengkap',
+                        'siswa_name' => [
+                            'label' => 'Nama siswa',
                             'rules' => 'required',
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi'
                             ],
                         ],
     
-                        'user_uname' => [
-                            'label' => 'Username',
-                            'rules' => [
-                                'required',
-                                'is_unique[tb_user.username]',
-                            ],
-                            'errors' => [
-                                'required' 		=> '{field} wajib terisi',
-                                'is_unique'	    => '{field} tidak boleh sama, coba dengan username yang unik'
-                            ],
-                        ],
-    
-                        'user_pass' => [
-                            'label' => 'Password',
-                            'rules' => 'required',
-                            'errors' => [
-                                'required' 		=> '{field} wajib terisi'
-                            ],
-                        ],
-        
-                        'user_email' => [
-                            'label' => 'Alamat email',
-                            'rules' => [
-                                'required',
-                                'is_unique[tb_user.email]',
-                            ],
-                            'errors' => [
-                                'required' 		=> '{field} wajib terisi',
-                                'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
-                            ],
-                        ],
-    
-                        'user_photo' => [
+                        'siswa_photo' => [
                             'label' => 'Gambar',
                             'rules' => [
-                                'uploaded[user_photo]',
-                                'mime_in[user_photo,image/jpg,image/jpeg,image/gif,image/png]',
-                                'is_image[user_photo]',
-                                'max_size[user_photo,4096]',
+                                'uploaded[siswa_photo]',
+                                'mime_in[siswa_photo,image/jpg,image/jpeg,image/gif,image/png]',
+                                'is_image[siswa_photo]',
+                                'max_size[siswa_photo,4096]',
                             ],
                             'errors' => [
                                 'uploaded'      => '{field} wajib diisi',
@@ -208,11 +149,11 @@ class Siswacontroller extends BaseController
                 else
                 {
                     $validationCheck = $this->validate([
-                        'user_kode' => [
-                            'label' => 'Kode user',
+                        'siswa_nis' => [
+                            'label' => 'Nomor Induk Siswa',
                             'rules' => [
                                 'required',
-                                'is_unique[tb_user.id_user]',
+                                'is_unique[tb_siswa.nis]',
                             ],
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi',
@@ -220,43 +161,11 @@ class Siswacontroller extends BaseController
                             ],
                         ],
     
-                        'user_fname' => [
-                            'label' => 'Nama lengkap',
+                        'siswa_name' => [
+                            'label' => 'Nama siswa',
                             'rules' => 'required',
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi'
-                            ],
-                        ],
-    
-                        'user_uname' => [
-                            'label' => 'Username',
-                            'rules' => [
-                                'required',
-                                'is_unique[tb_user.username]',
-                            ],
-                            'errors' => [
-                                'required' 		=> '{field} wajib terisi',
-                                'is_unique'	    => '{field} tidak boleh sama, coba dengan username yang unik'
-                            ],
-                        ],
-    
-                        'user_pass' => [
-                            'label' => 'Password',
-                            'rules' => 'required',
-                            'errors' => [
-                                'required' 		=> '{field} wajib terisi'
-                            ],
-                        ],
-        
-                        'user_email' => [
-                            'label' => 'Alamat email',
-                            'rules' => [
-                                'required',
-                                'is_unique[tb_user.email]',
-                            ],
-                            'errors' => [
-                                'required' 		=> '{field} wajib terisi',
-                                'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
                             ],
                         ],
                     ]);
@@ -270,65 +179,56 @@ class Siswacontroller extends BaseController
             if (!$validationCheck) {
 				$msg = [
 					'error' => [
-						"user_kode" => $this->validation->getError('user_kode'),
-                        "user_fname" => $this->validation->getError('user_fname'),
-						"user_uname" => $this->validation->getError('user_uname'),
-                        "user_pass" => $this->validation->getError('user_pass'),
-                        "user_email" => $this->validation->getError('user_email'),
-                        "user_photo" => $this->validation->getError('user_photo'),
+						"siswa_nis" => $this->validation->getError('siswa_nis'),
+                        "siswa_name" => $this->validation->getError('siswa_name'),
+						"siswa_photo" => $this->validation->getError('siswa_photo'),
 					]
 				];
 			}
 			else
 			{
-                // if ($this->request->getFile('user_photo') != null)
-                // {
-                if ( $_FILES AND $_FILES['user_photo']['name'] ) 
+                if ( $_FILES AND $_FILES['siswa_photo']['name'] ) 
                 {      
-                    $kode = $this->request->getVar('user_kode');
-                    $gambar = $this->request->getFile('user_photo');
+                    $kode = $this->request->getVar('siswa_nis');
+                    $gambar = $this->request->getFile('siswa_photo');
                     $filename = $kode . '.' . $gambar->getExtension();
     
-                    $gambar->move('public/assets/img/profile/', $filename);
-                    $location = base_url() . '/public/assets/img/profile/thumbs/' . $filename;
+                    $gambar->move('public/assets/img/siswa/', $filename);
+                    $location = base_url() . '/public/assets/img/siswa/thumbs/' . $filename;
                     $this->compressImg($filename);
 
                     $data = [
-                        'id_user' => $this->request->getVar('user_kode'),
-                        'email' => $this->request->getVar('user_email'),
-                        'username' => $this->request->getVar('user_uname'),
-                        'password' => md5($this->request->getVar('user_pass')),
-                        'id_level' => $this->request->getVar('user_level'),
-                        'nama_lengkap' => $this->request->getVar('user_fname'),
-                        'jenis_kelamin' => $this->request->getVar('user_gender'),
-                        'no_hp' => $this->request->getVar('user_phone'),
-                        'id_agama' => $this->request->getVar('user_religion'),
-                        'alamat' => $this->request->getVar('user_address'),
+                        'nis' => $this->request->getVar('siswa_nis'),
+                        'nama_siswa' => $this->request->getVar('siswa_name'),
+                        'tempat_lahir' => $this->request->getVar('siswa_place'),
+                        'tanggal_lahir' => date("Y-m-d", strtotime($this->request->getVar('siswa_born'))),
+                        'id_kelas' => $this->request->getVar('siswa_class'),
+                        'jenis_kelamin' => $this->request->getVar('siswa_gender'),
+                        'tlp_hp' => $this->request->getVar('siswa_phone'),
+                        'id_agama' => $this->request->getVar('siswa_religion'),
+                        'alamat' => $this->request->getVar('siswa_address'),
                         'foto' => $gambar->getName(),
-                        'isactive_user' => $this->request->getVar('user_isactive'),
                     ];
                 }
                 else
                 {
                     $data = [
-                        'id_user' => $this->request->getVar('user_kode'),
-                        'email' => $this->request->getVar('user_email'),
-                        'username' => $this->request->getVar('user_uname'),
-                        'password' => md5($this->request->getVar('user_pass')),
-                        'id_level' => $this->request->getVar('user_level'),
-                        'nama_lengkap' => $this->request->getVar('user_fname'),
-                        'jenis_kelamin' => $this->request->getVar('user_gender'),
-                        'no_hp' => $this->request->getVar('user_phone'),
-                        'id_agama' => $this->request->getVar('user_religion'),
-                        'alamat' => $this->request->getVar('user_address'),
-                        'isactive_user' => $this->request->getVar('user_isactive'),
+                        'nis' => $this->request->getVar('siswa_nis'),
+                        'nama_siswa' => $this->request->getVar('siswa_name'),
+                        'tempat_lahir' => $this->request->getVar('siswa_place'),
+                        'tanggal_lahir' => date("Y-m-d", strtotime($this->request->getVar('siswa_born'))),
+                        'id_kelas' => $this->request->getVar('siswa_class'),
+                        'jenis_kelamin' => $this->request->getVar('siswa_gender'),
+                        'tlp_hp' => $this->request->getVar('siswa_phone'),
+                        'id_agama' => $this->request->getVar('siswa_religion'),
+                        'alamat' => $this->request->getVar('siswa_address'),
                     ];
                 }
                 
                 $request = Services::request();
-                $m_user = new UserModel($request);
+                $m_siswa = new SiswaModel($request);
 
-                $m_user->insert($data);
+                $m_siswa->insert($data);
 
                 $msg = [
                     'success' => [
@@ -344,10 +244,10 @@ class Siswacontroller extends BaseController
 
     function compressImg($filename) {
         $thumbnail = \Config\Services::image()
-        ->withFile('public/assets/img/profile/' . $filename)
+        ->withFile('public/assets/img/siswa/' . $filename)
 		//->withFile(WRITEPATH.'uploads/' . $filename)
         ->fit(350, 350, 'center')
-		->save('public/assets/img/profile/thumbs/' . $filename, 75);
+		->save('public/assets/img/siswa/thumbs/' . $filename, 75);
         //->save(WRITEPATH.'uploads/thumbs/' . $filename, 75);
     }
 
@@ -361,24 +261,22 @@ class Siswacontroller extends BaseController
             if ($this->request->isAJAX()) {
                 $kode = $this->request->getVar('kode');
                 $request = Services::request();
-                $m_user = new UserModel($request);
+                $m_siswa = new SiswaModel($request);
 
-                $item = $m_user->find($kode);
+                $item = $m_siswa->find($kode);
     
                 $data = [
                     'success' => [
-                        'kode' => $item['id_user'],
-                        'fname' => $item['nama_lengkap'],
-                        'email' => $item['email'],
-                        'uname' => $item['username'],
-                        'pass' => $item['password'],
-                        'level' => $item['id_level'],
+                        'kode' => $item['nis'],
+                        'name' => $item['nama_siswa'],
+                        'place' => $item['tempat_lahir'],
+                        'born' => date("m/d/Y", strtotime($item['tanggal_lahir'])),
+                        'class' => $item['id_kelas'],
                         'gender' => $item['jenis_kelamin'],
-                        'hp' => $item['no_hp'],
+                        'hp' => $item['tlp_hp'],
                         'agama' => $item['id_agama'],
                         'alamat' => $item['alamat'],
                         'foto' => $item['foto'],
-                        'is_active' => $item['isactive_user'],
                     ]
                 ];
     
@@ -400,10 +298,10 @@ class Siswacontroller extends BaseController
         {
             if ($this->request->isAJAX())
             {
-                if ( $_FILES AND $_FILES['user_photoubah']['name'] ) 
+                if ( $_FILES AND $_FILES['siswa_photoubah']['name'] ) 
                 {
                     $check = $this->validate([
-                        'user_fnameubah' => [
+                        'siswa_nameubah' => [
                             'label' => 'Nama lengkap',
                             'rules' => 'required',
                             'errors' => [
@@ -411,13 +309,13 @@ class Siswacontroller extends BaseController
                             ],
                         ],
     
-                        'user_photoubah' => [
+                        'siswa_photoubah' => [
                             'label' => 'Gambar',
                             'rules' => [
-                                'uploaded[user_photoubah]',
-                                'mime_in[user_photoubah,image/jpg,image/jpeg,image/gif,image/png]',
-                                'is_image[user_photoubah]',
-                                'max_size[user_photoubah,4096]',
+                                'uploaded[siswa_photoubah]',
+                                'mime_in[siswa_photoubah,image/jpg,image/jpeg,image/gif,image/png]',
+                                'is_image[siswa_photoubah]',
+                                'max_size[siswa_photoubah,4096]',
                             ],
                             'errors' => [
                                 'uploaded'      => '{field} wajib diisi',
@@ -431,7 +329,7 @@ class Siswacontroller extends BaseController
                 else
                 {
                     $check = $this->validate([
-                        'user_fnameubah' => [
+                        'siswa_nameubah' => [
                             'label' => 'Nama lengkap',
                             'rules' => 'required',
                             'errors' => [
@@ -444,44 +342,41 @@ class Siswacontroller extends BaseController
                 if (!$check) {
                     $msg = [
                         'error' => [
-                            "user_fnameubah" => $this->validation->getError('user_fnameubah'),
-                            "user_unameubah" => $this->validation->getError('user_unameubah'),
-                            "user_emailubah" => $this->validation->getError('user_emailubah'),
-                            "user_photoubah" => $this->validation->getError('user_photoubah'),
+                            "siswa_nameubah" => $this->validation->getError('siswa_nameubah'),
+                            "siswa_photoubah" => $this->validation->getError('siswa_photoubah'),
                         ]
                     ];
                 }
                 else
                 {
-                    if ( $_FILES AND $_FILES['user_photoubah']['name'] ) 
+                    if ( $_FILES AND $_FILES['siswa_photoubah']['name'] ) 
                     {   
-                        $kode = $this->request->getVar('user_kodeubah');
-                        $gambar = $this->request->getFile('user_photoubah');
+                        $kode = $this->request->getVar('siswa_nisubah');
+                        $gambar = $this->request->getFile('siswa_photoubah');
                         $filename = $kode . '.' . $gambar->getExtension();
         
-                        $gambar->move('public/assets/img/profile/', $filename);
-                        $location = base_url() . '/public/assets/img/profile/thumbs/' . $filename;
+                        $gambar->move('public/assets/img/siswa/', $filename);
+                        $location = base_url() . '/public/assets/img/siswa/thumbs/' . $filename;
                         $this->compressImg($filename);
                      
                         $data = [
-                            'email' => $this->request->getVar('user_emailubah'),
-                            'username' => $this->request->getVar('user_unameubah'),
-                            'id_level' => $this->request->getVar('user_levelubah'),
-                            'nama_lengkap' => $this->request->getVar('user_fnameubah'),
-                            'jenis_kelamin' => $this->request->getVar('user_genderubah'),
-                            'no_hp' => $this->request->getVar('user_phoneubah'),
-                            'id_agama' => $this->request->getVar('user_religionubah'),
-                            'alamat' => $this->request->getVar('user_addressubah'),
+                            'nama_siswa' => $this->request->getVar('siswa_nameubah'),
+                            'tempat_lahir' => $this->request->getVar('siswa_placeubah'),
+                            'tanggal_lahir' => date("Y-m-d", strtotime($this->request->getVar('siswa_bornubah'))),
+                            'id_kelas' => $this->request->getVar('siswa_classubah'),
+                            'jenis_kelamin' => $this->request->getVar('siswa_genderubah'),
+                            'tlp_hp' => $this->request->getVar('siswa_phoneubah'),
+                            'id_agama' => $this->request->getVar('siswa_religionubah'),
+                            'alamat' => $this->request->getVar('siswa_addressubah'),
                             'foto' => $gambar->getName(),
-                            'isactive_user' => $this->request->getVar('user_isactiveubah'),
                         ];
 
-                        $kode = $this->request->getVar('user_kodeubah');
+                        $kode = $this->request->getVar('siswa_nisubah');
     
                         $request = Services::request();
-                        $m_user = new UserModel($request);
+                        $m_siswa = new SiswaModel($request);
     
-                        $m_user->update($kode, $data);
+                        $m_siswa->update($kode, $data);
         
                         $msg = [
                             'success' => [
@@ -493,23 +388,22 @@ class Siswacontroller extends BaseController
                     else
                     {
                         $data = [
-                            'email' => $this->request->getVar('user_emailubah'),
-                            'username' => $this->request->getVar('user_unameubah'),
-                            'id_level' => $this->request->getVar('user_levelubah'),
-                            'nama_lengkap' => $this->request->getVar('user_fnameubah'),
-                            'jenis_kelamin' => $this->request->getVar('user_genderubah'),
-                            'no_hp' => $this->request->getVar('user_phoneubah'),
-                            'id_agama' => $this->request->getVar('user_religionubah'),
-                            'alamat' => $this->request->getVar('user_addressubah'),
-                            'isactive_user' => $this->request->getVar('user_isactiveubah'),
+                            'nama_siswa' => $this->request->getVar('siswa_nameubah'),
+                            'tempat_lahir' => $this->request->getVar('siswa_placeubah'),
+                            'tanggal_lahir' => date("Y-m-d", strtotime($this->request->getVar('siswa_bornubah'))),
+                            'id_kelas' => $this->request->getVar('siswa_classubah'),
+                            'jenis_kelamin' => $this->request->getVar('siswa_genderubah'),
+                            'tlp_hp' => $this->request->getVar('siswa_phoneubah'),
+                            'id_agama' => $this->request->getVar('siswa_religionubah'),
+                            'alamat' => $this->request->getVar('siswa_addressubah'),
                         ];
 
-                        $kode = $this->request->getVar('user_kodeubah');
+                        $kode = $this->request->getVar('siswa_nisubah');
     
                         $request = Services::request();
-                        $m_user = new UserModel($request);
+                        $m_siswa = new SiswaModel($request);
     
-                        $m_user->update($kode, $data);
+                        $m_siswa->update($kode, $data);
         
                         $msg = [
                             'success' => [

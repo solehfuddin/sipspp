@@ -27,8 +27,7 @@
                 Berisi data siswa yang terdaftar pada sistem informasi SPP
               </p>
               <button type="button" class="btn btn-primary btn-sm mt-3" 
-                      data-toggle="modal" data-target="#modaltambahsiswa" 
-                      onClick="generatekodesiswa()">
+                      data-toggle="modal" data-target="#modaltambahsiswa">
                <i class="fa fa-plus-circle"></i> Tambah Data
               </button>
             </div>
@@ -59,5 +58,6 @@
       </div>
     </div>
 
-    
+    <?= $this->include('datasiswa/add_datasiswa'); ?>
+    <?= $this->include('datasiswa/edit_datasiswa'); ?>
 <?= $this->endSection(); ?>

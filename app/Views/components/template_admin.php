@@ -104,6 +104,7 @@
   <script src="<?= base_url() ?>/public/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/lavalamp/js/jquery.lavalamp.min.js"></script>
   <!-- Optional JS -->
+  <script src="<?= base_url() ?>/public/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>

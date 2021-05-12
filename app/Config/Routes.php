@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 //$routes->get('/', 'Home::index');
 $routes->get('/', 'Login::index');
 $routes->get('/admdashboard', 'Dashboard::index');
+$routes->get('/admprofile', 'Profilecontroller::index');
 $routes->get('/admagama', 'Master/Agamacontroller::index');
 $routes->get('/admkelas', 'Master/Kelascontroller::index');
 $routes->get('/admlevel', 'Master/Levelcontroller::index');

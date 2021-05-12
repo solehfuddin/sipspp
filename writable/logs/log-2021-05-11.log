@@ -5,3 +5,45 @@ CRITICAL - 2021-05-11 03:50:14 --> Undefined property: stdClass::$no_hp
 #3 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2021-05-11 20:55:37 --> Invalid file: datauser/add_datasiswa.php
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('datauser/add_da...')
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(525): CodeIgniter\View\View->render('datauser/add_da...', NULL, true)
+#2 C:\xampp\htdocs\sipspp\app\Views\datasiswa\view_siswa.php(61): CodeIgniter\View\View->include('datauser/add_da...')
+#3 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('datasiswa/view_...', Array, true)
+#5 C:\xampp\htdocs\sipspp\app\Controllers\Siswacontroller.php(33): view('datasiswa/view_...', Array)
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Siswacontroller->index()
+#7 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswacontroller))
+#8 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-11 21:33:54 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-11 22:35:36 --> Undefined variable: levelcode
+#0 C:\xampp\htdocs\sipspp\app\Views\view_profile.php(67): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 67, Array)
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('view_profile', Array, true)
+#3 C:\xampp\htdocs\sipspp\app\Controllers\Profilecontroller.php(27): view('view_profile', Array)
+#4 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Profilecontroller->index()
+#5 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profilecontroller))
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-11 22:36:44 --> Undefined variable: agamacode
+#0 C:\xampp\htdocs\sipspp\app\Views\view_profile.php(99): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 99, Array)
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('view_profile', Array, true)
+#3 C:\xampp\htdocs\sipspp\app\Controllers\Profilecontroller.php(27): view('view_profile', Array)
+#4 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Profilecontroller->index()
+#5 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profilecontroller))
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

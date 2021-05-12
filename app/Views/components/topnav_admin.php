@@ -210,7 +210,7 @@
                 <div class="dropdown-header noti-title">
                   <h6 class="text-overflow m-0"><?= $session->get('namalevel'); ?></h6>
                 </div>
-                <a href="#!" class="dropdown-item">
+                <a href="<?= site_url('admprofile') ?>" class="dropdown-item">
                   <i class="ni ni-single-02"></i>
                   <span>My profile</span>
                 </a>
