@@ -1,0 +1,7 @@
+CRITICAL - 2021-05-16 11:13:18 --> Too few arguments to function App\Models\SiswaModel::__construct(), 0 passed in /Applications/MAMP/htdocs/sipspp/app/Controllers/Pembayarancontroller.php on line 115 and exactly 1 expected
+#0 /Applications/MAMP/htdocs/sipspp/app/Controllers/Pembayarancontroller.php(115): App\Models\SiswaModel->__construct()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Pembayarancontroller->listSiswa()
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayarancontroller))
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

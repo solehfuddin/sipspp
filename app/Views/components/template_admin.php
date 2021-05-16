@@ -47,8 +47,14 @@
 
   <!-- Argon CSS -->
   <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/argon.min-v=1.0.0.css" type="text/css">
+   <!-- jQuery UI CSS -->
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <!-- Google Tag Manager -->
   <!-- End Google Tag Manager -->
+  <style>
+    .ui-autocomplete .ui-menu-item
+    { font-size: small;}
+  </style>
 </head>
 
 <body>
@@ -98,6 +104,8 @@
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="<?= base_url() ?>/public/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <!-- jQuery UI JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/js-cookie/js.cookie.js"></script>
   <script src="<?= base_url() ?>/public/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>

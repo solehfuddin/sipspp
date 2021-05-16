@@ -42,6 +42,7 @@ class BaseController extends Controller
 		// E.g.:
 		$this->session = \Config\Services::session();
 		$this->validation = \Config\Services::validation();
+		date_default_timezone_set('Asia/Jakarta');
 
 		// $this->infotypemodel = new \App\Models\Information\TypeModel();
 		// $this->infocategorymodel = new \App\Models\Information\CategoryModel();

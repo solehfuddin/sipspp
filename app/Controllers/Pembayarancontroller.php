@@ -2,11 +2,9 @@
 namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\PembayaranModel;
-use App\Models\MenuModel;
+use App\Models\SiswaModel;
 use App\Models\SubmenuModel;
 use App\Models\SettingModel;
-use App\Models\Master\AgamaModel;
-use App\Models\Master\LevelModel;
 use Config\Services;
 
 class Pembayarancontroller extends BaseController
@@ -97,10 +95,7 @@ class Pembayarancontroller extends BaseController
             {
                 $request = Services::request();
                 $m_spp = new PembayaranModel($request);
-
-                $getdata = $m_spp->getLastData();
-                $max  = substr($getdata->id_user, 3) + 1;
-                $gen  = "USR" . str_pad($max, 3, 0, STR_PAD_LEFT);
+                $gen  = "KWT" . date('dmyhis');
 
                 $data = [
                     'kodegen' => $gen
@@ -114,6 +109,56 @@ class Pembayarancontroller extends BaseController
             }
         }
     }
+
+    public function listSiswa()
+	{
+        $request = Services::request();
+		$model = new SiswaModel($request);
+		$id = $request->getVar('term');
+		$siswa = $model->like('nama_siswa', $id)->findAll();
+		$w = array();
+		foreach($siswa as $rt):
+			$w[] = [
+				"label" => $rt['nis'],
+				"value" => $rt['nama_siswa']
+			];
+			
+		endforeach; 
+		echo json_encode($w);		
+	}	
+
+    public function getSiswa(){
+
+        $request = Services::request();
+        $postData = $request->getPost();
+  
+        $response = array();
+
+        $data = array();
+  
+        if(isset($postData['search'])){
+  
+           $search = $postData['search'];
+  
+           // Fetch record
+           $users = new SiswaModel($request);
+           $userlist = $users->select('*')
+                  ->like('nama_siswa',$search)
+                  ->orderBy('nama_siswa')
+                  ->findAll(5);
+           foreach($userlist as $user){
+               $data[] = array(
+                  "value" => $user['nis'],
+                  "label" => $user['nama_siswa'],
+               );
+           }
+        }
+  
+        $response['data'] = $data;
+  
+        return $this->response->setJSON($response);
+  
+     }
 
     public function simpandata() {
         if(!$this->session->get('islogin'))

@@ -12,7 +12,7 @@
         <?= form_open_multipart('pembayarancontroller/simpandata', ['class' => 'formModaltambahpembayaran']); ?>
         <?= csrf_field(); ?>
 
-        <div class="modal-body">
+        <div class="modal-body ui-front">
                 <div class="form-group">
                   <label for="kode-infocategory-input" class="form-control-label">Kode Pembayaran</label>
                   <input class="form-control" type="text"  placeholder="KWT160521092021" 
@@ -22,24 +22,24 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="nama-infocategory-input" class="form-control-label">Nama Siswa *</label>
-                  <input class="form-control" type="text" placeholder="Abdul Rahman" 
+                  <label for="nama-infocategory-input" class="form-control-label">Cari NIS berdasarkan nama siswa</label>
+                  <input class="form-control" type="text" placeholder="Desti Handayani" 
                         name="pembayaran_search" id="pembayaran_search" />
                   <!-- Error Validation -->
                   <div class="invalid-feedback bg-secondary errorpembayaranSearch">testte</div>
                 </div>
 
                 <div class="form-group">
-                  <label for="nama-infocategory-input" class="form-control-label">Nomor Induk Siswa *</label>
-                  <input class="form-control" type="text" placeholder="abdul" 
-                        name="pembayaran_nis" id="pembayaran_nis" />
+                  <label for="nama-infocategory-input" class="form-control-label">Masukkan Nomor Induk Siswa *</label>
+                  <input class="form-control" type="text" placeholder="2021586711" 
+                        name="pembayaran_nis" id="pembayaran_nis"/>
                   <!-- Error Validation -->
                   <div class="invalid-feedback bg-secondary errorpembayaranNis">testte</div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama-infocategory-input" class="form-control-label">Jumlah Bayar *</label>
-                  <input class="form-control" type="text" placeholder="abdul.rahman77@gmail.com" 
+                  <input class="form-control" type="text" placeholder="Rp. 500.000" 
                         name="pembayaran_biaya" id="pembayaran_biaya" />
                   <!-- Error Validation -->
                   <div class="invalid-feedback bg-secondary errorpembayaranBiaya">testte</div>
