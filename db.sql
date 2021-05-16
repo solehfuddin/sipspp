@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 12 Bulan Mei 2021 pada 15.15
+-- Waktu pembuatan: 16 Bulan Mei 2021 pada 13.51
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -189,13 +189,21 @@ INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_s
 CREATE TABLE `tb_pembayaran` (
   `inc_pembayaran` int(3) NOT NULL,
   `kode_pembayaran` varchar(15) NOT NULL,
-  `tanggal_bayar` date NOT NULL,
+  `jumlah_bayar` int(11) NOT NULL,
   `insert_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nis` int(20) NOT NULL,
   `id_user` varchar(10) NOT NULL,
   `tagihan_bulan` int(2) NOT NULL,
-  `status` int(1) NOT NULL COMMENT '1 : Belum Bayar, 2 : Lunas'
+  `tagihan_tahun` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`inc_pembayaran`, `kode_pembayaran`, `jumlah_bayar`, `insert_date`, `nis`, `id_user`, `tagihan_bulan`, `tagihan_tahun`) VALUES
+(2, 'KWT160521010616', 350000, '2021-05-16 06:07:00', 2021586715, 'USR004', 5, '2021'),
+(1, 'KWT160521092021', 300000, '2021-05-16 02:08:04', 2021586712, 'USR004', 5, '2021');
 
 -- --------------------------------------------------------
 
@@ -257,7 +265,7 @@ INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `
 (1, 'USR001', 'solehfudin@trl.co.id', 'soleh', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'Solehfuddin', 'Laki-laki', '085710035900', 'MAG001', 'Kp Rawa Badung Jakarta Timur', 'USR001_4.png', 1),
 (2, 'USR002', 'abdul.muis87@gmail.com', 'abdul_muis', 'e10adc3949ba59abbe56e057f20f883e', 'MLV03', 'Abdul Muis', 'Laki-laki', '', 'MAG001', 'Jalan kesehatan no 7 Jakarta Pusat', 'USR002_1.jpg', 1),
 (3, 'USR003', 'suparta@trl.co', 'suparta', 'a45958517604f5cd90d6ee51ad9cfdb6', 'MLV02', 'Suparta', 'Laki-laki', '', 'MAG001', 'Test', 'USR003_3.jpg', 1),
-(0, 'USR004', 'ita@trl.co.id', 'ita', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Ita rosita', 'Perempuan', '', 'MAG001', 'Jalan rawa buntu no 15 Jakarta', 'default.png', 1);
+(4, 'USR004', 'ita@trl.co.id', 'ita', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Ita rosita', 'Perempuan', '', 'MAG001', 'Jalan rawa buntu no 15 Jakarta', 'default.png', 1);
 
 --
 -- Indexes for dumped tables
@@ -332,3 +340,9 @@ ALTER TABLE `tb_user`
 --
 ALTER TABLE `setting_level`
   MODIFY `inc_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
+--
+ALTER TABLE `tb_pembayaran`
+  MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

@@ -48,4 +48,55 @@ class BaseController extends Controller
 		// $this->infocategorymodel = new \App\Models\Information\CategoryModel();
 	}
 
+	public function getMonth($month)
+    {
+        switch ($month) {
+            case '1':
+                return "Januari";
+                break;
+            case '2':
+                return "Pebruari";
+                break;
+
+            case '3':
+                return "Maret";
+                break;
+
+            case '4':
+                return "April";
+                break;
+
+            case '5':
+                return "Mei";
+                break;
+
+            case '6':
+                return "Juni";
+                break;
+
+            case '7':
+                return "Juli";
+                break;
+
+            case '8':
+                return "Agustus";
+                break;
+
+            case '9':
+                return "September";
+                break;
+
+            case '10':
+                return "Oktober";
+                break;
+
+            case '11':
+                return "Nopember";
+                break;
+
+            default:
+                return "Desember";
+                break;
+        }
+    }
 }

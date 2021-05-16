@@ -180,7 +180,7 @@ $(document).ready(function() {
 });
 
 //Fungsi select data 
-function edituser($kode) {
+function cetakKwitansi($kode) {
     var url = "/usercontroller/pilihdata";
     $.ajax({
         url: BASE_URL + url,

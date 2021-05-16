@@ -42,6 +42,7 @@ $routes->get('/admuser', 'Usercontroller::index');
 $routes->get('/admsiswa', 'Siswacontroller::index');
 $routes->get('/admsetting', 'Settingcontroller::index');
 $routes->get('/admpembayaran', 'Pembayarancontroller::index');
+$routes->get('/admlaporan', 'Laporancontroller::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

@@ -15,3 +15,25 @@ CRITICAL - 2021-05-16 00:44:46 --> syntax error, unexpected ';', expecting ']'
 #6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2021-05-16 14:49:00 --> Division by zero
+#0 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Mpdf.php(19947): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Division by zer...', '/Applications/M...', 19947, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Tag/Table.php(673): Mpdf\Mpdf->_tableColumnWidth(Array, true)
+#2 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Tag.php(247): Mpdf\Tag\Table->close(Array, 185)
+#3 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Mpdf.php(13677): Mpdf\Tag->CloseTag('TABLE', Array, 185)
+#4 /Applications/MAMP/htdocs/sipspp/app/Controllers/Pembayarancontroller.php(235): Mpdf\Mpdf->WriteHTML(' {% for k in co...')
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Pembayarancontroller->cetakResi()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayarancontroller))
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-16 14:49:51 --> Division by zero
+#0 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Mpdf.php(19947): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Division by zer...', '/Applications/M...', 19947, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Tag/Table.php(673): Mpdf\Mpdf->_tableColumnWidth(Array, true)
+#2 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Tag.php(247): Mpdf\Tag\Table->close(Array, 185)
+#3 /Applications/MAMP/htdocs/sipspp/vendor/mpdf/mpdf/src/Mpdf.php(13677): Mpdf\Tag->CloseTag('TABLE', Array, 185)
+#4 /Applications/MAMP/htdocs/sipspp/app/Controllers/Pembayarancontroller.php(235): Mpdf\Mpdf->WriteHTML(' {% for k in co...')
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Pembayarancontroller->cetakResi()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayarancontroller))
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

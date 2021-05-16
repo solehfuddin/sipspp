@@ -137,6 +137,7 @@
   <script src="<?= base_url() ?>/public/assets/js/profile.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/setting.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/pembayaran.js"></script>
+  <script src="<?= base_url() ?>/public/assets/js/laporan.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/app.js"></script>
   <script>
     var BASE_URL = "<?= base_url(); ?>";

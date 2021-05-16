@@ -50,7 +50,7 @@ class Pembayarancontroller extends BaseController
                                 $row = [];
 
                                 $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditinfocategory\"
-                                                onclick=\"edituser('" .$list->kode_pembayaran. "')\">
+                                                onclick=\"cetakKwitansi('" .$list->kode_pembayaran. "')\">
                                                 <i class=\"fa fa-print\"></i></button>";
 
                                 $row[] = $no;
@@ -60,7 +60,7 @@ class Pembayarancontroller extends BaseController
                                 $row[] = $list->nama_kelas;
                                 $row[] = "<span style='color:#f5365c;'> Rp " . number_format($list->jumlah_bayar, 0, ',', '.') . "</span";
                                 $row[] = date("d-m-Y h:m:s", strtotime($list->insert_date));
-                                $row[] = $list->tagihan_bulan;
+                                $row[] = $this->getMonth($list->tagihan_bulan);
                                 $row[] = $list->tagihan_tahun;
                                 $row[] = $list->nama_lengkap;
                                 $row[] = $tomboledit;
@@ -226,6 +226,17 @@ class Pembayarancontroller extends BaseController
 
             echo json_encode($msg);
         }
+    }
+
+    public function cetakResi()
+    {
+        $mpdf = new \Mpdf\Mpdf();
+        $html = view('datapembayaran/view_kwitansi',[]);
+        $mpdf->WriteHTML($html);
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $mpdf->Output('arjun.pdf','I'); // opens in browser
+        //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+        //return view('welcome_message');
     }
 
     public function pilihdata() {
