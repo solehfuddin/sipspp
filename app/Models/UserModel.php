@@ -10,8 +10,8 @@ class UserModel extends Model {
                                 'jenis_kelamin', 'no_hp', 'id_agama', 'alamat', 'foto', 'isactive_user'];
     protected $column_order = array('', 'nama_lengkap', 'email', 'username', 'nama_level',
                                         'jenis_kelamin', 'no_hp', 'nama_agama', 'alamat', 'isactive_user', '');
-    protected $column_search = array('nama_lengkap', 'email', 'username', 'nama_level', 
-                                     'jenis_kelamin', 'no_hp', 'nama_agama', 'alamat', 'isactive_user');
+    protected $column_search = array('nama_lengkap', 'email', 'username', 'jenis_kelamin', 'no_hp', 
+                                        'alamat', 'isactive_user');
     protected $order = array('nama_lengkap' => 'asc');
     protected $request;
     protected $db;

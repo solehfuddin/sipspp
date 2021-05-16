@@ -3,16 +3,15 @@ namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class SiswaModel extends Model {
-    protected $table = 'tb_siswa';
-    protected $primaryKey = 'nis';
-    protected $allowedFields = ['nis', 'nama_siswa', 'tempat_lahir', 'tanggal_lahir', 'id_kelas', 
-                                'jenis_kelamin', 'tlp_hp', 'id_agama', 'alamat', 'foto'];
-    protected $column_order = array('', 'nis', 'nama_siswa', 'nama_kelas', 'jenis_kelamin', 'tempat_lahir',
-                                        'tanggal_lahir', 'nama_agama', 'tlp_hp', 'alamat', '');
-    protected $column_search = array('nis', 'nama_siswa', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 
-                                        'tlp_hp', 'alamat');
-    protected $order = array('nis' => 'asc');
+class PembayaranModel extends Model {
+    protected $table = 'tb_pembayaran';
+    protected $primaryKey = 'kode_pembayaran';
+    protected $allowedFields = ['kode_pembayaran', 'jumlah_bayar', 'nis', 'insert_date', 'id_user', 'tagihan_bulan', 
+                                'tagihan_tahun'];
+    protected $column_order = array('', 'nis', 'nama_siswa', 'nama_kelas', 'jumlah_bayar', 'insert_date',
+                                        'tagihan_bulan', 'tagihan_tahun', 'nama_lengkap', '');
+    protected $column_search = array('tb_pembayaran.nis', 'jumlah_bayar', 'insert_date', 'tagihan_bulan', 'tagihan_tahun');
+    protected $order = array('insert_date' => 'desc');
     protected $request;
     protected $db;
     protected $dt;
@@ -22,9 +21,24 @@ class SiswaModel extends Model {
         $this->db = db_connect();
         $this->request = $request;
         $this->dt = $this->db->table($this->table)
-                             ->select('*, master_kelas.nama_kelas, master_agama.nama_agama')
+                             ->select('*, tb_siswa.nama_siswa, master_kelas.nama_kelas, tb_user.nama_lengkap')
+                             ->join('tb_siswa', 'tb_pembayaran.nis = tb_siswa.nis')
                              ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
-                             ->join('master_agama', 'tb_siswa.id_agama = master_agama.id_agama');
+                             ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user');
+    }
+
+    public function checkusername($kode){
+        return $this->where(['username' => $kode])->find();
+    }
+
+    public function checkemail($kode){
+        return $this->where(['email' => $kode])->find();
+    }
+
+    public function getLastData() {
+        $query = $this->dt->orderBy('inc_user', 'DESC')->limit(1)->get();
+
+        return $query->getRow();
     }
 
     private function _get_datatables_query(){
