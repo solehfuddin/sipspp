@@ -41,6 +41,8 @@
                   <label for="nama-infocategory-input" class="form-control-label">Jumlah Bayar *</label>
                   <input class="form-control" type="text" placeholder="Rp. 500.000" 
                         name="pembayaran_biaya" id="pembayaran_biaya" />
+                  <input class="form-control" type="hidden" placeholder="Rp. 500.000" 
+                        name="pembayaran_biayatmp" id="pembayaran_biayatmp"/>
                   <!-- Error Validation -->
                   <div class="invalid-feedback bg-secondary errorpembayaranBiaya">testte</div>
                 </div>
