@@ -16,7 +16,7 @@ class LaporanModel extends Model {
     protected $db;
     protected $dt;
 
-    function __construct(RequestInterface $request){
+    function __construct(RequestInterface $request, $startdate, $enddate){
         parent::__construct();
         $this->db = db_connect();
         $this->request = $request;
@@ -24,7 +24,9 @@ class LaporanModel extends Model {
                              ->select('*, tb_siswa.nama_siswa, master_kelas.nama_kelas, tb_user.nama_lengkap')
                              ->join('tb_siswa', 'tb_pembayaran.nis = tb_siswa.nis')
                              ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
-                             ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user');
+                             ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user')
+                             ->where('insert_date > ', $startdate . ' 00:00:00')
+                             ->where('insert_date < ', $enddate . ' 23:59:59');
     }
 
     public function checkusername($kode){
@@ -39,6 +41,16 @@ class LaporanModel extends Model {
         $query = $this->dt->orderBy('inc_user', 'DESC')->limit(1)->get();
 
         return $query->getRow();
+    }
+
+    function getDataFilter($datest, $dateed){
+        return $this->db->table($this->table)
+                        ->select('*, tb_siswa.nama_siswa, master_kelas.nama_kelas, tb_user.nama_lengkap')
+                        ->join('tb_siswa', 'tb_pembayaran.nis = tb_siswa.nis')
+                        ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
+                        ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user')
+                        ->WHERE('insert_date >=', $datest . ' 00:00:00')
+                        ->WHERE('insert_date <=', $dateed . ' 23:59:59')->get()->getResultArray();
     }
 
     private function _get_datatables_query(){
@@ -75,13 +87,16 @@ class LaporanModel extends Model {
         return $query->getResult();
     }
 
-    function count_filtered(){
+    function count_filtered($startdate, $enddate){
         $this->_get_datatables_query();
-        return $this->dt->countAllResults();
+        return $this->dt->where('insert_date > ', $startdate . ' 00:00:00')
+                        ->where('insert_date < ', $enddate . ' 23:59:59')->countAllResults();
     }
 
-    public function count_all(){
-        $tbl_storage = $this->db->table($this->table);
+    public function count_all($startdate, $enddate){
+        $tbl_storage = $this->db->table($this->table)
+                                ->where('insert_date > ', $startdate . ' 00:00:00')
+                                ->where('insert_date < ', $enddate . ' 23:59:59');
         return $tbl_storage->countAllResults();
     }
 }
