@@ -3,7 +3,7 @@ namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class PembayaranModel extends Model {
+class PembayaranMonthModel extends Model {
     protected $table = 'tb_pembayaran';
     protected $primaryKey = 'kode_pembayaran';
     protected $allowedFields = ['kode_pembayaran', 'jumlah_bayar', 'nis', 'insert_date', 'id_user', 'tagihan_bulan', 
@@ -16,7 +16,7 @@ class PembayaranModel extends Model {
     protected $db;
     protected $dt;
 
-    function __construct(RequestInterface $request){
+    function __construct(RequestInterface $request, $month, $year){
         parent::__construct();
         $this->db = db_connect();
         $this->request = $request;
@@ -24,7 +24,9 @@ class PembayaranModel extends Model {
                              ->select('*, tb_siswa.nama_siswa, master_kelas.nama_kelas, tb_user.nama_lengkap')
                              ->join('tb_siswa', 'tb_pembayaran.nis = tb_siswa.nis')
                              ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
-                             ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user');
+                             ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user')
+                             ->where(['tagihan_bulan' => $month])
+                             ->where(['tagihan_tahun' => $year]);
     }
 
     public function checkusername($kode){
@@ -39,29 +41,6 @@ class PembayaranModel extends Model {
         $query = $this->dt->orderBy('inc_user', 'DESC')->limit(1)->get();
 
         return $query->getRow();
-    }
-
-    public function sumPaymentThisMonth($month, $year) {
-        $query = $this->dt->selectSum('jumlah_bayar')
-                          ->where(['tagihan_bulan' => $month])
-                          ->where(['tagihan_tahun' => $year])
-                          ->get();
-
-        return $query->getRow();
-    }
-
-    public function sumPaymentTotal() {
-        $query = $this->dt->selectSum('jumlah_bayar')->get();
-
-        return $query->getRow();
-    }
-
-    public function sumYear() {
-        $query = $this->dt->select('tagihan_tahun, SUM(jumlah_bayar) AS total')
-                          ->groupBy('tagihan_tahun')
-                          ->get();
-
-        return $query->getResult();
     }
 
     private function _get_datatables_query(){
@@ -98,13 +77,17 @@ class PembayaranModel extends Model {
         return $query->getResult();
     }
 
-    function count_filtered(){
+    function count_filtered($month, $year){
         $this->_get_datatables_query();
-        return $this->dt->countAllResults();
+        return $this->dt->where(['tagihan_bulan' => $month])
+                        ->where(['tagihan_tahun' => $year])
+                        ->countAllResults();
     }
 
-    public function count_all(){
-        $tbl_storage = $this->db->table($this->table);
+    public function count_all($month, $year){
+        $tbl_storage = $this->db->table($this->table)
+                                ->where(['tagihan_bulan' => $month])
+                                ->where(['tagihan_tahun' => $year]);
         return $tbl_storage->countAllResults();
     }
 }

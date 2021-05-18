@@ -606,7 +606,7 @@ var BarStackedChart = function() {
                     labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                     datasets: [{
                         label: "Sales",
-                        data: [25, 20, 30, 22, 17, 29]
+                        data: [250, 200, 300, 220, 170, 290]
                     }]
                 }
             });
