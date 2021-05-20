@@ -35,6 +35,15 @@ class PembayaranModel extends Model {
         return $this->where(['email' => $kode])->find();
     }
 
+    public function checkbykode($kode){
+        return $this->db->table($this->table)
+                        ->select('*, tb_siswa.nama_siswa, master_kelas.nama_kelas, tb_user.nama_lengkap')
+                        ->join('tb_siswa', 'tb_pembayaran.nis = tb_siswa.nis')
+                        ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
+                        ->join('tb_user', 'tb_pembayaran.id_user = tb_user.id_user')
+                        ->where(['tb_pembayaran.kode_pembayaran' => $kode])->get()->getRow();
+    }
+
     public function getLastData() {
         $query = $this->dt->orderBy('inc_user', 'DESC')->limit(1)->get();
 

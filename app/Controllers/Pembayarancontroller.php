@@ -49,9 +49,13 @@ class Pembayarancontroller extends BaseController
                                 $no++;
                                 $row = [];
 
-                                $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditinfocategory\"
-                                                onclick=\"cetakKwitansi('" .$list->kode_pembayaran. "')\">
-                                                <i class=\"fa fa-print\"></i></button>";
+                                // $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditinfocategory\"
+                                //                 onclick=\"cetakKwitansi('" .$list->kode_pembayaran. "')\">
+                                //                 <i class=\"fa fa-print\"></i></button>";
+
+                                $tomboledit = "<a href=" . site_url('pembayarancontroller/cetakResi/') . $list->kode_pembayaran .
+                                                " class=\"btn btn-warning btn-sm\" target=\"_blank\">
+                                                <i class=\"fa fa-print\"></i></button></a>";
 
                                 $row[] = $no;
                                 
@@ -228,13 +232,22 @@ class Pembayarancontroller extends BaseController
         }
     }
 
-    public function cetakResi()
+    public function cetakResi($no)
     {
         $mpdf = new \Mpdf\Mpdf();
-        $html = view('datapembayaran/view_kwitansi',[]);
+        $request = Services::request();
+        $m_spp  = new PembayaranModel($request);
+
+        $dt = $m_spp->checkbykode($no);
+
+        $data = array('data' => $dt);
+
+        $html = view('datapembayaran/view_kwitansi', $data);
+        $nama = "kwitansi-" . $no . ".pdf";
+        
         $mpdf->WriteHTML($html);
         $this->response->setHeader('Content-Type', 'application/pdf');
-        $mpdf->Output('arjun.pdf','I'); // opens in browser
+        $mpdf->Output($nama,'I'); // opens in browser
         //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
         //return view('welcome_message');
     }

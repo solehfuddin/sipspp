@@ -79,3 +79,56 @@ CRITICAL - 2021-05-18 16:37:13 --> Undefined variable: nama_tagihan
 #7 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #8 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
 #9 {main}
+CRITICAL - 2021-05-18 21:36:48 --> Unable to connect to the database.
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /Applications/MAMP/htdocs/sipspp/app/Models/LoginModel.php(11): CodeIgniter\Model->find()
+#4 /Applications/MAMP/htdocs/sipspp/app/Controllers/Login.php(65): App\Models\LoginModel->login('suparta@trl.co')
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->auth()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-18 21:37:23 --> In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sip_spp.tb_pembayaran.inc_pembayaran'; this is incompatible with sql_mode=only_full_group_by
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `tb_s...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `tb_s...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `tb_s...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `tb_s...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/PembayaranModel.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(28): App\Models\PembayaranModel->sumPaymentTotal()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-18 21:39:38 --> In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sip_spp.tb_pembayaran.inc_pembayaran'; this is incompatible with sql_mode=only_full_group_by
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `tb_s...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `tb_s...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `tb_s...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `tb_s...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/PembayaranModel.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(28): App\Models\PembayaranModel->sumPaymentTotal()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-18 21:45:34 --> syntax error, unexpected '"'
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('view_dashboard', Array, true)
+#1 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(41): view('view_dashboard', Array)
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-05-18 22:03:43 --> Undefined variable: info
+#0 /Applications/MAMP/htdocs/sipspp/app/Views/datapembayaran/view_kwitansi.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/M...', 43, Array)
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/View/View.php(246): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('datapembayaran/...', Array, true)
+#3 /Applications/MAMP/htdocs/sipspp/app/Controllers/Pembayarancontroller.php(234): view('datapembayaran/...', Array)
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Pembayarancontroller->cetakResi()
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayarancontroller))
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

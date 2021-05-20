@@ -31,6 +31,8 @@ $(document).ready( function () {
 var foopart = $('#fooo').val().split(",");
 var loopart = $('#looo').val().split(",");
 
+// var fooarr  = Array.from($('#fooo').val());
+
 BarsChart = (SalesChart = function() {
     var e, a, t = $("#chart-sales");
     t.length && (e = t, a = new Chart(e, {
@@ -62,12 +64,14 @@ BarsChart = (SalesChart = function() {
                 data: {
                     // labels: ["2019", "2020", "2021", "2022", "2023"],
                     // labels: ['2020', '2021', ],
-                    labels: [foopart[0], foopart[1]],
+                    // labels: [foopart[0], foopart[1]],
+                    labels: foopart,
                     datasets: [{
                         label: "Jumlah",
                         // data: [300000, 650000, ]
                         // data: [0, 20000000, 30000000, 22000000, 17000000]
-                        data: [loopart[0], loopart[1]]
+                        // data: [loopart[0], loopart[1]]
+                        data: loopart
                     }]
                 }
             });

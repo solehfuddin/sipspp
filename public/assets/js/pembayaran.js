@@ -181,7 +181,7 @@ $(document).ready(function() {
 
 //Fungsi select data 
 function cetakKwitansi($kode) {
-    var url = "/usercontroller/pilihdata";
+    var url = "/pembayarancontroller/cetakresi";
     $.ajax({
         url: BASE_URL + url,
         type: "post",
@@ -190,33 +190,7 @@ function cetakKwitansi($kode) {
         },
         dataType: "JSON",
         success: function(response) {
-            $('#user_kodeubah').val(response.success.kode);
-            $('#user_fnameubah').val(response.success.fname);
-            $('#user_levelubah').val(response.success.level);
-            $('#user_unameubah').val(response.success.uname);
-            $('#user_genderubah').val(response.success.gender);
-            $('#user_emailubah').val(response.success.email);
-            $('#user_phoneubah').val(response.success.hp);
-            $('#user_religionubah').val(response.success.agama);
-            $('#user_addressubah').val(response.success.alamat);
-            $('#user_photoubah').val('');
-
-            if (response.success.is_active == 1)
-            {
-                $('#user_isactiveubah').prop("checked", true);
-            }
-            else
-            {
-                $('#user_isactiveubah').prop("checked", false);
-            }
-
-            $('#user_fnameubah').removeClass('is-invalid');
-            $('.erroruserFnameubah').html('');
-
-            $('#user_photoubah').removeClass('is-invalid');
-            $('.erroruserPhotoubah').html('');
-
-            $('#modalubahuser').modal('show');
+           
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);

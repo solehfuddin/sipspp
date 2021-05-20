@@ -167,17 +167,17 @@
                   foreach ($datayear as $item)
                   {
                       $tagihan = $item->tagihan_tahun;
-                      $nama_tagihan .= "'$tagihan'". ", ";
+                      $nama_tagihan .= "Tahun " . $tagihan . ',';
                       $jum=$item->total;
-                      $jumlah .= "$jum". ", ";
+                      $jumlah .= "$jum". ",";
                   }
                   
                   // echo $nama_tagihan;
                   // echo $jumlah;
                   ?>
 
-                  <input type="text" class="fooo" id="fooo" value="<?= $nama_tagihan ?>"/>
-                  <input type="text" class="looo" id="looo" value="<?= $jumlah ?>"/>
+                  <input type="hidden" class="fooo" id="fooo" value="<?= $nama_tagihan ?>"/>
+                  <input type="hidden" class="looo" id="looo" value="<?= $jumlah ?>"/>
                   
                 </div>
               </div>
