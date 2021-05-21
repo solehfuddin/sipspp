@@ -23,6 +23,7 @@ class Laporancontroller extends BaseController
         {
             $request = Services::request();
             $settingModel = new SettingModel($request);
+            $submenuModel = new SubmenuModel($request);
 		    $session = \Config\Services::session();
 
             $stdate = date("m/01/Y");
@@ -30,6 +31,7 @@ class Laporancontroller extends BaseController
 
             $data = [
                 'custommenu' => $settingModel->getMenu($session->get('idlevel')),
+                'submenu' => $submenuModel->submenu(),
                 'start_date' => $stdate,
 				'end_date' => $eddate,
             ];

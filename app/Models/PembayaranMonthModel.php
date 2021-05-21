@@ -8,7 +8,7 @@ class PembayaranMonthModel extends Model {
     protected $primaryKey = 'kode_pembayaran';
     protected $allowedFields = ['kode_pembayaran', 'jumlah_bayar', 'nis', 'insert_date', 'id_user', 'tagihan_bulan', 
                                 'tagihan_tahun'];
-    protected $column_order = array('', 'nis', 'nama_siswa', 'nama_kelas', 'jumlah_bayar', 'insert_date',
+    protected $column_order = array('', 'tb_pembayaran.nis', 'nama_siswa', 'nama_kelas', 'jumlah_bayar', 'insert_date',
                                         'tagihan_bulan', 'tagihan_tahun', 'nama_lengkap', '');
     protected $column_search = array('tb_pembayaran.nis', 'jumlah_bayar', 'insert_date', 'tagihan_bulan', 'tagihan_tahun');
     protected $order = array('insert_date' => 'desc');

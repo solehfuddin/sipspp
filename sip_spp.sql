@@ -83,7 +83,7 @@ CREATE TABLE `master_level` (
   `isactive_level` int(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`inc_level`,`id_level`),
   UNIQUE KEY `inc_level` (`inc_level`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `master_level` */
 
@@ -92,7 +92,8 @@ insert  into `master_level`(`inc_level`,`id_level`,`nama_level`,`deskripsi_level
 (2,'MLV02','Kepala Sekolah','Melihat laporan spp yang sudah dibayarkan baik harian, bulanan maupun tahunan',1),
 (3,'MLV03','Admin','Dapat mengakses data siswa serta mendaftarkan user baru',1),
 (4,'MLV04','IT Administrator','Full akses',1),
-(6,'MLV05','Guru','Guru hanya dapat mengakses data siswa',0);
+(6,'MLV05','Guru','Guru hanya dapat mengakses data siswa',0),
+(7,'MLV06','Demo','Account demo untuk akses nya diberikan full akses',1);
 
 /*Table structure for table `master_menu` */
 
@@ -150,7 +151,7 @@ CREATE TABLE `setting_level` (
   `kode_menu` varchar(5) NOT NULL,
   `isactive_setting` int(3) NOT NULL,
   PRIMARY KEY (`inc_setting`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 /*Data for the table `setting_level` */
 
@@ -165,7 +166,14 @@ insert  into `setting_level`(`inc_setting`,`id_level`,`kode_menu`,`isactive_sett
 (8,'MLV04','MM01',1),
 (9,'MLV04','MM02',1),
 (10,'MLV04','MM05',1),
-(11,'MLV04','MM07',1);
+(11,'MLV04','MM07',1),
+(12,'MLV06','MM01',1),
+(13,'MLV06','MM02',1),
+(14,'MLV06','MM03',1),
+(15,'MLV06','MM04',1),
+(16,'MLV06','MM05',1),
+(17,'MLV06','MM06',1),
+(18,'MLV06','MM07',0);
 
 /*Table structure for table `tb_pembayaran` */
 
@@ -189,7 +197,7 @@ CREATE TABLE `tb_pembayaran` (
 insert  into `tb_pembayaran`(`inc_pembayaran`,`kode_pembayaran`,`jumlah_bayar`,`insert_date`,`nis`,`id_user`,`tagihan_bulan`,`tagihan_tahun`) values 
 (1,'KWT160521092021',300000,'2021-05-16 02:08:04',2021586712,'USR004',5,'2021'),
 (2,'KWT160521010616',350000,'2021-05-16 06:07:00',2021586715,'USR004',5,'2021'),
-(3,'KWT170521115032',300000,'2021-05-17 11:50:52',2021586713,'USR004',5,'2021');
+(3,'KWT170521115032',300000,'2020-05-17 11:50:52',2021586713,'USR004',4,'2020');
 
 /*Table structure for table `tb_siswa` */
 
@@ -239,15 +247,16 @@ CREATE TABLE `tb_user` (
   PRIMARY KEY (`inc_user`,`id_user`),
   UNIQUE KEY `email_user` (`email`),
   UNIQUE KEY `inc_user` (`inc_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tb_user` */
 
 insert  into `tb_user`(`inc_user`,`id_user`,`email`,`username`,`password`,`id_level`,`nama_lengkap`,`jenis_kelamin`,`no_hp`,`id_agama`,`alamat`,`foto`,`isactive_user`) values 
-(1,'USR001','solehfudin@trl.co.id','soleh','e10adc3949ba59abbe56e057f20f883e','MLV04','Solehfuddin','Laki-laki','085710035900','MAG001','Kp Rawa Badung Jakarta Timur','USR001_4.png',1),
-(2,'USR002','abdul.muis87@gmail.com','abdul_muis','e10adc3949ba59abbe56e057f20f883e','MLV03','Abdul Muis','Laki-laki','','MAG001','Jalan kesehatan no 7 Jakarta Pusat','USR002_1.jpg',1),
-(3,'USR003','suparta@trl.co','suparta','a45958517604f5cd90d6ee51ad9cfdb6','MLV02','Suparta','Laki-laki','','MAG001','Test','USR003_3.jpg',1),
-(4,'USR004','ita@trl.co.id','ita','e10adc3949ba59abbe56e057f20f883e','MLV01','Ita rosita','Perempuan','','MAG001','Jalan rawa buntu no 15 Jakarta','default.png',1);
+(1,'USR001','solehfudin@trl.co.id','it','e10adc3949ba59abbe56e057f20f883e','MLV04','Solehfuddin','Laki-laki','085710035900','MAG001','Kp Rawa Badung Jakarta Timur','USR001_4.png',1),
+(2,'USR002','abdul.muis87@gmail.com','admin','e10adc3949ba59abbe56e057f20f883e','MLV03','Abdul Muis','Laki-laki','','MAG001','Jalan kesehatan no 7 Jakarta Pusat','USR002_1.jpg',1),
+(3,'USR003','suparta@trl.co','kepsek','e10adc3949ba59abbe56e057f20f883e','MLV02','Suparta','Laki-laki','','MAG001','Test','USR003_3.jpg',1),
+(4,'USR004','ita@trl.co.id','kasir','e10adc3949ba59abbe56e057f20f883e','MLV01','Ita rosita','Perempuan','','MAG001','Jalan rawa buntu no 15 Jakarta','default.png',1),
+(5,'USR005','demo1@trl.co','demo','62cc2d8b4bf2d8728120d052163a77df','MLV06','demo1','Laki-laki','','MAG001','Test','default.png',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

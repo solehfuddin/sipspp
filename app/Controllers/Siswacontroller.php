@@ -29,6 +29,7 @@ class Siswacontroller extends BaseController
             $data = [
                 'custommenu' => $settingModel->getMenu($session->get('idlevel')),
                 'kelascode' => $masterKelas->getkodekelas(1),
+                'submenu' => $submenuModel->submenu(),
                 'agamacode' => $masterAgama->getkodeagama(1),
             ];
 

@@ -1,0 +1,26 @@
+Requirement :
+- PHP version: 7.3.11
+- Database version : 10.4.8-MariaDB
+- Xampp Control Panel v3.2.4
+
+
+Akses user :
+1. IT Administrator
+   username : it
+   password : 123456
+
+2. Kepala Sekolah
+   username : kepsek
+   password : 123456
+
+3. Admin
+   username : admin
+   password : 123456
+
+4. Kasir
+   username : kasir
+   password : 123456
+
+5. Demo user
+   username : demo
+   password : demo123

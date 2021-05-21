@@ -18,10 +18,12 @@ class Pembayarancontroller extends BaseController
         {
             $request = Services::request();
             $settingModel = new SettingModel($request);
+            $submenuModel = new SubmenuModel($request);
 		    $session = \Config\Services::session();
 
             $data = [
                 'custommenu' => $settingModel->getMenu($session->get('idlevel')),
+                'submenu' => $submenuModel->submenu(),
             ];
 
             return view('datapembayaran/view_pembayaran', $data);
