@@ -37,7 +37,7 @@
 	</style>
 </head>
 <body>
-	<h3 style="margin-bottom: -1px;">
+	<!-- <h3 style="margin-bottom: -1px;">
 		SMP PGRI 32 Jakarta						  
 	</h3>
 	<p style="font-size: 11px; font-family: arial; margin-top: 5px; margin-bottom: -1px;">
@@ -45,7 +45,42 @@
 	</p>
 	<p style="font-size: 11px; font-family: arial; margin-top: 5px">
 		(021) 22633708
-	</p>
+	</p> -->
+
+	<div class="row" style=" width:100%; height:40px;">
+		<div style="width: 20%; float:left; margin-left: 3px;">
+			<img src="<?= base_url() ?>/public/assets/img/brand/logo-smp.png" width="100px" height="80px">
+		</div>
+		
+		<div style="width: 75%; text-align: center;">
+			<b> YAYASAN PEMBINA LEMBAGA PENDIDIKAN DIKDASMEN PGRI </b>
+			<br/>
+			<b> PROVINSI DAERAH KHUSUS IBUKOTA </b>
+			<br/>
+			<b> SEKOLAH MENENGAH PERTAMA PGRI 32 JAKARTA </b>
+			<br/>
+			<div style="font-size: 12px;">
+				Jalan Setia Kawan III No. 25 Jakarta Pusat Telepon 021-22633708
+				<br/>
+			</div>
+			AKREDITASI B
+		</div>
+		
+		<div style="width: 100%; margin-bottom: 5px;">
+			<div style="font-size: 12px; width: 50%; margin-left: 13px; margin-top: -10px; float:left;">
+				DKI JAKARTA
+				<br>
+				E-Mail : <u>32smppgri@gmail.com</u>
+			</div>
+			<div style="font-size: 12px; width: 35%; margin-top: 15px;">
+				NIS : 20101513 &nbsp; &nbsp; &nbsp; NPSN: 20106421
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style=" width: 70%;">
+		
+	</div>
 
 	<table width="700" style="margin-top:- 100; font-size: 11px; text-align:center;">
 		<tr style="background: black;">

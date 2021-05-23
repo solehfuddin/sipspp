@@ -1,0 +1,20 @@
+CRITICAL - 2021-05-23 16:48:28 --> Unable to connect to the database.
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /Applications/MAMP/htdocs/sipspp/app/Models/LoginModel.php(11): CodeIgniter\Model->find()
+#4 /Applications/MAMP/htdocs/sipspp/app/Controllers/Login.php(65): App\Models\LoginModel->login('demo')
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->auth()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-23 16:49:12 --> Trying to access array offset on value of type null
+#0 /Applications/MAMP/htdocs/sipspp/app/Models/LaporanModel.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/M...', 59, Array)
+#1 /Applications/MAMP/htdocs/sipspp/app/Models/LaporanModel.php(83): App\Models\LaporanModel->_get_datatables_query()
+#2 /Applications/MAMP/htdocs/sipspp/app/Controllers/Laporancontroller.php(62): App\Models\LaporanModel->get_datatables()
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Laporancontroller->ajax_list()
+#4 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporancontroller))
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}

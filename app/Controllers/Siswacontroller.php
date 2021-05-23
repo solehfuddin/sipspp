@@ -535,5 +535,93 @@ class Siswacontroller extends BaseController
     
             echo json_encode($msg);
         }
-    }    
+    } 
+    
+    function alphabet_to_number($string) {
+        $string = strtoupper($string);
+        $length = strlen($string);
+        $number = 0;
+        $level = 1;
+        while ($length >= $level ) {
+            $char = $string[$length - $level];
+            $c = ord($char) - 64;        
+            $number += $c * (26 ** ($level-1));
+            $level++;
+        }
+        return $number;
+    }
+
+    public function proses() {
+        try
+        {
+            $request = Services::request();
+            $m_siswa = new SiswaModel($request);
+            $file = $this->request->getFile('mastersiswa_file');
+
+            $ext  = $file->getClientExtension();
+            // $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+            // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($ext);
+
+            if ($ext == 'xls') {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+            }
+            else
+            {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+
+            $spreadsheet = $reader->load($file);
+            $actsheet = $spreadsheet->getActiveSheet();
+            $sheet = $spreadsheet->getActiveSheet()->toArray();
+
+            $highestColumn = $actsheet->getHighestColumn();
+            $totalColumn   = $this->alphabet_to_number($highestColumn);
+
+            // echo $totalColumn;
+
+            if ($totalColumn != 4)
+            {
+                // echo "Format file tidak sesuai";
+                session()->setFlashdata('error', "Excel yang dimasukkan tidak sesuai");
+                return redirect()->to(base_url('admmasterreferal'));
+            }
+            else
+            {
+                if (!empty($sheet)) {
+                    foreach ($sheet as $x => $excel) {
+                        if ($x == 0){
+                            continue;
+                        }
+        
+                        // $cek = $m_siswa->cekData($excel['0']);
+                        // if ($excel['0'] == $cek['kode_referal']){
+                        //     continue;
+                        // }
+        
+                        $data = [
+                            'nis' => $excel['0'],
+                            'id_agama' => $excel['1'],
+                            'id_kelas' => $excel['2'],
+                            'nama_siswa' => $excel['3'],
+                            'jenis_kelamin' => $excel['4'],
+                            'tampat_lahir' => $excel['5'],
+                            'tanggal_lahir' => $excel['6'],
+                            'tlp_hp' => $excel['7'],
+                            'alamat' => $excel['8'],
+                        ];
+        
+                        $m_siswa->insert($data);
+                    }
+                }
+                
+                session()->setFlashdata('message', 'Import success');
+                return redirect()->to(base_url('admsiswa'));
+            }
+        }
+        catch(\Exception $e)
+        {
+            session()->setFlashdata('error', $e->getMessage());
+            return redirect()->to(base_url('admsiswa'));
+        }
+    }
 }

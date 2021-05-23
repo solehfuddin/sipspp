@@ -30,6 +30,34 @@
                       data-toggle="modal" data-target="#modaltambahsiswa">
                <i class="fa fa-plus-circle"></i> Tambah Data
               </button>
+
+              <button type="button" class="btn btn-primary btn-sm mt-3" 
+                        data-toggle="modal" data-target="#modalimportsiswa">
+                <i class="fa fa-file-excel"></i> Import Data
+              </button>
+
+              <?php
+                if(session()->getFlashdata('message')){
+                ?>
+                <!-- <div class="container">
+                  <div class="col-md-8"> -->
+                  <div id="alerts-component" class="tab-pane tab-example-result fade show active" role="tabpanel" aria-labelledby="alerts-component-tab">
+                    <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('message') ?>
+                    </div>
+                  </div>
+                  <!-- </div>
+                </div> -->
+                <?php
+                }else if (session()->getFlashdata('error')){
+                ?>
+                  <div id="alerts-component" class="tab-pane tab-example-result fade show active" role="tabpanel" aria-labelledby="alerts-component-tab">
+                    <div class="alert alert-danger" role="alert">
+                    <?= session()->getFlashdata('error') ?>
+                  </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="table-responsive py-4">
               <table class="table table-flush" id="datatable-siswa">
@@ -59,5 +87,6 @@
     </div>
 
     <?= $this->include('datasiswa/add_datasiswa'); ?>
+    <?= $this->include('datasiswa/import_datasiswa'); ?>
     <?= $this->include('datasiswa/edit_datasiswa'); ?>
 <?= $this->endSection(); ?>
