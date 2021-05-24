@@ -261,6 +261,6 @@ function deletesiswa($kode) {
 //download template excel
 $(".unduhmastersiswa").click(function() {
     // // hope the server sets Content-Disposition: attachment!
-    var url = '/public//doc/template_mreferal.xlsx';
+    var url = '/public/doc/template_datasiswa.xlsx';
     window.location = BASE_URL + url;
   });

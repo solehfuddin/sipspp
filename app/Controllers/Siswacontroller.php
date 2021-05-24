@@ -579,11 +579,11 @@ class Siswacontroller extends BaseController
 
             // echo $totalColumn;
 
-            if ($totalColumn != 4)
+            if ($totalColumn != 9)
             {
                 // echo "Format file tidak sesuai";
                 session()->setFlashdata('error', "Excel yang dimasukkan tidak sesuai");
-                return redirect()->to(base_url('admmasterreferal'));
+                return redirect()->to(base_url('admsiswa'));
             }
             else
             {
@@ -604,7 +604,7 @@ class Siswacontroller extends BaseController
                             'id_kelas' => $excel['2'],
                             'nama_siswa' => $excel['3'],
                             'jenis_kelamin' => $excel['4'],
-                            'tampat_lahir' => $excel['5'],
+                            'tempat_lahir' => $excel['5'],
                             'tanggal_lahir' => $excel['6'],
                             'tlp_hp' => $excel['7'],
                             'alamat' => $excel['8'],
