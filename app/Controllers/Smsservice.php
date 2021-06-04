@@ -38,4 +38,28 @@ class Smsservice extends BaseController
 			echo json_encode($json);
 		}
     }
+
+	public function edit($kode = null) {
+		$data = $this->request->getRawInput();
+		$respon = $data['response'];
+
+		$request = Services::request();
+        $m_sms   = new SmsModel($request, date("Y-m-d", strtotime(date("m/01/Y"))), date("Y-m-d", strtotime(date("m/d/Y"))));
+
+		$data = array(
+			'status' => 1,
+			'response' => $respon,
+		);
+
+        $update  = $m_sms->update($kode, $data);
+
+		$invalid = "success";
+		$msg = "Data has update";
+
+		$json[] = array(
+				$invalid => $msg
+			);
+
+		echo json_encode($json);
+	}
 }

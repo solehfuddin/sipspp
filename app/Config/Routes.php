@@ -44,6 +44,7 @@ $routes->get('/admsetting', 'Settingcontroller::index');
 $routes->get('/admpembayaran', 'Pembayarancontroller::index');
 $routes->get('/admlaporan', 'Laporancontroller::index');
 $routes->get('/getsmsqueue', 'Smsservice::index');
+$routes->put('/putsmsqueue/(:segment)', 'Smsservice::edit/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
