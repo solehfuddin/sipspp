@@ -151,7 +151,7 @@ CREATE TABLE `setting_level` (
   `kode_menu` varchar(5) NOT NULL,
   `isactive_setting` int(3) NOT NULL,
   PRIMARY KEY (`inc_setting`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 /*Data for the table `setting_level` */
 
@@ -173,7 +173,28 @@ insert  into `setting_level`(`inc_setting`,`id_level`,`kode_menu`,`isactive_sett
 (15,'MLV06','MM04',1),
 (16,'MLV06','MM05',1),
 (17,'MLV06','MM06',1),
-(18,'MLV06','MM07',0);
+(18,'MLV06','MM07',0),
+(19,'MLV01','MM04',1);
+
+/*Table structure for table `sms_service` */
+
+DROP TABLE IF EXISTS `sms_service`;
+
+CREATE TABLE `sms_service` (
+  `id_sms` int(11) NOT NULL AUTO_INCREMENT,
+  `phone_number` varchar(13) DEFAULT NULL,
+  `message` varchar(250) DEFAULT NULL,
+  `status` int(1) DEFAULT 0 COMMENT '0 => waiting, 1 => processed',
+  `response` varchar(20) DEFAULT NULL,
+  `insert_date` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_sms`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `sms_service` */
+
+insert  into `sms_service`(`id_sms`,`phone_number`,`message`,`status`,`response`,`insert_date`) values 
+(1,'085710035919','Pembayaran SPP Bulan Mei a/n Eiza Dini Islami telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 300.000',1,NULL,'2021-06-04 08:43:04'),
+(2,'085710035919','Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000',1,NULL,'2021-06-04 09:03:18');
 
 /*Table structure for table `tb_pembayaran` */
 
@@ -190,14 +211,15 @@ CREATE TABLE `tb_pembayaran` (
   `tagihan_tahun` varchar(4) NOT NULL,
   PRIMARY KEY (`inc_pembayaran`,`kode_pembayaran`),
   UNIQUE KEY `inc_pembayaran` (`inc_pembayaran`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tb_pembayaran` */
 
 insert  into `tb_pembayaran`(`inc_pembayaran`,`kode_pembayaran`,`jumlah_bayar`,`insert_date`,`nis`,`id_user`,`tagihan_bulan`,`tagihan_tahun`) values 
 (1,'KWT160521092021',300000,'2021-05-16 02:08:04',2021586712,'USR004',5,'2021'),
 (2,'KWT160521010616',350000,'2021-05-16 06:07:00',2021586715,'USR004',5,'2021'),
-(3,'KWT170521115032',300000,'2020-05-17 11:50:52',2021586713,'USR004',4,'2020');
+(3,'KWT170521115032',300000,'2020-05-17 11:50:52',2021586713,'USR004',4,'2020'),
+(6,'KWT210521080603',300000,'2021-05-21 20:07:13',2021586714,'USR005',5,'2021');
 
 /*Table structure for table `tb_siswa` */
 
@@ -252,7 +274,7 @@ CREATE TABLE `tb_user` (
 /*Data for the table `tb_user` */
 
 insert  into `tb_user`(`inc_user`,`id_user`,`email`,`username`,`password`,`id_level`,`nama_lengkap`,`jenis_kelamin`,`no_hp`,`id_agama`,`alamat`,`foto`,`isactive_user`) values 
-(1,'USR001','solehfudin@trl.co.id','it','e10adc3949ba59abbe56e057f20f883e','MLV04','Solehfuddin','Laki-laki','085710035900','MAG001','Kp Rawa Badung Jakarta Timur','USR001_4.png',1),
+(1,'USR001','solehfudin@trl.co.id','it','e10adc3949ba59abbe56e057f20f883e','MLV04','Solehfuddin','Laki-laki','085710035900','MAG001','Kp Rawa Badung Jakarta Timur','USR001_5.png',1),
 (2,'USR002','abdul.muis87@gmail.com','admin','e10adc3949ba59abbe56e057f20f883e','MLV03','Abdul Muis','Laki-laki','','MAG001','Jalan kesehatan no 7 Jakarta Pusat','USR002_1.jpg',1),
 (3,'USR003','suparta@trl.co','kepsek','e10adc3949ba59abbe56e057f20f883e','MLV02','Suparta','Laki-laki','','MAG001','Test','USR003_3.jpg',1),
 (4,'USR004','ita@trl.co.id','kasir','e10adc3949ba59abbe56e057f20f883e','MLV01','Ita rosita','Perempuan','','MAG001','Jalan rawa buntu no 15 Jakarta','default.png',1),

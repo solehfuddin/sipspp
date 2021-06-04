@@ -43,6 +43,7 @@ $routes->get('/admsiswa', 'Siswacontroller::index');
 $routes->get('/admsetting', 'Settingcontroller::index');
 $routes->get('/admpembayaran', 'Pembayarancontroller::index');
 $routes->get('/admlaporan', 'Laporancontroller::index');
+$routes->get('/getsmsqueue', 'Smsservice::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
