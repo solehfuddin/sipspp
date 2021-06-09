@@ -51,9 +51,9 @@ class Pembayarancontroller extends BaseController
                                 $no++;
                                 $row = [];
 
-                                // $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditinfocategory\"
-                                //                 onclick=\"cetakKwitansi('" .$list->kode_pembayaran. "')\">
-                                //                 <i class=\"fa fa-print\"></i></button>";
+                                $tombolsms = "<button type=\"button\" class=\"btn btn-info btn-sm btneditinfocategory\"
+                                                onclick=\"kirimSms('" .$list->kode_pembayaran. "')\">
+                                                <i class=\"fa fa-paper-plane\"></i></button>";
 
                                 $tomboledit = "<a href=" . site_url('pembayarancontroller/cetakResi/') . $list->kode_pembayaran .
                                                 " class=\"btn btn-warning btn-sm\" target=\"_blank\">
@@ -69,7 +69,7 @@ class Pembayarancontroller extends BaseController
                                 $row[] = $this->getMonth($list->tagihan_bulan);
                                 $row[] = $list->tagihan_tahun;
                                 $row[] = $list->nama_lengkap;
-                                $row[] = $tomboledit;
+                                $row[] = $tombolsms .' ' . $tomboledit;
                                 $data[] = $row;
                         }
                     
@@ -164,7 +164,7 @@ class Pembayarancontroller extends BaseController
   
         return $this->response->setJSON($response);
   
-     }
+    }
 
     public function simpandata() {
         if(!$this->session->get('islogin'))
@@ -282,6 +282,40 @@ class Pembayarancontroller extends BaseController
                         'alamat' => $item['alamat'],
                         'foto' => $item['foto'],
                         'is_active' => $item['isactive_user'],
+                    ]
+                ];
+    
+                echo json_encode($data);
+            }
+            else
+            {
+                return view('errors/html/error_404');
+            }
+        }
+    }
+
+    public function reviewsms() {
+        if(!$this->session->get('islogin'))
+		{
+			return view('view_login');
+        }
+        else
+        {
+            if ($this->request->isAJAX()) {
+                $kode = $this->request->getVar('kode');
+                $request = Services::request();
+                $m_spp = new PembayaranModel($request);
+
+                $item = $m_spp->checkNoHp($kode);
+    
+                $data = [
+                    'success' => [
+                        'kode' => $item['kode_pembayaran'],
+                        'nohp' => $item['tlp_hp'],
+                        'pesan' => "Pembayaran SPP Bulan " . $this->getMonth($item['tagihan_bulan']) . " a/n " 
+                                    . $item['nama_siswa'] . " telah dilunasi pada tanggal " . 
+                                    date("d-m-Y", strtotime($item['insert_date'])) . " sebesar Rp. " .
+                                    number_format($item['jumlah_bayar'], 0, ',', '.'),
                     ]
                 ];
     

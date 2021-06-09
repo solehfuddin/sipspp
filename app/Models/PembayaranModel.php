@@ -44,6 +44,15 @@ class PembayaranModel extends Model {
                         ->where(['tb_pembayaran.kode_pembayaran' => $kode])->get()->getRow();
     }
 
+    public function checkNoHp($kode)
+    {
+        return $this->db->table($this->table)
+                        ->select('*, tb_siswa.nama_siswa, master_kelas.nama_kelas, tb_siswa.tlp_hp')
+                        ->join('tb_siswa', 'tb_pembayaran.nis = tb_siswa.nis')
+                        ->join('master_kelas', 'tb_siswa.id_kelas = master_kelas.id_kelas')
+                        ->where(['tb_pembayaran.kode_pembayaran' => $kode])->get()->getRowArray();
+    }
+
     public function getLastData() {
         $query = $this->dt->orderBy('inc_user', 'DESC')->limit(1)->get();
 

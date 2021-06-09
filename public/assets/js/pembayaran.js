@@ -197,3 +197,29 @@ function cetakKwitansi($kode) {
         }
     });
 }
+
+//Fungsi select data 
+function kirimSms($kode) {
+    var url = "/pembayarancontroller/reviewsms";
+    $.ajax({
+        url: BASE_URL + url,
+        type: "post",
+        data: {
+            kode: $kode,
+        },
+        dataType: "JSON",
+        success: function(response) {
+            $('#antriansms_kodeubah').val(response.success.kode);
+            $('#antriansms_nohpubah').val(response.success.nohp);
+            $('#antriansms_pesanubah').val(response.success.pesan);
+
+            $('#antriansms_nohpubah').removeClass('is-invalid');
+            $('.errorantriasmsNohpubah').html('');
+
+            $('#modalantriansms').modal('show');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+        }
+    });
+}

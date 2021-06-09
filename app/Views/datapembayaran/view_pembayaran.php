@@ -59,4 +59,5 @@
     </div>
 
     <?= $this->include('datapembayaran/add_datapembayaran'); ?>
+    <?= $this->include('datapembayaran/sms_datapembayaran'); ?>
 <?= $this->endSection(); ?>

@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 class SmsModel extends Model {
     protected $table = 'sms_service';
     protected $primaryKey = 'id_sms';
-    protected $allowedFields = ['phone_number', 'message', 'status', 'response'];
-    protected $column_order = array('', 'insert_date', 'phone_number', 'message', 'status', 'response');
-    protected $column_search = array('insert_date', 'phone_number', 'message', 'status', 'response');
+    protected $allowedFields = ['kode_pembayaran', 'phone_number', 'message', 'status', 'response', 'insert_date'];
+    protected $column_order = array('', 'insert_date', 'kode_pembayaran', 'phone_number', 'message', 'status', 'response');
+    protected $column_search = array('insert_date', 'kode_pembayaran', 'phone_number', 'message', 'status', 'response');
     protected $order = array('insert_date' => 'desc');
     protected $request;
     protected $db;
