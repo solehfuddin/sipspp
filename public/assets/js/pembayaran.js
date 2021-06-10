@@ -223,3 +223,70 @@ function kirimSms($kode) {
         }
     });
 }
+
+//Fungsi modal add data
+$(document).ready(function() {
+    $('.formModalantriansms').submit(function(e) {
+        e.preventDefault();
+
+        let data = new FormData(this);
+
+        $.ajax({
+            type: "post",
+            url: $(this).attr('action'),
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: "json",
+            beforeSend: function() {
+                $('.btnmodalantriansms').prop('disabled', true);
+                $('.btnmodalantriansms').html('<i class="fa fa-spin fa-spinner"></i> Processing');
+            },
+            complete: function() {
+                $('.btnmodalantriansms').prop('disabled', false);
+                $('.btnmodalantriansms').html('Simpan');
+            },
+            success: function(response) {
+                if (response.error){
+                    if (response.error.antriansms_nohpubah){
+                        $('#antriansms_nohpubah').addClass('is-invalid');
+                        $('.errorantriasmsNohpubah').html(response.error.antriansms_nohpubah);
+                    }
+                    else
+                    {
+                        $('#antriansms_nohpubah').removeClass('is-invalid');
+                        $('.errorantriasmsNohpubah').html('');
+                    }
+
+                    if (response.error.antriansms_pesanubah){
+                        $('#antriansms_pesanubah').addClass('is-invalid');
+                        $('.errorantriansmsPesanubah').html(response.error.antriansms_pesanubah);
+                    }
+                    else
+                    {
+                        $('#antriansms_pesanubah').removeClass('is-invalid');
+                        $('.errorantriansmsPesanubah').html('');
+                    }
+                }
+                else
+                {
+                    $('#modalantriansms').modal('hide');
+
+                    Swal.fire(
+                        'Pemberitahuan',
+                        response.success.data,
+                        'success',
+                    ).then(function() {
+                        $('#antriansms_nohpubah').val('');
+                        $('#antriansms_pesanubah').val('');
+                    });
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    });
+});

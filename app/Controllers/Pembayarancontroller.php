@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\PembayaranModel;
+use App\Models\SmsModel;
 use App\Models\SiswaModel;
 use App\Models\SubmenuModel;
 use App\Models\SettingModel;
@@ -314,7 +315,7 @@ class Pembayarancontroller extends BaseController
                         'nohp' => $item['tlp_hp'],
                         'pesan' => "Pembayaran SPP Bulan " . $this->getMonth($item['tagihan_bulan']) . " a/n " 
                                     . $item['nama_siswa'] . " telah dilunasi pada tanggal " . 
-                                    date("d-m-Y", strtotime($item['insert_date'])) . " sebesar Rp. " .
+                                    date("d/m/Y", strtotime($item['insert_date'])) . " sebesar Rp. " .
                                     number_format($item['jumlah_bayar'], 0, ',', '.'),
                     ]
                 ];
@@ -325,6 +326,80 @@ class Pembayarancontroller extends BaseController
             {
                 return view('errors/html/error_404');
             }
+        }
+    }
+
+    public function antriansms() {
+        if(!$this->session->get('islogin'))
+		{
+			return view('view_login');
+        }
+        else
+        {
+            if ($this->request->isAJAX())
+            {
+                $validationCheck = $this->validate([
+                    'antriansms_nohpubah' => [
+                        'label' => 'Nomor Hp',
+                        'rules' => [
+                            'required',
+                        ],
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi',
+                        ],
+                    ],
+    
+                    'antriansms_pesanubah' => [
+                        'label' => 'Isi pesan',
+                        'rules' => [
+                            'required',
+                        ],
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi', 
+                        ],
+                    ],
+                ]);
+            }
+            else
+            {
+                return view('errors/html/error_404');
+            }
+
+            if (!$validationCheck) {
+				$msg = [
+					'error' => [
+						"antriansms_nohpubah" => $this->validation->getError('antriansms_nohpubah'),
+                        "antriansms_pesanubah" => $this->validation->getError('antriansms_pesanubah'),
+					]
+				];
+			}
+			else
+			{
+                $data = [
+                    'kode_pembayaran' => $this->request->getVar('antriansms_kodeubah'),
+                    'phone_number' => $this->request->getVar('antriansms_nohpubah'),
+                    'message' => $this->request->getVar('antriansms_pesanubah'),
+                    'status' => 0,
+                    'response' => "Pending",
+                ];
+
+                $stdate = date("m/01/Y");
+			    $eddate = date("m/d/Y");
+
+                $request = Services::request();
+                $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
+
+                $m_sms->insert($data);
+
+                $msg = [
+                    'success' => [
+                       'data' => 'Berhasil menambahkan data',
+                       'link' => '/admcattype'
+                    ]
+                ];
+            }
+
+            echo json_encode($msg);
         }
     }
 }

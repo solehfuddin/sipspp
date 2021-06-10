@@ -66,14 +66,14 @@ class Smscontroller extends BaseController
 
                                 if ($list->status == 0)
                                 {
-                                    $status = "<span style='color:#fb6340;'>On process</span";
+                                    $status = "<span style='color:#fb6340;'>Menunggu</span";
                                 }
                                 else
                                 {
-                                    $status = "<span style='color:#2dce89;'>Delivered</span";
+                                    $status = "<span style='color:#2dce89;'>Berhasil</span";
                                 }
 
-                                if ($list->response == "Sms Sent")
+                                if ($list->response == "SMS terkirim")
                                 {
                                     $isactive = "<span style='color:#2dce89;'>$list->response</span";
                                 }

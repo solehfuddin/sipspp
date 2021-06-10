@@ -119,7 +119,8 @@ insert  into `master_menu`(`kode_menu`,`nama_menu`,`deskripsi_menu`,`icon`,`styl
 ('MM04','Data Siswa','Menu ini berisi informasi untuk pendataan siswa secara rinci','ni ni-single-02','text-info','admsiswa',0),
 ('MM05','Data User','Menu ini untuk pengaturan user yang dapat login kedalam aplikasi','ni ni-circle-08','text-orange','admuser',0),
 ('MM06','Data Laporan','Menu ini untuk merekapitulasi data pembayaran SPP yang telah diinput kedalam sistem','ni ni-book-bookmark','text-pink','admlaporan',0),
-('MM07','Setting Account','Menu ini digunakan sebagai acuan dalam pemberian akses pada aplikasi spp','ni ni-settings-gear-65','','admsetting',0);
+('MM07','Setting Account','Menu ini digunakan sebagai acuan dalam pemberian akses pada aplikasi spp','ni ni-settings-gear-65','','admsetting',0),
+('MM08','Data Sms','Menu ini digunakan untuk melihat status sms','ni ni-send','text-red','/admsms',0);
 
 /*Table structure for table `master_submenu` */
 
@@ -151,7 +152,7 @@ CREATE TABLE `setting_level` (
   `kode_menu` varchar(5) NOT NULL,
   `isactive_setting` int(3) NOT NULL,
   PRIMARY KEY (`inc_setting`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 /*Data for the table `setting_level` */
 
@@ -174,7 +175,8 @@ insert  into `setting_level`(`inc_setting`,`id_level`,`kode_menu`,`isactive_sett
 (16,'MLV06','MM05',1),
 (17,'MLV06','MM06',1),
 (18,'MLV06','MM07',0),
-(19,'MLV01','MM04',1);
+(19,'MLV01','MM04',1),
+(20,'MLV01','MM08',1);
 
 /*Table structure for table `sms_service` */
 
@@ -182,19 +184,22 @@ DROP TABLE IF EXISTS `sms_service`;
 
 CREATE TABLE `sms_service` (
   `id_sms` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_pembayaran` varchar(15) NOT NULL,
   `phone_number` varchar(13) DEFAULT NULL,
   `message` varchar(250) DEFAULT NULL,
   `status` int(1) DEFAULT 0 COMMENT '0 => waiting, 1 => processed',
   `response` varchar(20) DEFAULT NULL,
   `insert_date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id_sms`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sms_service` */
 
-insert  into `sms_service`(`id_sms`,`phone_number`,`message`,`status`,`response`,`insert_date`) values 
-(1,'085710035919','Pembayaran SPP Bulan Mei a/n Eiza Dini Islami telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 300.000',1,NULL,'2021-06-04 08:43:04'),
-(2,'085710035919','Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000',1,NULL,'2021-06-04 09:03:18');
+insert  into `sms_service`(`id_sms`,`kode_pembayaran`,`phone_number`,`message`,`status`,`response`,`insert_date`) values 
+(1,'KWT160521092021','085210785608','Pembayaran SPP Bulan Mei a/n Eiza Dini Islami telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 300.000',1,'SMS terkirim','2021-06-04 08:43:04'),
+(2,'KWT160521010616','085210785608','Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000',1,'SMS gagal terkirim','2021-06-07 09:03:18'),
+(3,'KWT210521080603','085210785608','Pembayaran SPP Bulan Mei a/n Indra Fermana telah dilunasi pada tanggal 21/05/2021 sebesar Rp. 300.000',1,'SMS terkirim','2021-06-10 08:33:04'),
+(4,'KWT170521115032','089619783205','Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000',1,'SMS terkirim','2021-06-10 08:51:44');
 
 /*Table structure for table `tb_pembayaran` */
 
@@ -242,11 +247,11 @@ CREATE TABLE `tb_siswa` (
 /*Data for the table `tb_siswa` */
 
 insert  into `tb_siswa`(`nis`,`id_agama`,`id_kelas`,`nama_siswa`,`jenis_kelamin`,`tempat_lahir`,`tanggal_lahir`,`tlp_hp`,`alamat`,`foto`) values 
-(2021586711,'MAG001','MKLS001','Desti Handayani','Perempuan','Jakarta','2007-02-05','','Jalan kamboja no 8 Jakarta','default.png'),
-(2021586712,'MAG001','MKLS001','Eiza Dini Islami','Perempuan','Jakarta','2006-10-12',NULL,'Jalan anggrek no 17 Jakarta','default.png'),
-(2021586713,'MAG001','MKLS001','Riki Apriadi','Laki-laki','Bogor','2007-01-02','','Kp rawa terate no 50 Jakarta','default.png'),
-(2021586714,'MAG001','MKLS001','Indra Fermana','Laki-laki','Tangerang','2006-08-10','','Jalan jagakarsa no 7 Jakarta','default.png'),
-(2021586715,'MAG001','MKLS001','Siti Amelia','Perempuan','Jakarta','2006-09-14','','Jalan kemakmuran no 14 Jakarta','default.png');
+(2021586711,'MAG001','MKLS001','Desti Handayani','Perempuan','Jakarta','2007-02-05','085210785608','Jalan kamboja no 8 Jakarta','default.png'),
+(2021586712,'MAG001','MKLS001','Eiza Dini Islami','Perempuan','Jakarta','2006-10-12','085210785608','Jalan anggrek no 17 Jakarta','default.png'),
+(2021586713,'MAG001','MKLS001','Riki Apriadi','Laki-laki','Bogor','2007-01-02','085210785608','Kp rawa terate no 50 Jakarta','default.png'),
+(2021586714,'MAG001','MKLS001','Indra Fermana','Laki-laki','Tangerang','2006-08-10','085210785608','Jalan jagakarsa no 7 Jakarta','default.png'),
+(2021586715,'MAG001','MKLS001','Siti Amelia','Perempuan','Jakarta','2006-09-14','085210785608','Jalan kemakmuran no 14 Jakarta','default.png');
 
 /*Table structure for table `tb_user` */
 

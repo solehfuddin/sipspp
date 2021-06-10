@@ -1,0 +1,6 @@
+CRITICAL - 2021-06-10 08:31:16 --> Class 'App\Controllers\SmsModel' not found
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Pembayarancontroller->antriansms()
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayarancontroller))
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}

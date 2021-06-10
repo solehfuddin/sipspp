@@ -9,7 +9,7 @@
             </button>
         </div>
         <!-- Handle Form -->
-        <?= form_open('pembayarancontroller/antriansms', ['class' => 'formModalantriansms']); ?>
+        <?= form_open_multipart('pembayarancontroller/antriansms', ['class' => 'formModalantriansms']); ?>
         <?= csrf_field(); ?>
 
         <div class="modal-body">
