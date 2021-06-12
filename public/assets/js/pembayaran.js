@@ -290,3 +290,81 @@ $(document).ready(function() {
         });
     });
 });
+
+//Fungsi modal add data
+$(document).ready(function() {
+    $('.formModaltunggakansms').submit(function(e) {
+        e.preventDefault();
+
+        let data = new FormData(this);
+
+        $.ajax({
+            type: "post",
+            url: $(this).attr('action'),
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: "json",
+            beforeSend: function() {
+                $('.btnmodaltunggakansms').prop('disabled', true);
+                $('.btnmodaltunggakansms').html('<i class="fa fa-spin fa-spinner"></i> Processing');
+            },
+            complete: function() {
+                $('.btnmodaltunggakansms').prop('disabled', false);
+                $('.btnmodaltunggakansms').html('Simpan');
+            },
+            success: function(response) {
+                if (response.error){
+                    if (response.error.tunggakansms_perihal){
+                        $('#tunggakansms_perihal').addClass('is-invalid');
+                        $('.errorantriasmsPerihalubah').html(response.error.tunggakansms_perihal);
+                    }
+                    else
+                    {
+                        $('#tunggakansms_perihal').removeClass('is-invalid');
+                        $('.errorantriasmsPerihalubah').html('');
+                    }
+
+                    if (response.error.tunggakansms_nohpubah){
+                        $('#tunggakansms_nohpubah').addClass('is-invalid');
+                        $('.errorantriasmsNohpubah').html(response.error.tunggakansms_nohpubah);
+                    }
+                    else
+                    {
+                        $('#tunggakansms_nohpubah').removeClass('is-invalid');
+                        $('.errorantriasmsNohpubah').html('');
+                    }
+
+                    if (response.error.tunggakansms_pesanubah){
+                        $('#tunggakansms_pesanubah').addClass('is-invalid');
+                        $('.errortunggakansmsPesanubah').html(response.error.tunggakansms_pesanubah);
+                    }
+                    else
+                    {
+                        $('#tunggakansms_pesanubah').removeClass('is-invalid');
+                        $('.errortunggakansmsPesanubah').html('');
+                    }
+                }
+                else
+                {
+                    $('#modalsmstunggakan').modal('hide');
+
+                    Swal.fire(
+                        'Pemberitahuan',
+                        response.success.data,
+                        'success',
+                    ).then(function() {
+                        $('#tunggakansms_perihal').val('');
+                        $('#tunggakansms_nohpubah').val('');
+                        $('#tunggakansms_pesanubah').val('');
+                    });
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    });
+});

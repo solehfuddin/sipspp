@@ -1,0 +1,12 @@
+CRITICAL - 2021-06-12 18:37:28 --> Invalid file: datapembayaran/sms_datatunggakan.php
+#0 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('datapembayaran/...')
+#1 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(525): CodeIgniter\View\View->render('datapembayaran/...', NULL, true)
+#2 D:\web\htdocs\sipspp\app\Views\datapembayaran\view_pembayaran.php(68): CodeIgniter\View\View->include('datapembayaran/...')
+#3 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\View\View.php(246): include('D:\\web\\htdocs\\s...')
+#4 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('datapembayaran/...', Array, true)
+#5 D:\web\htdocs\sipspp\app\Controllers\Pembayarancontroller.php(30): view('datapembayaran/...', Array)
+#6 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Pembayarancontroller->index()
+#7 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayarancontroller))
+#8 D:\web\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\web\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

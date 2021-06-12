@@ -402,4 +402,89 @@ class Pembayarancontroller extends BaseController
             echo json_encode($msg);
         }
     }
+
+    public function tunggakansms() {
+        if(!$this->session->get('islogin'))
+		{
+			return view('view_login');
+        }
+        else
+        {
+            if ($this->request->isAJAX())
+            {
+                $validationCheck = $this->validate([
+                    'tunggakansms_perihal' => [
+                        'label' => 'Perihal informasi',
+                        'rules' => [
+                            'required',
+                        ],
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi',
+                        ],
+                    ],
+
+                    'tunggakansms_nohpubah' => [
+                        'label' => 'Nomor Hp',
+                        'rules' => [
+                            'required',
+                        ],
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi',
+                        ],
+                    ],
+    
+                    'tunggakansms_pesanubah' => [
+                        'label' => 'Isi pesan',
+                        'rules' => [
+                            'required',
+                        ],
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi', 
+                        ],
+                    ],
+                ]);
+            }
+            else
+            {
+                return view('errors/html/error_404');
+            }
+
+            if (!$validationCheck) {
+				$msg = [
+					'error' => [
+                        "tunggakansms_perihal" => $this->validation->getError('tunggakansms_perihal'),
+						"tunggakansms_nohpubah" => $this->validation->getError('tunggakansms_nohpubah'),
+                        "tunggakansms_pesanubah" => $this->validation->getError('tunggakansms_pesanubah'),
+					]
+				];
+			}
+			else
+			{
+                $data = [
+                    'kode_pembayaran' => $this->request->getVar('tunggakansms_perihal'),
+                    'phone_number' => $this->request->getVar('tunggakansms_nohpubah'),
+                    'message' => $this->request->getVar('tunggakansms_pesanubah'),
+                    'status' => 0,
+                    'response' => "Pending",
+                ];
+
+                $stdate = date("m/01/Y");
+			    $eddate = date("m/d/Y");
+
+                $request = Services::request();
+                $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
+
+                $m_sms->insert($data);
+
+                $msg = [
+                    'success' => [
+                       'data' => 'Berhasil menambahkan data',
+                       'link' => '/admcattype'
+                    ]
+                ];
+            }
+
+            echo json_encode($msg);
+        }
+    }
 }

@@ -31,6 +31,11 @@
                       onClick="generatekodepembayaran()">
                <i class="fa fa-plus-circle"></i> Tambah Data
               </button>
+
+              <button type="button" class="btn btn-danger btn-sm mt-3" 
+                      data-toggle="modal" data-target="#modalsmstunggakan">
+               <i class="fa fa-paper-plane"></i> Kirim Sms
+              </button>
             </div>
             <div class="table-responsive py-4">
               <table class="table table-flush" id="datatable-pembayaran">
@@ -60,4 +65,5 @@
 
     <?= $this->include('datapembayaran/add_datapembayaran'); ?>
     <?= $this->include('datapembayaran/sms_datapembayaran'); ?>
+    <?= $this->include('datapembayaran/sms_datatunggakan'); ?>
 <?= $this->endSection(); ?>
