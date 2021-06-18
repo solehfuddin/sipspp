@@ -22,9 +22,9 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header">
-              <h3 class="mb-0">Data sms</h3>
+              <h3 class="mb-0">Data notifikasi</h3>
               <p class="text-sm mb-0">
-                Berisi data sms yang telah diinput kasir pada sistem informasi SPP
+                Berisi data notifikasi yang telah diinput kasir pada sistem informasi SPP
               </p>
               
               <br>

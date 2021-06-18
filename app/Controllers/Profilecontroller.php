@@ -157,7 +157,7 @@ class Profilecontroller extends BaseController
                             'success' => [
                                 // 'data' => 'Berhasil memperbarui data, harap logout aplikasi anda untuk melihat perubahan data profil',
                                 'data' => 'Berhasil memperbarui data',
-                                'link' => base_url() . '/admprofile'
+                                'link' => base_url() . '/admprofile',
                             ]
                         ];
                     }
@@ -180,7 +180,7 @@ class Profilecontroller extends BaseController
                         $msg = [
                             'success' => [
                                 'data' => 'Berhasil memperbarui data',
-                                'link' => '/admcattype'
+                                'link' => base_url() . '/admprofile',
                             ]
                         ];
                     }

@@ -136,6 +136,7 @@
   <script src="<?= base_url() ?>/public/assets/js/siswa.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/profile.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/setting.js"></script>
+  <script src="<?= base_url() ?>/public/assets/js/settingwa.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/pembayaran.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/laporan.js"></script>
   <script src="<?= base_url() ?>/public/assets/js/sms.js"></script>

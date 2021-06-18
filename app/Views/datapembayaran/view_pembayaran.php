@@ -34,7 +34,7 @@
 
               <button type="button" class="btn btn-danger btn-sm mt-3" 
                       data-toggle="modal" data-target="#modalsmstunggakan">
-               <i class="fa fa-paper-plane"></i> Kirim Sms
+               <i class="fa fa-paper-plane"></i> Kirim Notifikasi
               </button>
             </div>
             <div class="table-responsive py-4">

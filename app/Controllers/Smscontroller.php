@@ -73,7 +73,7 @@ class Smscontroller extends BaseController
                                     $status = "<span style='color:#2dce89;'>Berhasil</span";
                                 }
 
-                                if ($list->response == "SMS terkirim")
+                                if ($list->response == "SMS terkirim" || $list->response == "Notifikasi via WA")
                                 {
                                     $isactive = "<span style='color:#2dce89;'>$list->response</span";
                                 }

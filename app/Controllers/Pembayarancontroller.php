@@ -6,6 +6,7 @@ use App\Models\SmsModel;
 use App\Models\SiswaModel;
 use App\Models\SubmenuModel;
 use App\Models\SettingModel;
+use App\Models\SettingWaModel;
 use Config\Services;
 
 class Pembayarancontroller extends BaseController
@@ -375,12 +376,15 @@ class Pembayarancontroller extends BaseController
 			}
 			else
 			{
+                $mobNumber = $this->request->getVar('antriansms_nohpubah');
+                $msg = $this->request->getVar('antriansms_pesanubah');
+
                 $data = [
                     'kode_pembayaran' => $this->request->getVar('antriansms_kodeubah'),
-                    'phone_number' => $this->request->getVar('antriansms_nohpubah'),
-                    'message' => $this->request->getVar('antriansms_pesanubah'),
-                    'status' => 0,
-                    'response' => "Pending",
+                    'phone_number' => $mobNumber,
+                    'message' => $msg,
+                    'status' => 2,
+                    'response' => "Notifikasi via WA",
                 ];
 
                 $stdate = date("m/01/Y");
@@ -390,11 +394,13 @@ class Pembayarancontroller extends BaseController
                 $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
 
                 $m_sms->insert($data);
+                $this->sentWA(substr_replace($mobNumber, "+62", 0, 1), $msg);
+
 
                 $msg = [
                     'success' => [
                        'data' => 'Berhasil menambahkan data',
-                       'link' => '/admcattype'
+                       'link' => '/admcattype',
                     ]
                 ];
             }
@@ -460,12 +466,15 @@ class Pembayarancontroller extends BaseController
 			}
 			else
 			{
+                $mobNumber = $this->request->getVar('tunggakansms_nohpubah');
+                $msg = $this->request->getVar('tunggakansms_pesanubah');
+
                 $data = [
                     'kode_pembayaran' => $this->request->getVar('tunggakansms_perihal'),
-                    'phone_number' => $this->request->getVar('tunggakansms_nohpubah'),
-                    'message' => $this->request->getVar('tunggakansms_pesanubah'),
-                    'status' => 0,
-                    'response' => "Pending",
+                    'phone_number' => $mobNumber,
+                    'message' => $msg,
+                    'status' => 2,
+                    'response' => "Notifikasi via WA",
                 ];
 
                 $stdate = date("m/01/Y");
@@ -475,6 +484,7 @@ class Pembayarancontroller extends BaseController
                 $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
 
                 $m_sms->insert($data);
+                $this->sentWA(substr_replace($mobNumber, "+62", 0, 1), $msg);
 
                 $msg = [
                     'success' => [
@@ -486,5 +496,41 @@ class Pembayarancontroller extends BaseController
 
             echo json_encode($msg);
         }
+    }
+
+    public function sentWA($mobNumber, $msg)
+    {
+        $waconf = new SettingWaModel();
+        $setting = $waconf->where("id", 1)
+                          ->first();
+
+        $data = [
+            'phone' => $mobNumber, // Receivers phone
+            'body' => $msg, // Message
+        ];
+
+        // URL for request POST /message
+        $token = $setting['token'];
+        $instanceId = $setting['instance_id'];
+
+        $url = 'https://api.chat-api.com/instance'.$instanceId.'/message?token='.$token;
+
+        $ch = curl_init($url);
+
+        curl_setopt_array($ch, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 10000,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $data,
+        ));
+
+        $response = curl_exec( $ch );
+
+        curl_close($ch);
+
+        // echo $response;
     }
 }

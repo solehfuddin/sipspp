@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 12, 2021 at 01:57 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: localhost:3306
+-- Waktu pembuatan: 18 Jun 2021 pada 14.59
+-- Versi server: 5.7.32
+-- Versi PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `sip_spp`
@@ -25,7 +17,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master_agama`
+-- Struktur dari tabel `master_agama`
 --
 
 CREATE TABLE `master_agama` (
@@ -37,7 +29,7 @@ CREATE TABLE `master_agama` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `master_agama`
+-- Dumping data untuk tabel `master_agama`
 --
 
 INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_agama`, `isactive_agama`) VALUES
@@ -53,7 +45,7 @@ INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_ag
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master_kelas`
+-- Struktur dari tabel `master_kelas`
 --
 
 CREATE TABLE `master_kelas` (
@@ -65,7 +57,7 @@ CREATE TABLE `master_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `master_kelas`
+-- Dumping data untuk tabel `master_kelas`
 --
 
 INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isactive_kelas`) VALUES
@@ -84,7 +76,7 @@ INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_ke
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master_level`
+-- Struktur dari tabel `master_level`
 --
 
 CREATE TABLE `master_level` (
@@ -96,7 +88,7 @@ CREATE TABLE `master_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `master_level`
+-- Dumping data untuk tabel `master_level`
 --
 
 INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_level`, `isactive_level`) VALUES
@@ -110,7 +102,7 @@ INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_le
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master_menu`
+-- Struktur dari tabel `master_menu`
 --
 
 CREATE TABLE `master_menu` (
@@ -124,7 +116,7 @@ CREATE TABLE `master_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `master_menu`
+-- Dumping data untuk tabel `master_menu`
 --
 
 INSERT INTO `master_menu` (`kode_menu`, `nama_menu`, `deskripsi_menu`, `icon`, `style`, `link_menu`, `exist_submenu`) VALUES
@@ -135,12 +127,12 @@ INSERT INTO `master_menu` (`kode_menu`, `nama_menu`, `deskripsi_menu`, `icon`, `
 ('MM05', 'Data User', 'Menu ini untuk pengaturan user yang dapat login kedalam aplikasi', 'ni ni-circle-08', 'text-orange', 'admuser', 0),
 ('MM06', 'Data Laporan', 'Menu ini untuk merekapitulasi data pembayaran SPP yang telah diinput kedalam sistem', 'ni ni-book-bookmark', 'text-pink', 'admlaporan', 0),
 ('MM07', 'Setting Account', 'Menu ini digunakan sebagai acuan dalam pemberian akses pada aplikasi spp', 'ni ni-settings-gear-65', '', 'admsetting', 0),
-('MM08', 'Data Sms', 'Menu ini digunakan untuk melihat status sms', 'ni ni-send', 'text-red', '/admsms', 0);
+('MM08', 'Data Notifikasi', 'Menu ini digunakan untuk melihat status notifikasi', 'ni ni-send', 'text-red', '/admsms', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master_submenu`
+-- Struktur dari tabel `master_submenu`
 --
 
 CREATE TABLE `master_submenu` (
@@ -152,7 +144,7 @@ CREATE TABLE `master_submenu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `master_submenu`
+-- Dumping data untuk tabel `master_submenu`
 --
 
 INSERT INTO `master_submenu` (`kode_submenu`, `kode_menu`, `nama_submenu`, `deskripsi_submenu`, `link_submenu`) VALUES
@@ -163,7 +155,7 @@ INSERT INTO `master_submenu` (`kode_submenu`, `kode_menu`, `nama_submenu`, `desk
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting_level`
+-- Struktur dari tabel `setting_level`
 --
 
 CREATE TABLE `setting_level` (
@@ -174,7 +166,7 @@ CREATE TABLE `setting_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `setting_level`
+-- Dumping data untuk tabel `setting_level`
 --
 
 INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_setting`) VALUES
@@ -202,13 +194,13 @@ INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sms_service`
+-- Struktur dari tabel `sms_service`
 --
 
 CREATE TABLE `sms_service` (
   `id_sms` int(11) NOT NULL,
   `kode_pembayaran` varchar(50) NOT NULL,
-  `phone_number` varchar(13) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
   `message` varchar(250) DEFAULT NULL,
   `status` int(1) DEFAULT '0' COMMENT '0 => waiting, 1 => processed',
   `response` varchar(20) DEFAULT NULL,
@@ -216,7 +208,7 @@ CREATE TABLE `sms_service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sms_service`
+-- Dumping data untuk tabel `sms_service`
 --
 
 INSERT INTO `sms_service` (`id_sms`, `kode_pembayaran`, `phone_number`, `message`, `status`, `response`, `insert_date`) VALUES
@@ -224,12 +216,24 @@ INSERT INTO `sms_service` (`id_sms`, `kode_pembayaran`, `phone_number`, `message
 (2, 'KWT160521010616', '085210785608', 'Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000', 1, 'SMS gagal terkirim', '2021-06-07 09:03:18'),
 (3, 'KWT210521080603', '085210785608', 'Pembayaran SPP Bulan Mei a/n Indra Fermana telah dilunasi pada tanggal 21/05/2021 sebesar Rp. 300.000', 1, 'SMS terkirim', '2021-06-10 08:33:04'),
 (4, 'KWT170521115032', '089619783205', 'Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000', 1, 'SMS terkirim', '2021-06-10 08:51:44'),
-(5, 'Informasi Tunggakan', '085718291001', 'Dapat kami informasikan kepada wali murid a/n Siti amelia bahwasanya belum melakukan pembayaran SPP bulan Juni 2021. Mohon segera dilunasi agar tidak dikenakan denda / biaya tambahan dibulan berikutnya', 0, 'Pending', '2021-06-12 18:55:10');
+(5, 'Informasi Tunggakan', '085718291001', 'Dapat kami informasikan kepada wali murid a/n Siti amelia bahwasanya belum melakukan pembayaran SPP bulan Juni 2021. Mohon segera dilunasi agar tidak dikenakan denda / biaya tambahan dibulan berikutnya', 1, 'SMS terkirim', '2021-06-12 18:55:10'),
+(6, 'KWT160521010616', '+628521078560', 'Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000', 1, 'Pending', '2021-06-18 19:11:35'),
+(7, 'KWT160521010616', '085210785608', 'Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000', 2, 'Notifikasi via WA', '2021-06-18 19:21:50'),
+(8, 'KWT160521092021', '085210785608', 'Pembayaran SPP Bulan Mei a/n Eiza Dini Islami telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 19:24:48'),
+(9, 'KWT170521115032', '085210785608', 'Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 19:29:12'),
+(10, 'KWT160521092021', '085210785608', 'Pembayaran SPP Bulan Mei a/n Eiza Dini Islami telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 19:42:39'),
+(11, 'KWT170521115032', '085210785608', 'Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 19:44:46'),
+(12, 'Informasi Tunggakan', '085210785608', 'Kepada wali murid dapat kami informasikan bahwa ananda Siti amelia belum melakukan pembayaran SPP bulan Juni 2021. Mohon kiranya untuk segera melunasi tagihan spp. Terima kasih', 2, 'Notifikasi via WA', '2021-06-18 20:04:47'),
+(13, 'Testing', '083870701149', 'testing aja', 2, 'Notifikasi via WA', '2021-06-18 20:18:33'),
+(14, 'KWT160521092021', '085210785608', 'test test', 2, 'Notifikasi via WA', '2021-06-18 20:19:18'),
+(15, 'KWT160521010616', '083870701149', 'Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000', 2, 'Notifikasi via WA', '2021-06-18 20:20:56'),
+(16, 'Informasi Tunggakan', '083870701149', 'Dapat kami informasikan kepada wali murid a/n Bagol AlFath bahwasanya belum melakukan pembayaran SPP bulan Juni 2021. Mohon segera dilunasi agar tidak dikenakan denda / biaya tambahan dibulan berikutnya', 2, 'Notifikasi via WA', '2021-06-18 21:57:32'),
+(17, 'KWT170521115032', '083870701149', 'Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 21:58:03');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pembayaran`
+-- Struktur dari tabel `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
@@ -244,7 +248,7 @@ CREATE TABLE `tb_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_pembayaran`
+-- Dumping data untuk tabel `tb_pembayaran`
 --
 
 INSERT INTO `tb_pembayaran` (`inc_pembayaran`, `kode_pembayaran`, `jumlah_bayar`, `insert_date`, `nis`, `id_user`, `tagihan_bulan`, `tagihan_tahun`) VALUES
@@ -256,7 +260,7 @@ INSERT INTO `tb_pembayaran` (`inc_pembayaran`, `kode_pembayaran`, `jumlah_bayar`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_siswa`
+-- Struktur dari tabel `tb_siswa`
 --
 
 CREATE TABLE `tb_siswa` (
@@ -273,7 +277,7 @@ CREATE TABLE `tb_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_siswa`
+-- Dumping data untuk tabel `tb_siswa`
 --
 
 INSERT INTO `tb_siswa` (`nis`, `id_agama`, `id_kelas`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tlp_hp`, `alamat`, `foto`) VALUES
@@ -286,7 +290,7 @@ INSERT INTO `tb_siswa` (`nis`, `id_agama`, `id_kelas`, `nama_siswa`, `jenis_kela
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -306,7 +310,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `id_level`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `id_agama`, `alamat`, `foto`, `isactive_user`) VALUES
@@ -316,70 +320,89 @@ INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `
 (4, 'USR004', 'ita@trl.co.id', 'kasir', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Ita rosita', 'Perempuan', '', 'MAG001', 'Jalan rawa buntu no 15 Jakarta', 'default.png', 1),
 (5, 'USR005', 'demo1@trl.co', 'demo', '62cc2d8b4bf2d8728120d052163a77df', 'MLV06', 'demo1', 'Laki-laki', '', 'MAG001', 'Test', 'default.png', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wa_config`
+--
+
+CREATE TABLE `wa_config` (
+  `id` int(11) NOT NULL,
+  `token` varchar(35) NOT NULL,
+  `instance_id` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `wa_config`
+--
+
+INSERT INTO `wa_config` (`id`, `token`, `instance_id`) VALUES
+(1, 'c9nnra1zixgcow81', '289162');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `master_agama`
+-- Indeks untuk tabel `master_agama`
 --
 ALTER TABLE `master_agama`
   ADD PRIMARY KEY (`inc_agama`,`id_agama`),
   ADD UNIQUE KEY `inc_agama` (`inc_agama`);
 
 --
--- Indexes for table `master_kelas`
+-- Indeks untuk tabel `master_kelas`
 --
 ALTER TABLE `master_kelas`
   ADD PRIMARY KEY (`inc_kelas`,`id_kelas`),
   ADD UNIQUE KEY `inc_kelas` (`inc_kelas`);
 
 --
--- Indexes for table `master_level`
+-- Indeks untuk tabel `master_level`
 --
 ALTER TABLE `master_level`
   ADD PRIMARY KEY (`inc_level`,`id_level`),
   ADD UNIQUE KEY `inc_level` (`inc_level`);
 
 --
--- Indexes for table `master_menu`
+-- Indeks untuk tabel `master_menu`
 --
 ALTER TABLE `master_menu`
   ADD PRIMARY KEY (`kode_menu`);
 
 --
--- Indexes for table `master_submenu`
+-- Indeks untuk tabel `master_submenu`
 --
 ALTER TABLE `master_submenu`
   ADD PRIMARY KEY (`kode_submenu`);
 
 --
--- Indexes for table `setting_level`
+-- Indeks untuk tabel `setting_level`
 --
 ALTER TABLE `setting_level`
   ADD PRIMARY KEY (`inc_setting`);
 
 --
--- Indexes for table `sms_service`
+-- Indeks untuk tabel `sms_service`
 --
 ALTER TABLE `sms_service`
   ADD PRIMARY KEY (`id_sms`);
 
 --
--- Indexes for table `tb_pembayaran`
+-- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`inc_pembayaran`,`kode_pembayaran`),
   ADD UNIQUE KEY `inc_pembayaran` (`inc_pembayaran`);
 
 --
--- Indexes for table `tb_siswa`
+-- Indeks untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   ADD PRIMARY KEY (`nis`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`inc_user`,`id_user`),
@@ -387,52 +410,59 @@ ALTER TABLE `tb_user`
   ADD UNIQUE KEY `inc_user` (`inc_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `wa_config`
+--
+ALTER TABLE `wa_config`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `master_agama`
+-- AUTO_INCREMENT untuk tabel `master_agama`
 --
 ALTER TABLE `master_agama`
   MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `master_kelas`
+-- AUTO_INCREMENT untuk tabel `master_kelas`
 --
 ALTER TABLE `master_kelas`
   MODIFY `inc_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `master_level`
+-- AUTO_INCREMENT untuk tabel `master_level`
 --
 ALTER TABLE `master_level`
   MODIFY `inc_level` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `setting_level`
+-- AUTO_INCREMENT untuk tabel `setting_level`
 --
 ALTER TABLE `setting_level`
   MODIFY `inc_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `sms_service`
+-- AUTO_INCREMENT untuk tabel `sms_service`
 --
 ALTER TABLE `sms_service`
-  MODIFY `id_sms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_sms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `tb_pembayaran`
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `inc_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- AUTO_INCREMENT untuk tabel `wa_config`
+--
+ALTER TABLE `wa_config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

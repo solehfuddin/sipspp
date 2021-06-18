@@ -91,11 +91,11 @@
                   <!-- Error Validation -->
                   <div class="invalid-feedback bg-secondary errorprofileAddress">testte</div>
                 </div>
-
-                <div class="text-right ml-auto">
-                    <button type="submit" class="btn btn-primary btnubahprofile">Perbarui Data</button>
+                  
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary btn-md btnubahprofile">Perbarui Data</button>
                 </div>
-
+                
                 <?= form_close(); ?>
                 <!-- Handle FORM -->
               </div>
@@ -104,5 +104,5 @@
         </div>
       </div>
     </div>
-    
+
 <?= $this->endSection(); ?>
