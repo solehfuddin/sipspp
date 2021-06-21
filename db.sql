@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 20 Jun 2021 pada 10.29
+-- Waktu pembuatan: 21 Jun 2021 pada 15.54
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -41,6 +41,49 @@ INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_ag
 (6, 'MAG006', 'Khonghucu', 'Agama khonghucu', 1),
 (7, 'MAG007', 'Atheis', 'Tidak memiliki keyakinan terhadap tuhan', 0),
 (8, 'MAG008', 'Amimisme', 'Agama kepercayaan leluhur', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `master_ajaranspp`
+--
+
+CREATE TABLE `master_ajaranspp` (
+  `id_ajaranspp` int(11) NOT NULL,
+  `kode_bulan` int(11) NOT NULL,
+  `nama_bulan` varchar(20) NOT NULL,
+  `kode_tahun` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `master_ajaranspp`
+--
+
+INSERT INTO `master_ajaranspp` (`id_ajaranspp`, `kode_bulan`, `nama_bulan`, `kode_tahun`) VALUES
+(1, 1, 'Januari', 2021),
+(2, 2, 'Pebruari', 2021),
+(3, 3, 'Maret', 2021),
+(4, 4, 'April', 2021),
+(5, 5, 'Mei', 2021),
+(6, 6, 'Juni', 2021),
+(7, 7, 'Juli', 2021),
+(8, 8, 'Agustus', 2021),
+(9, 9, 'September', 2021),
+(10, 10, 'Oktober', 2021),
+(11, 11, 'Nopember', 2021),
+(12, 12, 'Desember', 2021),
+(13, 1, 'Januari', 2020),
+(14, 2, 'Pebruari', 2020),
+(15, 3, 'Maret', 2020),
+(16, 4, 'April', 2020),
+(17, 5, 'Mei', 2020),
+(18, 6, 'Juni', 2020),
+(19, 7, 'Juli', 2020),
+(20, 8, 'Agustus', 2020),
+(21, 9, 'September', 2020),
+(22, 10, 'Oktober', 2020),
+(23, 11, 'Nopember', 2020),
+(24, 12, 'Desember', 2020);
 
 -- --------------------------------------------------------
 
@@ -351,6 +394,12 @@ ALTER TABLE `master_agama`
   ADD UNIQUE KEY `inc_agama` (`inc_agama`);
 
 --
+-- Indeks untuk tabel `master_ajaranspp`
+--
+ALTER TABLE `master_ajaranspp`
+  ADD PRIMARY KEY (`id_ajaranspp`);
+
+--
 -- Indeks untuk tabel `master_kelas`
 --
 ALTER TABLE `master_kelas`
@@ -424,6 +473,12 @@ ALTER TABLE `wa_config`
 --
 ALTER TABLE `master_agama`
   MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `master_ajaranspp`
+--
+ALTER TABLE `master_ajaranspp`
+  MODIFY `id_ajaranspp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `master_kelas`
