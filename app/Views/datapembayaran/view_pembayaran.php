@@ -32,10 +32,14 @@
                <i class="fa fa-plus-circle"></i> Tambah Data
               </button>
 
-              <button type="button" class="btn btn-danger btn-sm mt-3" 
+              <!-- <button type="button" class="btn btn-danger btn-sm mt-3" 
                       data-toggle="modal" data-target="#modalsmstunggakan">
                <i class="fa fa-paper-plane"></i> Kirim Notifikasi
-              </button>
+              </button> -->
+
+              <a href="<?= base_url() . '/admtunggakan'; ?>" class="btn btn-danger btn-sm mt-3">
+               <i class="fa fa-exclamation"></i> Data Tunggakan
+              </a>
             </div>
             <div class="table-responsive py-4">
               <table class="table table-flush" id="datatable-pembayaran">
