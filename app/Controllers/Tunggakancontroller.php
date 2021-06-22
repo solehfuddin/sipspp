@@ -9,6 +9,11 @@ use App\Models\SettingModel;
 use App\Models\SettingWaModel;
 use Config\Services;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+
 class Tunggakancontroller extends BaseController
 {
 	public function index() {
@@ -21,14 +26,19 @@ class Tunggakancontroller extends BaseController
             $request = Services::request();
             $settingModel = new SettingModel($request);
             $submenuModel = new SubmenuModel($request);
+            $tunggakan = new TunggakanModel();
 		    $session = \Config\Services::session();
 
             $stdate = date("m/01/Y");
 			$eddate = date("m/d/Y");
 
+            $stExp = explode('/', $stdate);
+            $edExp = explode('/', $eddate);
+
             $data = [
                 'custommenu' => $settingModel->getMenu($session->get('idlevel')),
                 'submenu' => $submenuModel->submenu(),
+                'data' => $tunggakan->getData($stExp[0], $edExp[0], $edExp[2]),
                 'start_date' => $stdate,
 				'end_date' => $eddate,
             ];
@@ -37,71 +47,132 @@ class Tunggakancontroller extends BaseController
         }
     }
 
-    public function showData(){
-        $tunggakan = new TunggakanModel();
-        $data = $tunggakan->testData();
-
-        dd($data);
-    }
-
-    public function ajax_list() {
+    public function filterdata() {
         if(!$this->session->get('islogin'))
 		{
 			return view('view_login');
         }
         else
         {
-            if ($this->request->isAJAX())
-            {
-                $request = Services::request();
-                $m_spp  = new PembayaranModel($request);
+            $request = Services::request();
+            $settingModel = new SettingModel($request);
+            $submenuModel = new SubmenuModel($request);
+            $tunggakan = new TunggakanModel();
+		    $session = \Config\Services::session();
 
-                if($request->getMethod(true)=='POST'){
-                    $lists = $m_spp->get_datatables();
-                        $data = [];
-                        $no = $request->getPost("start");
+            $stdate = $this->request->getVar('tunggakan_filterstdate');
+			$eddate = $this->request->getVar('tunggakan_filtereddate');
 
-                        foreach ($lists as $list) {
-                                $no++;
-                                $row = [];
+            $stExp = explode('/', $stdate);
+            $edExp = explode('/', $eddate);
 
-                                $tombolsms = "<button type=\"button\" class=\"btn btn-info btn-sm btneditinfocategory\"
-                                                onclick=\"kirimSms('" .$list->kode_pembayaran. "')\">
-                                                <i class=\"fa fa-paper-plane\"></i></button>";
+            $data = [
+                'custommenu' => $settingModel->getMenu($session->get('idlevel')),
+                'submenu' => $submenuModel->submenu(),
+                'data' => $tunggakan->getData($stExp[0], $edExp[0], $edExp[2]),
+                'start_date' => $stdate,
+				'end_date' => $eddate,
+            ];
 
-                                $tomboledit = "<a href=" . site_url('pembayarancontroller/cetakResi/') . $list->kode_pembayaran .
-                                                " class=\"btn btn-warning btn-sm\" target=\"_blank\">
-                                                <i class=\"fa fa-print\"></i></button></a>";
-
-                                $row[] = $no;
-                                
-                                $row[] = $list->nis;
-                                $row[] = $list->nama_siswa;
-                                $row[] = $list->nama_kelas;
-                                $row[] = "<span style='color:#f5365c;'> Rp " . number_format($list->jumlah_bayar, 0, ',', '.') . "</span";
-                                $row[] = date("d-m-Y h:m:s", strtotime($list->insert_date));
-                                $row[] = $this->getMonth($list->tagihan_bulan);
-                                $row[] = $list->tagihan_tahun;
-                                $row[] = $list->nama_lengkap;
-                                $row[] = $tombolsms .' ' . $tomboledit;
-                                $data[] = $row;
-                        }
-                    
-                        $output = [
-                            "draw" => $request->getPost('draw'),
-                            "recordsTotal" => $m_spp->count_all(),
-                            "recordsFiltered" => $m_spp->count_filtered(),
-                            "data" => $data
-                        ];
-
-                    echo json_encode($output);
-                }
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
+            return view('datatunggakan/view_tunggakan', $data);
         }
+    }
+
+    public function proses() {
+        $stdate = $this->request->getVar('tunggakan_exportstdate');
+		$eddate = $this->request->getVar('tunggakan_exporteddate');
+
+        $stExp = explode('/', $stdate);
+        $edExp = explode('/', $eddate);
+
+        $tunggakan = new TunggakanModel();
+        $filter = $tunggakan->getData($stExp[0], $edExp[0], $edExp[2]);
+
+        $styleJudul = [
+            'font' => [
+                'color' => [
+                    'rgb' => 'FFFFFF'
+                ],
+                'bold'=>true,
+                'size'=>11
+            ],
+            'fill'=>[
+                'fillType' =>  fill::FILL_SOLID,
+                'startColor' => [
+                    'rgb' => 'ff9800'
+                ]
+            ],
+            'alignment'=>[
+                'horizontal' => Alignment::HORIZONTAL_CENTER
+            ]
+         
+        ];
+
+        $spreadsheet = new Spreadsheet();
+        // style lebar kolom
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('A')
+                    ->setWidth(5);
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('B')
+                    ->setWidth(12);
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('C')
+                    ->setWidth(17);
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('D')
+                    ->setWidth(15);
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('E')
+                    ->setWidth(8);
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('F')
+                    ->setWidth(8);
+        $spreadsheet->getActiveSheet()
+                    ->getColumnDimension('G')
+                    ->setWidth(15);
+
+        // tulis header/nama kolom 
+        $spreadsheet->setActiveSheetIndex(0)
+                    ->setCellValue('A1', 'No')
+                    ->setCellValue('B1', 'Nis')
+                    ->setCellValue('C1', 'Nama Siswa')
+                    ->setCellValue('D1', 'Kelas')
+                    ->setCellValue('E1', 'Bulan')
+                    ->setCellValue('F1', 'Tahun')
+                    ->setCellValue('G1', 'Keterangan');
+
+        // STYLE judul table
+        $spreadsheet->getActiveSheet()
+                    ->getStyle('A1:G1')
+                    ->applyFromArray($styleJudul);
+        
+        $no = 1;
+        $column = 2;
+        // tulis data ke cell
+        foreach($filter as $data) {
+            $spreadsheet->setActiveSheetIndex(0)
+                        ->setCellValue('A' . $column, $no)
+                        ->setCellValue('B' . $column, $data->nis)
+                        ->setCellValue('C' . $column, $data->nama_siswa)
+                        ->setCellValue('D' . $column, $data->nama_kelas)
+                        ->setCellValue('E' . $column, $data->nama_bulan)
+                        ->setCellValue('F' . $column, $data->kode_tahun)
+                        ->setCellValue('G' . $column, $data->keterangan);
+            $column++;
+            $no++;
+        }
+        // tulis dalam format .xlsx
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'Data Tunggakan';
+
+        // Redirect hasil generate xlsx ke web client
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename='.$fileName.'.xlsx');
+        header('Cache-Control: max-age=0');
+
+        // $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('php://output');
     }
 
     public function reviewsms() {

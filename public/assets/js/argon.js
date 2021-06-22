@@ -725,23 +725,20 @@ var DatatableBasic = function() {
         //     }
         // });
 
-        //Datatables infotype
-        // var ei = $("#datatable-infotype");
-        // ei.length && ei.on("init.dt", function() {
-        //     $("div.dataTables_length select").removeClass("custom-select custom-select-sm")
-        // }).DataTable({
-        //     keys: !0,
-        //     lengthMenu: [10, 25, 50, 100, 250, 500],
-        //     select: {
-        //         style: "multi"
-        //     },
-        //     language: {
-        //         paginate: {
-        //             previous: "<i class='fas fa-angle-left'>",
-        //             next: "<i class='fas fa-angle-right'>"
-        //         }
-        //     }
-        // });
+        //Datatables tunggakan
+        var ei = $("#datatable-tunggakan");
+        ei.length && ei.on("init.dt", function() {
+             $("div.dataTables_length select").removeClass("custom-select custom-select-sm")
+        }).DataTable({
+             keys: !0,
+            lengthMenu: [10, 25, 50, 100, 250, 500],
+           language: {
+                paginate: {
+                    previous: "<i class='fas fa-angle-left'>",
+                    next: "<i class='fas fa-angle-right'>"
+                }
+            }
+        });
     }(),
     DatatableButtons = function() {
         var e, a = $("#datatable-buttons");

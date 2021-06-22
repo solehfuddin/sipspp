@@ -28,15 +28,15 @@
               </p>
               
               <br>
-              <?= form_open('/laporancontroller/ajax_list', 
-                ['class' => 'formFilterlaporan']); ?>
+              <?= form_open('/tunggakancontroller/filterdata', 
+                ['class' => 'formFiltertunggakan']); ?>
               <?= csrf_field(); ?>
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="form-control-label">Dari tanggal</label>
                     <input class="form-control datepicker" placeholder="Start date" type="text" 
-                      value="<?= $start_date; ?>" name="laporan_filterstdate" id="laporan_filterstdate" required>
+                      value="<?= $start_date; ?>" name="tunggakan_filterstdate" id="tunggakan_filterstdate" required>
                     <div class="invalid-feedback bg-secondary errorFeaturesfilterstdate">test</div>
                   </div>
                 </div>
@@ -44,22 +44,22 @@
                   <div class="form-group">
                     <label class="form-control-label">Hingga tanggal</label>
                     <input class="form-control datepicker" placeholder="End date" type="text" 
-                     value="<?= $end_date ?>"  name="laporan_filtereddate" id="laporan_filtereddate" required>
+                     value="<?= $end_date ?>"  name="tunggakan_filtereddate" id="tunggakan_filtereddate" required>
                     <div class="invalid-feedback bg-secondary errorFeaturesfiltereddate">test</div>
                   </div>
                 </div>
                 <div class="col-md-4 pt-4">
-                <button type="submit" class="btn btn-primary btn-sm mt-3 btnfilterlaporan">
+                <button type="submit" class="btn btn-primary btn-sm mt-3 btnfiltertunggakan">
                   Filter Data
                 </button>
                 <?= form_close(); ?>
                 
-                <button type="button" class="btn btn-success btn-sm mt-3" data-toggle="modal" data-target="#modalexportlaporan">Export Excel</button>
+                <button type="button" class="btn btn-success btn-sm mt-3" data-toggle="modal" data-target="#modalexporttunggakan">Export Excel</button>
             </div>
             <div class="table-responsive py-4">
               <h4 class="text-center" id="filterdate">Periode <?= date("d-m-Y", strtotime($start_date)); ?> sampai <?= date("d-m-Y", strtotime($end_date)); ?></h4>
               <br/>
-              <table class="table table-flush" id="datatable-laporan">
+              <table class="table table-flush" id="datatable-tunggakan">
                 <thead class="thead-light">
                     <tr>
                     <th>No</th>
@@ -72,7 +72,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                <?php 
+                    $no = 0;
+                    foreach($data as $item): 
+                    $no++;
+                  ?>
+                  <tr>
+                    <td><?= $no; ?></td>
+                    <td><?= $item->nis; ?></td>
+                    <td><?= $item->nama_siswa; ?></td>
+                    <td><?= $item->nama_kelas; ?></td>
+                    <td><?= $item->nama_bulan; ?></td>
+                    <td><?= $item->kode_tahun; ?></td>
+                    <td><?= $item->keterangan; ?></td>
+                  </tr>
+                <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -81,4 +95,5 @@
       </div>
     </div>
 
+    <?= $this->include('datatunggakan/export_tunggakan'); ?>
 <?= $this->endSection(); ?>

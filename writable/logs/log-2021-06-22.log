@@ -149,3 +149,26 @@ CRITICAL - 2021-06-22 09:25:38 --> Array to string conversion
 #3 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2021-06-22 10:51:42 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Tung...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Tung...')
+#3 C:\xampp\htdocs\sipspp\app\Controllers\Tunggakancontroller.php(24): spl_autoload_call('App\\Models\\Tung...')
+#4 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Tunggakancontroller->index()
+#5 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tunggakancontroller))
+#6 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-22 11:16:53 --> Undefined offset: 2
+#0 C:\xampp\htdocs\sipspp\app\Controllers\Tunggakancontroller.php(89): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\xampp\\htdocs...', 89, Array)
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Tunggakancontroller->proses()
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tunggakancontroller))
+#3 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-22 11:17:49 --> Cannot use object of type stdClass as array
+#0 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Tunggakancontroller->proses()
+#1 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tunggakancontroller))
+#2 C:\xampp\htdocs\sipspp\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sipspp\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
