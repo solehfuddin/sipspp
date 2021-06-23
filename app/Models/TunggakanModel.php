@@ -27,7 +27,7 @@ class TunggakanModel extends Model {
     function getData($monthStart, $monthEnd, $year){
         $db = \Config\Database::connect();
 
-        $query = $db->query("SELECT b.`nama_bulan`, b.`kode_tahun`, c.`nis`, c.`nama_siswa`, k.`nama_kelas`, IFNULL(p.`kode_pembayaran`, 'Belum Bayar') as keterangan
+        $query = $db->query("SELECT b.`nama_bulan`, b.`kode_tahun`, c.`nis`, c.`nama_siswa`, c.`tlp_hp`, k.`nama_kelas`, IFNULL(p.`kode_pembayaran`, 'Belum Bayar') as keterangan
         FROM tb_siswa c CROSS JOIN master_ajaranspp b
         left join tb_pembayaran p on p.`nis` = c.`nis` and p.`tagihan_bulan` = b.`kode_bulan` and p.`tagihan_tahun` = b.`kode_tahun`
         left join master_kelas k on c.`id_kelas` = k.`id_kelas`

@@ -1,0 +1,41 @@
+CRITICAL - 2021-06-23 22:10:25 --> Unable to connect to the database.
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /Applications/MAMP/htdocs/sipspp/app/Models/LoginModel.php(11): CodeIgniter\Model->find()
+#4 /Applications/MAMP/htdocs/sipspp/app/Controllers/Login.php(65): App\Models\LoginModel->login('kasir')
+#5 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Login->auth()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-23 22:11:03 --> In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sip_spp.tb_pembayaran.inc_pembayaran'; this is incompatible with sql_mode=only_full_group_by
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `tb_s...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `tb_s...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `tb_s...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `tb_s...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/PembayaranModel.php(72): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(28): App\Models\PembayaranModel->sumPaymentTotal()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-06-23 22:11:32 --> In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sip_spp.tb_pembayaran.inc_pembayaran'; this is incompatible with sql_mode=only_full_group_by
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *, `tb_s...')
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `tb_s...')
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `tb_s...')
+#3 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *, `tb_s...', Array, false)
+#4 /Applications/MAMP/htdocs/sipspp/app/Models/PembayaranModel.php(72): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/sipspp/app/Controllers/Dashboard.php(28): App\Models\PembayaranModel->sumPaymentTotal()
+#6 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Dashboard->index()
+#7 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-06-23 23:02:19 --> Call to undefined function App\Controllers\sentWA()
+#0 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Tunggakancontroller->broadcast()
+#1 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tunggakancontroller))
+#2 /Applications/MAMP/htdocs/sipspp/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/sipspp/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}

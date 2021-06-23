@@ -175,206 +175,31 @@ class Tunggakancontroller extends BaseController
         $writer->save('php://output');
     }
 
-    public function reviewsms() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
+    public function broadcast(){
+        $from = $this->request->getVar('from');
+        $until = $this->request->getVar('until');
+
+        $stExp = explode('/', $from);
+        $edExp = explode('/', $until);
+
+        $tunggakan = new TunggakanModel();
+        $filter = $tunggakan->getData($stExp[0], $edExp[0], $edExp[2]);
+
+        foreach($filter as $data) {
+            $this->sentWA(substr_replace($data->tlp_hp, "+62", 0, 1), 
+                            "Kepada wali murid dapat kami informasikan bahwa ananda " . $data->nama_siswa . 
+                            " belum melakukan pembayaran SPP bulan " . $data->nama_bulan . " " . $data->kode_tahun . 
+                            ". Mohon kiranya untuk segera melunasi tagihan tersebut");
         }
-        else
-        {
-            if ($this->request->isAJAX()) {
-                $kode = $this->request->getVar('kode');
-                $request = Services::request();
-                $m_spp = new PembayaranModel($request);
 
-                $item = $m_spp->checkNoHp($kode);
-    
-                $data = [
-                    'success' => [
-                        'kode' => $item['kode_pembayaran'],
-                        'nohp' => $item['tlp_hp'],
-                        'pesan' => "Pembayaran SPP Bulan " . $this->getMonth($item['tagihan_bulan']) . " a/n " 
-                                    . $item['nama_siswa'] . " telah dilunasi pada tanggal " . 
-                                    date("d/m/Y", strtotime($item['insert_date'])) . " sebesar Rp. " .
-                                    number_format($item['jumlah_bayar'], 0, ',', '.'),
-                    ]
-                ];
-    
-                echo json_encode($data);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-        }
-    }
+        $msg = [
+            'success' => [
+               'data' => "Broadcast notifikasi berhasil dikirim",
+               'link' => '/admcattype'
+            ]
+        ];
 
-    public function antriansms() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX())
-            {
-                $validationCheck = $this->validate([
-                    'antriansms_nohpubah' => [
-                        'label' => 'Nomor Hp',
-                        'rules' => [
-                            'required',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi',
-                        ],
-                    ],
-    
-                    'antriansms_pesanubah' => [
-                        'label' => 'Isi pesan',
-                        'rules' => [
-                            'required',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi', 
-                        ],
-                    ],
-                ]);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-
-            if (!$validationCheck) {
-				$msg = [
-					'error' => [
-						"antriansms_nohpubah" => $this->validation->getError('antriansms_nohpubah'),
-                        "antriansms_pesanubah" => $this->validation->getError('antriansms_pesanubah'),
-					]
-				];
-			}
-			else
-			{
-                $mobNumber = $this->request->getVar('antriansms_nohpubah');
-                $msg = $this->request->getVar('antriansms_pesanubah');
-
-                $data = [
-                    'kode_pembayaran' => $this->request->getVar('antriansms_kodeubah'),
-                    'phone_number' => $mobNumber,
-                    'message' => $msg,
-                    'status' => 2,
-                    'response' => "Notifikasi via WA",
-                ];
-
-                $stdate = date("m/01/Y");
-			    $eddate = date("m/d/Y");
-
-                $request = Services::request();
-                $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
-
-                $m_sms->insert($data);
-                $this->sentWA(substr_replace($mobNumber, "+62", 0, 1), $msg);
-
-
-                $msg = [
-                    'success' => [
-                       'data' => 'Berhasil menambahkan data',
-                       'link' => '/admcattype',
-                    ]
-                ];
-            }
-
-            echo json_encode($msg);
-        }
-    }
-
-    public function tunggakansms() {
-        if(!$this->session->get('islogin'))
-		{
-			return view('view_login');
-        }
-        else
-        {
-            if ($this->request->isAJAX())
-            {
-                $validationCheck = $this->validate([
-                    'tunggakansms_perihal' => [
-                        'label' => 'Perihal informasi',
-                        'rules' => [
-                            'required',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi',
-                        ],
-                    ],
-
-                    'tunggakansms_nohpubah' => [
-                        'label' => 'Nomor Hp',
-                        'rules' => [
-                            'required',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi',
-                        ],
-                    ],
-    
-                    'tunggakansms_pesanubah' => [
-                        'label' => 'Isi pesan',
-                        'rules' => [
-                            'required',
-                        ],
-                        'errors' => [
-                            'required' 		=> '{field} wajib terisi', 
-                        ],
-                    ],
-                ]);
-            }
-            else
-            {
-                return view('errors/html/error_404');
-            }
-
-            if (!$validationCheck) {
-				$msg = [
-					'error' => [
-                        "tunggakansms_perihal" => $this->validation->getError('tunggakansms_perihal'),
-						"tunggakansms_nohpubah" => $this->validation->getError('tunggakansms_nohpubah'),
-                        "tunggakansms_pesanubah" => $this->validation->getError('tunggakansms_pesanubah'),
-					]
-				];
-			}
-			else
-			{
-                $mobNumber = $this->request->getVar('tunggakansms_nohpubah');
-                $msg = $this->request->getVar('tunggakansms_pesanubah');
-
-                $data = [
-                    'kode_pembayaran' => $this->request->getVar('tunggakansms_perihal'),
-                    'phone_number' => $mobNumber,
-                    'message' => $msg,
-                    'status' => 2,
-                    'response' => "Notifikasi via WA",
-                ];
-
-                $stdate = date("m/01/Y");
-			    $eddate = date("m/d/Y");
-
-                $request = Services::request();
-                $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
-
-                $m_sms->insert($data);
-                $this->sentWA(substr_replace($mobNumber, "+62", 0, 1), $msg);
-
-                $msg = [
-                    'success' => [
-                       'data' => 'Berhasil menambahkan data',
-                       'link' => '/admcattype'
-                    ]
-                ];
-            }
-
-            echo json_encode($msg);
-        }
+        echo json_encode($msg);
     }
 
     public function sentWA($mobNumber, $msg)

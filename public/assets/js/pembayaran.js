@@ -110,6 +110,34 @@ function generatekodepembayaran() {
     });
 }
 
+//Function broadcast
+function broadcastWa(){
+    // alert("ok");
+    var from = document.getElementById('tunggakan_filterstdate').value;
+    var until = document.getElementById('tunggakan_filtereddate').value;
+
+    var url = "/tunggakancontroller/broadcast";
+    $.ajax({
+        url: BASE_URL + url,
+        type: "post",
+        data: {
+            from: from,
+            until: until
+        },
+        dataType: "JSON",
+        success: function(response) {
+            Swal.fire(
+                'Pemberitahuan',
+                response.success.data,
+                'success',
+            );
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+        }
+    });
+}
+
 //Fungsi modal add data
 $(document).ready(function() {
     $('.formModaltambahpembayaran').submit(function(e) {
