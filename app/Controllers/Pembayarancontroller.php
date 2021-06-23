@@ -53,6 +53,9 @@ class Pembayarancontroller extends BaseController
                                 $no++;
                                 $row = [];
 
+                                $keterangan = "<a href=\"javascript:void(0)\" style=\"cursor: default; pointer-events: none;\" class=\"btn btn-success btn-sm\" target=\"_blank\">
+                                                Lunas </a>";
+
                                 $tombolsms = "<button type=\"button\" class=\"btn btn-info btn-sm btneditinfocategory\"
                                                 onclick=\"kirimSms('" .$list->kode_pembayaran. "')\">
                                                 <i class=\"fa fa-paper-plane\"></i></button>";
@@ -71,7 +74,7 @@ class Pembayarancontroller extends BaseController
                                 $row[] = $this->getMonth($list->tagihan_bulan);
                                 $row[] = $list->tagihan_tahun;
                                 $row[] = $list->nama_lengkap;
-                                $row[] = $tombolsms .' ' . $tomboledit;
+                                $row[] = $keterangan . '  '. $tombolsms .' ' . $tomboledit;
                                 $data[] = $row;
                         }
                     

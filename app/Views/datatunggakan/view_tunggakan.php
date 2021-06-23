@@ -50,11 +50,12 @@
                 </div>
                 <div class="col-md-4 pt-4">
                 <button type="submit" class="btn btn-primary btn-sm mt-3 btnfiltertunggakan">
-                  Filter Data
+                  Filter
                 </button>
                 <?= form_close(); ?>
-                
+
                 <button type="button" class="btn btn-success btn-sm mt-3" data-toggle="modal" data-target="#modalexporttunggakan">Export Excel</button>
+                <button type="button" class="btn btn-warning btn-sm mt-3" data-toggle="modal" data-target="#modalexporttunggakan">Sent Notification</button>
             </div>
             <div class="table-responsive py-4">
               <h4 class="text-center" id="filterdate">Periode <?= date("d-m-Y", strtotime($start_date)); ?> sampai <?= date("d-m-Y", strtotime($end_date)); ?></h4>
