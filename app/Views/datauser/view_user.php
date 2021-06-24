@@ -37,6 +37,7 @@
                 <thead class="thead-light">
                     <tr>
                     <th>No</th>
+                    <th>Foto</th>
                     <th>Nama Lengkap</th>
                     <th>Email</th>
                     <th>Username</th>

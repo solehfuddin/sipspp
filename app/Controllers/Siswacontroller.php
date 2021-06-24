@@ -66,11 +66,16 @@ class Siswacontroller extends BaseController
                                                 onclick=\"deletesiswa('" .$list->nis. "')\"> 
                                                 <i class=\"fa fa-trash\"></i></button>";
 
+                                $path = base_url() . '/public/assets/img/siswa/';
+
+                                $media = "<img src=" . $path . $list->foto. " width=35 height=35/>";
+
                                 $row[] = $no;
 
                                 $tgl = date("d-m-Y", strtotime($list->tanggal_lahir));
 
                                 $row[] = $list->nis;
+                                $row[] = $media;
                                 $row[] = $list->nama_siswa;
                                 $row[] = $list->nama_kelas;
                                 $row[] = $list->jenis_kelamin;

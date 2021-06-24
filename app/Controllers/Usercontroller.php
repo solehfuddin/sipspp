@@ -70,6 +70,9 @@ class Usercontroller extends BaseController
                                                 onclick=\"deleteuser('" .$list->id_user. "')\"> 
                                                 <i class=\"fa fa-trash\"></i></button>";
 
+                                $path = base_url() . '/public/assets/img/profile/';
+                                $media = "<img src=" . $path . $list->foto. " width=35 height=35/>";
+
                                 $row[] = $no;
                                 if ($list->isactive_user == 1)
                                 {
@@ -80,6 +83,7 @@ class Usercontroller extends BaseController
                                     $isactive = "<span style='color:#f5365c;'>Tidak Aktif</span";
                                 }
                                 
+                                $row[] = $media;
                                 $row[] = $list->nama_lengkap;
                                 $row[] = $list->email;
                                 $row[] = $list->username;

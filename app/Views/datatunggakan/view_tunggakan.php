@@ -1,6 +1,10 @@
 <?= $this->extend('components/template_admin') ?>
     
 <?= $this->section('content') ?>
+
+<?php
+  $session = \Config\Services::session();
+?>
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
@@ -24,7 +28,7 @@
             <div class="card-header">
               <h3 class="mb-0">Data tunggakan</h3>
               <p class="text-sm mb-0">
-                Berisi data siswa yang menunggak SPP pada sistem informasi SPP dan bisa diekport
+                Berisi data siswa yang menunggak SPP pada sistem informasi SPP dan bisa diekport (hanya untuk kepsek)
               </p>
               
               <br>
@@ -54,8 +58,13 @@
                 </button>
                 <?= form_close(); ?>
 
+                <?php if($session->get('namalevel') == "Kepala Sekolah") {?>
                 <button type="button" class="btn btn-success btn-sm mt-3" data-toggle="modal" data-target="#modalexporttunggakan">Export Excel</button>
+                <?php } ?>
+                
+                <?php if($session->get('namalevel') == "Kasir") {?>
                 <button type="button" class="btn btn-warning btn-sm mt-3" onclick="broadcastWa()">Sent Notification</button>
+                <?php } ?>
             </div>
             <div class="table-responsive py-4">
               <h4 class="text-center" id="filterdate">Periode <?= date("d-m-Y", strtotime($start_date)); ?> sampai <?= date("d-m-Y", strtotime($end_date)); ?></h4>

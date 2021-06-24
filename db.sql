@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 21 Jun 2021 pada 15.54
--- Versi server: 5.7.32
--- Versi PHP: 7.4.12
+-- Host: 127.0.0.1
+-- Generation Time: Jun 24, 2021 at 11:49 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `sip_spp`
@@ -17,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_agama`
+-- Table structure for table `master_agama`
 --
 
 CREATE TABLE `master_agama` (
@@ -25,11 +33,11 @@ CREATE TABLE `master_agama` (
   `id_agama` varchar(10) NOT NULL,
   `nama_agama` varchar(20) NOT NULL,
   `deskripsi_agama` varchar(100) NOT NULL,
-  `isactive_agama` int(1) NOT NULL DEFAULT '0'
+  `isactive_agama` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `master_agama`
+-- Dumping data for table `master_agama`
 --
 
 INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_agama`, `isactive_agama`) VALUES
@@ -45,7 +53,7 @@ INSERT INTO `master_agama` (`inc_agama`, `id_agama`, `nama_agama`, `deskripsi_ag
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_ajaranspp`
+-- Table structure for table `master_ajaranspp`
 --
 
 CREATE TABLE `master_ajaranspp` (
@@ -56,7 +64,7 @@ CREATE TABLE `master_ajaranspp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `master_ajaranspp`
+-- Dumping data for table `master_ajaranspp`
 --
 
 INSERT INTO `master_ajaranspp` (`id_ajaranspp`, `kode_bulan`, `nama_bulan`, `kode_tahun`) VALUES
@@ -88,7 +96,7 @@ INSERT INTO `master_ajaranspp` (`id_ajaranspp`, `kode_bulan`, `nama_bulan`, `kod
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_kelas`
+-- Table structure for table `master_kelas`
 --
 
 CREATE TABLE `master_kelas` (
@@ -96,11 +104,11 @@ CREATE TABLE `master_kelas` (
   `id_kelas` varchar(10) NOT NULL,
   `nama_kelas` varchar(15) NOT NULL,
   `deskripsi_kelas` varchar(100) DEFAULT NULL,
-  `isactive_kelas` int(1) NOT NULL DEFAULT '0'
+  `isactive_kelas` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `master_kelas`
+-- Dumping data for table `master_kelas`
 --
 
 INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_kelas`, `isactive_kelas`) VALUES
@@ -119,7 +127,7 @@ INSERT INTO `master_kelas` (`inc_kelas`, `id_kelas`, `nama_kelas`, `deskripsi_ke
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_level`
+-- Table structure for table `master_level`
 --
 
 CREATE TABLE `master_level` (
@@ -127,11 +135,11 @@ CREATE TABLE `master_level` (
   `id_level` varchar(5) NOT NULL,
   `nama_level` varchar(20) NOT NULL,
   `deskripsi_level` varchar(100) NOT NULL,
-  `isactive_level` int(1) NOT NULL DEFAULT '1'
+  `isactive_level` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `master_level`
+-- Dumping data for table `master_level`
 --
 
 INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_level`, `isactive_level`) VALUES
@@ -145,7 +153,7 @@ INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_le
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_menu`
+-- Table structure for table `master_menu`
 --
 
 CREATE TABLE `master_menu` (
@@ -155,11 +163,11 @@ CREATE TABLE `master_menu` (
   `icon` varchar(30) NOT NULL,
   `style` varchar(20) NOT NULL,
   `link_menu` varchar(20) NOT NULL,
-  `exist_submenu` int(1) NOT NULL DEFAULT '0'
+  `exist_submenu` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `master_menu`
+-- Dumping data for table `master_menu`
 --
 
 INSERT INTO `master_menu` (`kode_menu`, `nama_menu`, `deskripsi_menu`, `icon`, `style`, `link_menu`, `exist_submenu`) VALUES
@@ -175,7 +183,7 @@ INSERT INTO `master_menu` (`kode_menu`, `nama_menu`, `deskripsi_menu`, `icon`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_submenu`
+-- Table structure for table `master_submenu`
 --
 
 CREATE TABLE `master_submenu` (
@@ -187,7 +195,7 @@ CREATE TABLE `master_submenu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `master_submenu`
+-- Dumping data for table `master_submenu`
 --
 
 INSERT INTO `master_submenu` (`kode_submenu`, `kode_menu`, `nama_submenu`, `deskripsi_submenu`, `link_submenu`) VALUES
@@ -198,7 +206,7 @@ INSERT INTO `master_submenu` (`kode_submenu`, `kode_menu`, `nama_submenu`, `desk
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting_level`
+-- Table structure for table `setting_level`
 --
 
 CREATE TABLE `setting_level` (
@@ -209,7 +217,7 @@ CREATE TABLE `setting_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `setting_level`
+-- Dumping data for table `setting_level`
 --
 
 INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_setting`) VALUES
@@ -231,13 +239,13 @@ INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_s
 (16, 'MLV06', 'MM05', 1),
 (17, 'MLV06', 'MM06', 1),
 (18, 'MLV06', 'MM07', 0),
-(19, 'MLV01', 'MM04', 1),
+(19, 'MLV01', 'MM04', 0),
 (20, 'MLV01', 'MM08', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sms_service`
+-- Table structure for table `sms_service`
 --
 
 CREATE TABLE `sms_service` (
@@ -245,13 +253,13 @@ CREATE TABLE `sms_service` (
   `kode_pembayaran` varchar(50) NOT NULL,
   `phone_number` varchar(15) DEFAULT NULL,
   `message` varchar(250) DEFAULT NULL,
-  `status` int(1) DEFAULT '0' COMMENT '0 => waiting, 1 => processed',
+  `status` int(1) DEFAULT 0 COMMENT '0 => waiting, 1 => processed',
   `response` varchar(20) DEFAULT NULL,
-  `insert_date` datetime DEFAULT CURRENT_TIMESTAMP
+  `insert_date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `sms_service`
+-- Dumping data for table `sms_service`
 --
 
 INSERT INTO `sms_service` (`id_sms`, `kode_pembayaran`, `phone_number`, `message`, `status`, `response`, `insert_date`) VALUES
@@ -276,14 +284,14 @@ INSERT INTO `sms_service` (`id_sms`, `kode_pembayaran`, `phone_number`, `message
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pembayaran`
+-- Table structure for table `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
   `inc_pembayaran` int(3) NOT NULL,
   `kode_pembayaran` varchar(15) NOT NULL,
   `jumlah_bayar` int(11) NOT NULL,
-  `insert_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `insert_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `nis` int(20) NOT NULL,
   `id_user` varchar(10) NOT NULL,
   `tagihan_bulan` int(2) NOT NULL,
@@ -291,7 +299,7 @@ CREATE TABLE `tb_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_pembayaran`
+-- Dumping data for table `tb_pembayaran`
 --
 
 INSERT INTO `tb_pembayaran` (`inc_pembayaran`, `kode_pembayaran`, `jumlah_bayar`, `insert_date`, `nis`, `id_user`, `tagihan_bulan`, `tagihan_tahun`) VALUES
@@ -303,7 +311,7 @@ INSERT INTO `tb_pembayaran` (`inc_pembayaran`, `kode_pembayaran`, `jumlah_bayar`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_siswa`
+-- Table structure for table `tb_siswa`
 --
 
 CREATE TABLE `tb_siswa` (
@@ -320,12 +328,12 @@ CREATE TABLE `tb_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_siswa`
+-- Dumping data for table `tb_siswa`
 --
 
 INSERT INTO `tb_siswa` (`nis`, `id_agama`, `id_kelas`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tlp_hp`, `alamat`, `foto`) VALUES
-(2021586711, 'MAG001', 'MKLS001', 'Desti Handayani', 'Perempuan', 'Jakarta', '2007-02-05', '085210785608', 'Jalan kamboja no 8 Jakarta', 'default.png'),
-(2021586712, 'MAG001', 'MKLS001', 'Eiza Dini Islami', 'Perempuan', 'Jakarta', '2006-10-12', '085210785608', 'Jalan anggrek no 17 Jakarta', 'default.png'),
+(2021586711, 'MAG001', 'MKLS001', 'Desti Handayani', 'Perempuan', 'Jakarta', '2007-02-05', '085210785608', 'Jalan kamboja no 8 Jakarta', '2021586711.png'),
+(2021586712, 'MAG001', 'MKLS001', 'Eiza Dini Islami', 'Perempuan', 'Jakarta', '2006-10-12', '085210785608', 'Jalan anggrek no 17 Jakarta', '2021586712.jpg'),
 (2021586713, 'MAG001', 'MKLS001', 'Riki Apriadi', 'Laki-laki', 'Bogor', '2007-01-02', '085210785608', 'Kp rawa terate no 50 Jakarta', 'default.png'),
 (2021586714, 'MAG001', 'MKLS001', 'Indra Fermana', 'Laki-laki', 'Tangerang', '2006-08-10', '085210785608', 'Jalan jagakarsa no 7 Jakarta', 'default.png'),
 (2021586715, 'MAG001', 'MKLS001', 'Siti Amelia', 'Perempuan', 'Jakarta', '2006-09-14', '085210785608', 'Jalan kemakmuran no 14 Jakarta', 'default.png');
@@ -333,7 +341,7 @@ INSERT INTO `tb_siswa` (`nis`, `id_agama`, `id_kelas`, `nama_siswa`, `jenis_kela
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -347,17 +355,17 @@ CREATE TABLE `tb_user` (
   `jenis_kelamin` varchar(10) NOT NULL,
   `no_hp` varchar(12) DEFAULT NULL,
   `id_agama` varchar(10) NOT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `foto` varchar(250) DEFAULT 'default.png',
-  `isactive_user` int(1) NOT NULL DEFAULT '1'
+  `isactive_user` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_user`
+-- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `id_level`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `id_agama`, `alamat`, `foto`, `isactive_user`) VALUES
-(1, 'USR001', 'solehfudin@trl.co.id', 'it', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'Solehfuddin', 'Laki-laki', '085710035900', 'MAG001', 'Kp Rawa Badung Jakarta Timur', 'USR001_5.png', 1),
+(1, 'USR001', 'solehfudin@trl.co.id', 'it', 'e10adc3949ba59abbe56e057f20f883e', 'MLV04', 'Solehfuddin', 'Laki-laki', '085710035900', 'MAG001', 'Kp Rawa Badung Jakarta Timur', 'default.png', 1),
 (2, 'USR002', 'abdul.muis87@gmail.com', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'MLV03', 'Abdul Muis', 'Laki-laki', '', 'MAG001', 'Jalan kesehatan no 7 Jakarta Pusat', 'USR002_1.jpg', 1),
 (3, 'USR003', 'suparta@trl.co', 'kepsek', 'e10adc3949ba59abbe56e057f20f883e', 'MLV02', 'Suparta', 'Laki-laki', '', 'MAG001', 'Test', 'USR003_3.jpg', 1),
 (4, 'USR004', 'ita@trl.co.id', 'kasir', 'e10adc3949ba59abbe56e057f20f883e', 'MLV01', 'Ita rosita', 'Perempuan', '', 'MAG001', 'Jalan rawa buntu no 15 Jakarta', 'default.png', 1),
@@ -366,7 +374,7 @@ INSERT INTO `tb_user` (`inc_user`, `id_user`, `email`, `username`, `password`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wa_config`
+-- Table structure for table `wa_config`
 --
 
 CREATE TABLE `wa_config` (
@@ -376,82 +384,82 @@ CREATE TABLE `wa_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `wa_config`
+-- Dumping data for table `wa_config`
 --
 
 INSERT INTO `wa_config` (`id`, `token`, `instance_id`) VALUES
-(1, 'c9nnra1zixgcow81', '289162');
+(1, 'p5axu630b8luaplz', '292632');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `master_agama`
+-- Indexes for table `master_agama`
 --
 ALTER TABLE `master_agama`
   ADD PRIMARY KEY (`inc_agama`,`id_agama`),
   ADD UNIQUE KEY `inc_agama` (`inc_agama`);
 
 --
--- Indeks untuk tabel `master_ajaranspp`
+-- Indexes for table `master_ajaranspp`
 --
 ALTER TABLE `master_ajaranspp`
   ADD PRIMARY KEY (`id_ajaranspp`);
 
 --
--- Indeks untuk tabel `master_kelas`
+-- Indexes for table `master_kelas`
 --
 ALTER TABLE `master_kelas`
   ADD PRIMARY KEY (`inc_kelas`,`id_kelas`),
   ADD UNIQUE KEY `inc_kelas` (`inc_kelas`);
 
 --
--- Indeks untuk tabel `master_level`
+-- Indexes for table `master_level`
 --
 ALTER TABLE `master_level`
   ADD PRIMARY KEY (`inc_level`,`id_level`),
   ADD UNIQUE KEY `inc_level` (`inc_level`);
 
 --
--- Indeks untuk tabel `master_menu`
+-- Indexes for table `master_menu`
 --
 ALTER TABLE `master_menu`
   ADD PRIMARY KEY (`kode_menu`);
 
 --
--- Indeks untuk tabel `master_submenu`
+-- Indexes for table `master_submenu`
 --
 ALTER TABLE `master_submenu`
   ADD PRIMARY KEY (`kode_submenu`);
 
 --
--- Indeks untuk tabel `setting_level`
+-- Indexes for table `setting_level`
 --
 ALTER TABLE `setting_level`
   ADD PRIMARY KEY (`inc_setting`);
 
 --
--- Indeks untuk tabel `sms_service`
+-- Indexes for table `sms_service`
 --
 ALTER TABLE `sms_service`
   ADD PRIMARY KEY (`id_sms`);
 
 --
--- Indeks untuk tabel `tb_pembayaran`
+-- Indexes for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`inc_pembayaran`,`kode_pembayaran`),
   ADD UNIQUE KEY `inc_pembayaran` (`inc_pembayaran`);
 
 --
--- Indeks untuk tabel `tb_siswa`
+-- Indexes for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   ADD PRIMARY KEY (`nis`);
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`inc_user`,`id_user`),
@@ -459,65 +467,70 @@ ALTER TABLE `tb_user`
   ADD UNIQUE KEY `inc_user` (`inc_user`);
 
 --
--- Indeks untuk tabel `wa_config`
+-- Indexes for table `wa_config`
 --
 ALTER TABLE `wa_config`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `master_agama`
+-- AUTO_INCREMENT for table `master_agama`
 --
 ALTER TABLE `master_agama`
   MODIFY `inc_agama` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `master_ajaranspp`
+-- AUTO_INCREMENT for table `master_ajaranspp`
 --
 ALTER TABLE `master_ajaranspp`
   MODIFY `id_ajaranspp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `master_kelas`
+-- AUTO_INCREMENT for table `master_kelas`
 --
 ALTER TABLE `master_kelas`
   MODIFY `inc_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `master_level`
+-- AUTO_INCREMENT for table `master_level`
 --
 ALTER TABLE `master_level`
   MODIFY `inc_level` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `setting_level`
+-- AUTO_INCREMENT for table `setting_level`
 --
 ALTER TABLE `setting_level`
   MODIFY `inc_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `sms_service`
+-- AUTO_INCREMENT for table `sms_service`
 --
 ALTER TABLE `sms_service`
   MODIFY `id_sms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pembayaran`
+-- AUTO_INCREMENT for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_user`
+-- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `inc_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `wa_config`
+-- AUTO_INCREMENT for table `wa_config`
 --
 ALTER TABLE `wa_config`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

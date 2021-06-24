@@ -8,9 +8,9 @@ class UserModel extends Model {
     protected $primaryKey = 'id_user';
     protected $allowedFields = ['inc_user', 'id_user', 'email', 'username', 'password', 'id_level', 'nama_lengkap',
                                 'jenis_kelamin', 'no_hp', 'id_agama', 'alamat', 'foto', 'isactive_user'];
-    protected $column_order = array('', 'nama_lengkap', 'email', 'username', 'nama_level',
+    protected $column_order = array('', 'foto', 'nama_lengkap', 'email', 'username', 'nama_level',
                                         'jenis_kelamin', 'no_hp', 'nama_agama', 'alamat', 'isactive_user', '');
-    protected $column_search = array('nama_lengkap', 'email', 'username', 'jenis_kelamin', 'no_hp', 
+    protected $column_search = array('foto', 'nama_lengkap', 'email', 'username', 'jenis_kelamin', 'no_hp', 
                                         'alamat', 'isactive_user');
     protected $order = array('nama_lengkap' => 'asc');
     protected $request;

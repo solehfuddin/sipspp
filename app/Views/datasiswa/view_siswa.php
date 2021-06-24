@@ -65,6 +65,7 @@
                     <tr>
                     <th>No</th>
                     <th>NIS</th>
+                    <th>Foto</th>
                     <th>Nama Lengkap</th>
                     <th>Kelas</th>
                     <th>Jenis Kelamin</th>

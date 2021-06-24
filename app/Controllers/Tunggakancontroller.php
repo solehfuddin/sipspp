@@ -187,9 +187,12 @@ class Tunggakancontroller extends BaseController
 
         foreach($filter as $data) {
             $this->sentWA(substr_replace($data->tlp_hp, "+62", 0, 1), 
-                            "Kepada wali murid dapat kami informasikan bahwa ananda " . $data->nama_siswa . 
-                            " belum melakukan pembayaran SPP bulan " . $data->nama_bulan . " " . $data->kode_tahun . 
-                            ". Mohon kiranya untuk segera melunasi tagihan tersebut");
+                            "Kepada orang tua / wali murid, kami informasikan peserta didik atas nama *"
+                            . $data->nama_siswa . 
+                            "* belum melakukan pembayaran SPP bulan *" . $data->nama_bulan . "* tahun *" 
+                            . $data->kode_tahun . 
+                            "*. Mohon kiranya segera melunasi tagihan pembayaran tersebut." .
+                            "Terima Kasih");
         }
 
         $msg = [

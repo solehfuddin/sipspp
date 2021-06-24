@@ -8,9 +8,9 @@ class SiswaModel extends Model {
     protected $primaryKey = 'nis';
     protected $allowedFields = ['nis', 'nama_siswa', 'tempat_lahir', 'tanggal_lahir', 'id_kelas', 
                                 'jenis_kelamin', 'tlp_hp', 'id_agama', 'alamat', 'foto'];
-    protected $column_order = array('', 'nis', 'nama_siswa', 'nama_kelas', 'jenis_kelamin', 'tempat_lahir',
+    protected $column_order = array('', 'nis', 'foto', 'nama_siswa', 'nama_kelas', 'jenis_kelamin', 'tempat_lahir',
                                         'tanggal_lahir', 'nama_agama', 'tlp_hp', 'alamat', '');
-    protected $column_search = array('nis', 'nama_siswa', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 
+    protected $column_search = array('foto', 'nis', 'nama_siswa', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 
                                         'tlp_hp', 'alamat');
     protected $order = array('nis' => 'asc');
     protected $request;
