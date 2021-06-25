@@ -1,12 +1,14 @@
 <?php 
 namespace App\Controllers;
 use App\Controllers\BaseController;
+use App\Models\PembayaranModel;
 use App\Models\TunggakanModel;
 use App\Models\SmsModel;
 use App\Models\SiswaModel;
 use App\Models\SubmenuModel;
 use App\Models\SettingModel;
 use App\Models\SettingWaModel;
+use App\Models\Master\KelasModel;
 use Config\Services;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -75,6 +77,134 @@ class Tunggakancontroller extends BaseController
             ];
 
             return view('datatunggakan/view_tunggakan', $data);
+        }
+    }
+
+    public function pilihdata() {
+        if(!$this->session->get('islogin'))
+		{
+			return view('view_login');
+        }
+        else
+        {
+            if ($this->request->isAJAX()) {
+                $kode = $this->request->getVar('kode');
+                $bulan = $this->request->getVar('bulan');
+                $tahun = $this->request->getVar('tahun');
+
+                $request = Services::request();
+                $m_siswa = new SiswaModel($request);
+                $gen  = "KWT" . date('dmyhis');
+
+                $item = $m_siswa->find($kode);
+    
+                $data = [
+                    'success' => [
+                        'kode' => $item['nis'],
+                        'nama' => $item['nama_siswa'],
+                        'bln' => $bulan,
+                        'thn' => $tahun,
+                        'kodegen' => $gen
+                    ]
+                ];
+    
+                echo json_encode($data);
+            }
+            else
+            {
+                return view('errors/html/error_404');
+            }
+        }
+    }
+
+    public function simpandata() {
+        if(!$this->session->get('islogin'))
+		{
+			return view('view_login');
+        }
+        else
+        {
+            if ($this->request->isAJAX())
+            {
+                $validationCheck = $this->validate([
+                    'pembayaran_biaya' => [
+                        'label' => 'Jumlah bayar',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' 		=> '{field} wajib terisi'
+                        ],
+                    ],
+                ]);
+            }
+            else
+            {
+                return view('errors/html/error_404');
+            }
+
+            if (!$validationCheck) {
+				$msg = [
+					'error' => [
+                        "pembayaran_biaya" => $this->validation->getError('pembayaran_biaya'),
+					]
+				];
+			}
+			else
+			{
+                $data = [
+                    'kode_pembayaran' => $this->request->getVar('pembayaran_kode'),
+                    'jumlah_bayar' => $this->request->getVar('pembayaran_biayatmp'),
+                    'nis' => $this->request->getVar('pembayaran_nis'),
+                    'id_user' => $this->session->get('kodeuser'),
+                    'tagihan_bulan' => $this->request->getVar('pembayaran_month'),
+                    'tagihan_tahun' => $this->request->getVar('pembayaran_year'),
+                ];
+                
+                $request = Services::request();
+                $m_spp = new PembayaranModel($request);
+
+                $m_spp->insert($data);
+
+                $m_siswa = new SiswaModel($request);
+                $item = $m_siswa->find($this->request->getVar('pembayaran_nis'));
+
+                $m_kelas = new KelasModel($request);
+                $kls = $m_kelas->find($item['id_kelas']);
+
+                $mobNumber = $item['tlp_hp'];
+                $msg = "Pembayaran SPP bulan *"
+                        . $this->getMonth($this->request->getVar('pembayaran_month')) . 
+                        "* a/n *" . $item['nama_siswa'] . "* kelas *"
+                        . $kls['nama_kelas'] . 
+                        "* telah dilunasi pada tanggal " . date('d/m/y') .
+                        " sebesar *" . $this->request->getVar('pembayaran_biaya') .
+                        ",-* \n \n _Bendahara SMP PGRI 32_";
+
+                $data1 = [
+                    'kode_pembayaran' => $this->request->getVar('pembayaran_kode'),
+                    'phone_number' => $mobNumber,
+                    'message' => $msg,
+                    'status' => 2,
+                    'response' => "Notifikasi via WA",
+                ];
+
+                $stdate = date("m/01/Y");
+			    $eddate = date("m/d/Y");
+
+                $request = Services::request();
+                $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
+
+                $m_sms->insert($data1);
+                $this->sentWA(substr_replace($mobNumber, "+62", 0, 1), $msg);
+
+                $msg = [
+                    'success' => [
+                       'data' => 'Berhasil menambahkan data',
+                       'link' => base_url() . '/admtunggakan'
+                    ]
+                ];
+            }
+
+            echo json_encode($msg);
         }
     }
 
@@ -192,7 +322,7 @@ class Tunggakancontroller extends BaseController
                             "* belum melakukan pembayaran SPP bulan *" . $data->nama_bulan . "* tahun *" 
                             . $data->kode_tahun . 
                             "*. Mohon kiranya segera melunasi tagihan pembayaran tersebut." .
-                            "Terima Kasih");
+                            "\nTerima Kasih \n \n \n _Bendahara SMP PGRI 32_");
         }
 
         $msg = [

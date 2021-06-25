@@ -79,6 +79,7 @@
                     <th>Bulan</th>
                     <th>Tahun</th>
                     <th>Keterangan</th>
+                    <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,6 +87,10 @@
                     $no = 0;
                     foreach($data as $item): 
                     $no++;
+
+                    $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditpembayaran\"
+                                                onclick=\"editpembayaran(".$item->nis. ',' .$item->kode_bulan. ',' .$item->kode_tahun.")\">
+                                                <i class=\"fa fa-envelope-open-text\"> Bayar</i></button>";
                   ?>
                   <tr>
                     <td><?= $no; ?></td>
@@ -95,6 +100,7 @@
                     <td><?= $item->nama_bulan; ?></td>
                     <td><?= $item->kode_tahun; ?></td>
                     <td><?= $item->keterangan; ?></td>
+                    <td><?= $tomboledit; ?></td>
                   </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -106,4 +112,5 @@
     </div>
 
     <?= $this->include('datatunggakan/export_tunggakan'); ?>
+    <?= $this->include('datatunggakan/edit_tunggakan'); ?>
 <?= $this->endSection(); ?>

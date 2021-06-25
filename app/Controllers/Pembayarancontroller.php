@@ -7,6 +7,8 @@ use App\Models\SiswaModel;
 use App\Models\SubmenuModel;
 use App\Models\SettingModel;
 use App\Models\SettingWaModel;
+use App\Models\UserModel;
+use App\Models\Master\KelasModel;
 use Config\Services;
 
 class Pembayarancontroller extends BaseController
@@ -56,9 +58,9 @@ class Pembayarancontroller extends BaseController
                                 $keterangan = "<a href=\"javascript:void(0)\" style=\"cursor: default; pointer-events: none;\" class=\"btn btn-success btn-sm\" target=\"_blank\">
                                                 Lunas </a>";
 
-                                $tombolsms = "<button type=\"button\" class=\"btn btn-info btn-sm btneditinfocategory\"
-                                                onclick=\"kirimSms('" .$list->kode_pembayaran. "')\">
-                                                <i class=\"fa fa-paper-plane\"></i></button>";
+                                // $tombolsms = "<button type=\"button\" class=\"btn btn-info btn-sm btneditinfocategory\"
+                                //                 onclick=\"kirimSms('" .$list->kode_pembayaran. "')\">
+                                //                 <i class=\"fa fa-paper-plane\"></i></button>";
 
                                 $tomboledit = "<a href=" . site_url('pembayarancontroller/cetakResi/') . $list->kode_pembayaran .
                                                 " class=\"btn btn-warning btn-sm\" target=\"_blank\">
@@ -74,7 +76,7 @@ class Pembayarancontroller extends BaseController
                                 $row[] = $this->getMonth($list->tagihan_bulan);
                                 $row[] = $list->tagihan_tahun;
                                 $row[] = $list->nama_lengkap;
-                                $row[] = $keterangan . '  '. $tombolsms .' ' . $tomboledit;
+                                $row[] = $keterangan . '  ' . $tomboledit;
                                 $data[] = $row;
                         }
                     
@@ -226,6 +228,38 @@ class Pembayarancontroller extends BaseController
                 $m_spp = new PembayaranModel($request);
 
                 $m_spp->insert($data);
+
+                $m_siswa = new SiswaModel($request);
+                $item = $m_siswa->find($this->request->getVar('pembayaran_nis'));
+
+                $m_kelas = new KelasModel($request);
+                $kls = $m_kelas->find($item['id_kelas']);
+
+                $mobNumber = $item['tlp_hp'];
+                $msg = "Pembayaran SPP bulan *"
+                        . $this->getMonth($this->request->getVar('pembayaran_month')) . 
+                        "* a/n *" . $item['nama_siswa'] . "* kelas *"
+                        . $kls['nama_kelas'] . 
+                        "* telah dilunasi pada tanggal " . date('d/m/y') .
+                        " sebesar *" . $this->request->getVar('pembayaran_biaya') .
+                        ",-* \n \n _Bendahara SMP PGRI 32_";
+
+                $data1 = [
+                    'kode_pembayaran' => $this->request->getVar('pembayaran_kode'),
+                    'phone_number' => $mobNumber,
+                    'message' => $msg,
+                    'status' => 2,
+                    'response' => "Notifikasi via WA",
+                ];
+
+                $stdate = date("m/01/Y");
+			    $eddate = date("m/d/Y");
+
+                $request = Services::request();
+                $m_sms = new SmsModel($request, date("Y-m-d", strtotime($stdate)), date("Y-m-d", strtotime($eddate)));
+
+                $m_sms->insert($data1);
+                $this->sentWA(substr_replace($mobNumber, "+62", 0, 1), $msg);
 
                 $msg = [
                     'success' => [

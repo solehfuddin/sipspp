@@ -396,3 +396,89 @@ $(document).ready(function() {
         });
     });
 });
+
+
+//Fungsi select data tunggakan
+function editpembayaran($kode, $bln, $thn) {
+    var url = "/tunggakancontroller/pilihdata";
+
+    $.ajax({
+        url: BASE_URL + url,
+        type: "post",
+        data: {
+            kode: $kode,
+            bulan: $bln,
+            tahun: $thn,
+        },
+        dataType: "JSON",
+        success: function(response) {
+            $('#pembayaran_kode').val(response.success.kodegen);
+            $('#pembayaran_nis').val(response.success.kode);
+            $('#pembayaran_search').val(response.success.nama);
+            $('#pembayaran_month').val(response.success.bln);
+            $('#pembayaran_year').val(response.success.thn);
+
+            $('#modalubahpembayaran').modal('show');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+        }
+    });
+}
+
+//Fungsi modal add dari tunggakan
+$(document).ready(function() {
+    $('.formModalubahpembayaran').submit(function(e) {
+        e.preventDefault();
+
+        let data = new FormData(this);
+
+        $.ajax({
+            type: "post",
+            url: $(this).attr('action'),
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: "json",
+            beforeSend: function() {
+                $('.btnmodalubahpembayaran').prop('disabled', true);
+                $('.btnmodalubahpembayaran').html('<i class="fa fa-spin fa-spinner"></i> Processing');
+            },
+            complete: function() {
+                $('.btnmodalubahpembayaran').prop('disabled', false);
+                $('.btnmodalubahpembayaran').html('Simpan');
+            },
+            success: function(response) {
+                if (response.error){
+                    if (response.error.pembayaran_biaya){
+                        $('#pembayaran_biaya').addClass('is-invalid');
+                        $('.errorpembayaranBiaya').html(response.error.pembayaran_biaya);
+                    }
+                    else
+                    {
+                        $('#pembayaran_biaya').removeClass('is-invalid');
+                        $('.errorpembayaranBiaya').html('');
+                    }
+                }
+                else
+                {
+                    $('#modalubahpembayaran').modal('hide');
+
+                    Swal.fire(
+                        'Pemberitahuan',
+                        response.success.data,
+                        'success',
+                    ).then(function() {
+                        $('#pembayaran_biaya').val('');
+                        window.location = response.success.link;
+                    });
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    });
+});
