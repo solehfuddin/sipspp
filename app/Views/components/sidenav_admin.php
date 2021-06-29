@@ -1,3 +1,7 @@
+<?php
+  $session = \Config\Services::session();
+?>
+
 <!-- Sidenav -->
 <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
@@ -27,7 +31,15 @@
                 <?php if($dt->exist_submenu == 0) { ?>
                   <a class="nav-link" href="<?= site_url($dt->link_menu) ?>">
                     <i class="<?= $dt->icon . ' ' . $dt->style ?>"></i>
-                    <span class="nav-link-text"><?= $dt->nama_menu ?></span>
+                    <?php if($session->get('namalevel') == "Kepala Sekolah") {?>
+                      <?php if($dt->nama_menu == "Data Tunggakan") {?>
+                        <span class="nav-link-text"><?= "Laporan tunggakan" ?></span>
+                      <?php } else { ?>
+                      <span class="nav-link-text"><?= $dt->nama_menu ?></span>
+                      <?php } ?>
+                    <?php }else{ ?>
+                      <span class="nav-link-text"><?= $dt->nama_menu ?></span>
+                    <?php } ?>
                   </a>
                 <?php }else{ ?>
                     <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">

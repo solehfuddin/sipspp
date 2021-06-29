@@ -49,7 +49,7 @@
 
 	<div class="row" style=" width:100%; height:40px;">
 		<div style="width: 20%; float:left; margin-left: 3px;">
-			<img src="<?= base_url() ?>/public/assets/img/brand/logo-smp.png" width="100px" height="80px">
+			<img src="<?= base_url() . '/public/assets/img/brand/logo-smp.png';?>" width="100px" height="80px">
 		</div>
 		
 		<div style="width: 75%; text-align: center;">

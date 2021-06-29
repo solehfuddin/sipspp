@@ -26,11 +26,21 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header">
-              <h3 class="mb-0">Data tunggakan</h3>
-              <p class="text-sm mb-0">
-                Berisi data siswa yang menunggak SPP pada sistem informasi SPP dan bisa diekport (hanya untuk kepsek)
-              </p>
+
+              <?php if($session->get('namalevel') == "Kasir") {?>
+                <h3 class="mb-0">Data tunggakan</h3>
+                <p class="text-sm mb-0">
+                  Berisi data siswa yang menunggak SPP pada sistem informasi SPP dan bisa diekport (hanya untuk kepsek)
+                </p>
+              <?php } ?>
               
+              <?php if($session->get('namalevel') == "Kepala Sekolah") {?>
+                <h3 class="mb-0">Laporan tunggakan</h3>
+                <p class="text-sm mb-0">
+                  Berisi laporan tunggakan SPP siswa pada sistem informasi SPP dan bisa diekport
+                </p>
+              <?php } ?>
+
               <br>
               <?= form_open('/tunggakancontroller/filterdata', 
                 ['class' => 'formFiltertunggakan']); ?>
@@ -69,42 +79,81 @@
             <div class="table-responsive py-4">
               <h4 class="text-center" id="filterdate">Periode <?= date("d-m-Y", strtotime($start_date)); ?> sampai <?= date("d-m-Y", strtotime($end_date)); ?></h4>
               <br/>
-              <table class="table table-flush" id="datatable-tunggakan">
-                <thead class="thead-light">
-                    <tr>
-                    <th>No</th>
-                    <th>Nis</th>
-                    <th>Nama Siswa</th>
-                    <th>Kelas</th>
-                    <th>Bulan</th>
-                    <th>Tahun</th>
-                    <th>Keterangan</th>
-                    <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php 
-                    $no = 0;
-                    foreach($data as $item): 
-                    $no++;
 
-                    $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditpembayaran\"
-                                                onclick=\"editpembayaran(".$item->nis. ',' .$item->kode_bulan. ',' .$item->kode_tahun.")\">
-                                                <i class=\"fa fa-envelope-open-text\"> Bayar</i></button>";
-                  ?>
-                  <tr>
-                    <td><?= $no; ?></td>
-                    <td><?= $item->nis; ?></td>
-                    <td><?= $item->nama_siswa; ?></td>
-                    <td><?= $item->nama_kelas; ?></td>
-                    <td><?= $item->nama_bulan; ?></td>
-                    <td><?= $item->kode_tahun; ?></td>
-                    <td><?= $item->keterangan; ?></td>
-                    <td><?= $tomboledit; ?></td>
-                  </tr>
-                <?php endforeach; ?>
-                </tbody>
-              </table>
+              <!-- Table untuk kasir -->
+              <?php if($session->get('namalevel') == "Kasir") {?>
+                <table class="table table-flush" id="datatable-tunggakan">
+                  <thead class="thead-light">
+                      <tr>
+                      <th>No</th>
+                      <th>Nis</th>
+                      <th>Nama Siswa</th>
+                      <th>Kelas</th>
+                      <th>Bulan</th>
+                      <th>Tahun</th>
+                      <th>Keterangan</th>
+                      <th>Aksi</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <?php 
+                      $no = 0;
+                      foreach($data as $item): 
+                      $no++;
+
+                      $tomboledit = "<button type=\"button\" class=\"btn btn-warning btn-sm btneditpembayaran\"
+                                                  onclick=\"editpembayaran(".$item->nis. ',' .$item->kode_bulan. ',' .$item->kode_tahun.")\">
+                                                  <i class=\"fa fa-envelope-open-text\"> Bayar</i></button>";
+                    ?>
+                    <tr>
+                      <td><?= $no; ?></td>
+                      <td><?= $item->nis; ?></td>
+                      <td><?= $item->nama_siswa; ?></td>
+                      <td><?= $item->nama_kelas; ?></td>
+                      <td><?= $item->nama_bulan; ?></td>
+                      <td><?= $item->kode_tahun; ?></td>
+                      <td><?= $item->keterangan; ?></td>
+                      <td><?= $tomboledit; ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                  </tbody>
+                </table>
+                <?php } ?>
+
+                <!-- Table untuk kepsek -->
+                <?php if($session->get('namalevel') == "Kepala Sekolah") {?>
+                <table class="table table-flush" id="datatable-tunggakan">
+                  <thead class="thead-light">
+                      <tr>
+                      <th>No</th>
+                      <th>Nis</th>
+                      <th>Nama Siswa</th>
+                      <th>Kelas</th>
+                      <th>Bulan</th>
+                      <th>Tahun</th>
+                      <th>Keterangan</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <?php 
+                      $no = 0;
+                      foreach($data as $item): 
+                      $no++;
+                    ?>
+                    <tr>
+                      <td><?= $no; ?></td>
+                      <td><?= $item->nis; ?></td>
+                      <td><?= $item->nama_siswa; ?></td>
+                      <td><?= $item->nama_kelas; ?></td>
+                      <td><?= $item->nama_bulan; ?></td>
+                      <td><?= $item->kode_tahun; ?></td>
+                      <td><?= $item->keterangan; ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                  </tbody>
+                </table>
+                <?php } ?>
+
             </div>
           </div>
         </div>

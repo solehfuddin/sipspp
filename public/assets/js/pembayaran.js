@@ -472,6 +472,7 @@ $(document).ready(function() {
                         'success',
                     ).then(function() {
                         $('#pembayaran_biaya').val('');
+                        window.open(response.success.resi, "_blank");
                         window.location = response.success.link;
                     });
                 }

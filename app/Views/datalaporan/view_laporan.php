@@ -22,9 +22,9 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header">
-              <h3 class="mb-0">Data laporan</h3>
+              <h3 class="mb-0">Laporan Pembayaran</h3>
               <p class="text-sm mb-0">
-                Berisi data laporan yang telah diinput kasir pada sistem informasi SPP dan bisa diekport
+                Berisi laporan pembayaran yang telah diinput kasir pada sistem informasi SPP dan bisa diekport
               </p>
               
               <br>
@@ -56,9 +56,9 @@
 
                 <button type="button" class="btn btn-success btn-sm mt-3" data-toggle="modal" data-target="#modalexportlaporan">Export Excel</button>
            
-                <a href="<?= base_url() . '/admtunggakan'; ?>" class="btn btn-warning btn-sm mt-3">
+                <!-- <a href="<?= base_url() . '/admtunggakan'; ?>" class="btn btn-warning btn-sm mt-3">
                 <i class="fa fa-exclamation"></i> Data Tunggakan
-                </a>
+                </a> -->
             </div>
             <div class="table-responsive py-4">
               <h4 class="text-center" id="filterdate">Periode <?= date("d-m-Y", strtotime($start_date)); ?> sampai <?= date("d-m-Y", strtotime($end_date)); ?></h4>

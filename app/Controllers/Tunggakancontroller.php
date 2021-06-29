@@ -199,7 +199,8 @@ class Tunggakancontroller extends BaseController
                 $msg = [
                     'success' => [
                        'data' => 'Berhasil menambahkan data',
-                       'link' => base_url() . '/admtunggakan'
+                       'link' => base_url() . '/admtunggakan',
+                       'resi' => site_url('pembayarancontroller/cetakResi/' . $this->request->getVar('pembayaran_kode')),
                     ]
                 ];
             }

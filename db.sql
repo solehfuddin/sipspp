@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2021 at 11:49 AM
+-- Generation Time: Jun 29, 2021 at 03:52 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -158,7 +158,7 @@ INSERT INTO `master_level` (`inc_level`, `id_level`, `nama_level`, `deskripsi_le
 
 CREATE TABLE `master_menu` (
   `kode_menu` varchar(5) NOT NULL,
-  `nama_menu` varchar(15) NOT NULL,
+  `nama_menu` varchar(20) NOT NULL,
   `deskripsi_menu` varchar(100) NOT NULL,
   `icon` varchar(30) NOT NULL,
   `style` varchar(20) NOT NULL,
@@ -174,11 +174,12 @@ INSERT INTO `master_menu` (`kode_menu`, `nama_menu`, `deskripsi_menu`, `icon`, `
 ('MM01', 'Dashboard', 'Menu ini menampilkan statistik data secara umum', 'ni ni-shop', 'text-primary', 'admdashboard', 0),
 ('MM02', 'Data Master', 'Menu ini digunakan untuk pengaturan data master dari aplikasi spp', 'ni ni-collection', 'text-orange', '', 1),
 ('MM03', 'Data Pembayaran', 'Menu ini digunakan untuk menambahkan data pembayaran spp dari siswa', 'ni ni-bag-17', 'text-green', 'admpembayaran', 0),
-('MM04', 'Data Siswa', 'Menu ini berisi informasi untuk pendataan siswa secara rinci', 'ni ni-single-02', 'text-info', 'admsiswa', 0),
-('MM05', 'Data User', 'Menu ini untuk pengaturan user yang dapat login kedalam aplikasi', 'ni ni-circle-08', 'text-orange', 'admuser', 0),
-('MM06', 'Data Laporan', 'Menu ini untuk merekapitulasi data pembayaran SPP yang telah diinput kedalam sistem', 'ni ni-book-bookmark', 'text-pink', 'admlaporan', 0),
-('MM07', 'Setting Account', 'Menu ini digunakan sebagai acuan dalam pemberian akses pada aplikasi spp', 'ni ni-settings-gear-65', '', 'admsetting', 0),
-('MM08', 'Data Notifikasi', 'Menu ini digunakan untuk melihat status notifikasi', 'ni ni-send', 'text-red', '/admsms', 0);
+('MM04', 'Data Tunggakan', 'Menu ini digunakan untuk input data pembayaran dari siswa yang menunggak', 'ni ni-paper-diploma', 'text-info', 'admtunggakan', 0),
+('MM05', 'Data Siswa', 'Menu ini berisi informasi untuk pendataan siswa secara rinci', 'ni ni-single-02', 'text-info', 'admsiswa', 0),
+('MM06', 'Data User', 'Menu ini untuk pengaturan user yang dapat login kedalam aplikasi', 'ni ni-circle-08', 'text-orange', 'admuser', 0),
+('MM07', 'Laporan Pembayaran', 'Menu ini untuk merekapitulasi data pembayaran SPP yang telah diinput kedalam sistem', 'ni ni-book-bookmark', 'text-pink', 'admlaporan', 0),
+('MM08', 'Setting Account', 'Menu ini digunakan sebagai acuan dalam pemberian akses pada aplikasi spp', 'ni ni-settings-gear-65', '', 'admsetting', 0),
+('MM09', 'Data Notifikasi', 'Menu ini digunakan untuk melihat status notifikasi', 'ni ni-send', 'text-red', '/admsms', 0);
 
 -- --------------------------------------------------------
 
@@ -221,26 +222,19 @@ CREATE TABLE `setting_level` (
 --
 
 INSERT INTO `setting_level` (`inc_setting`, `id_level`, `kode_menu`, `isactive_setting`) VALUES
-(1, 'MLV01', 'MM01', 1),
-(2, 'MLV01', 'MM03', 1),
-(3, 'MLV01', 'MM06', 0),
-(4, 'MLV02', 'MM01', 1),
-(5, 'MLV02', 'MM06', 1),
-(6, 'MLV03', 'MM01', 1),
-(7, 'MLV03', 'MM04', 1),
-(8, 'MLV04', 'MM01', 1),
-(9, 'MLV04', 'MM02', 1),
-(10, 'MLV04', 'MM05', 1),
-(11, 'MLV04', 'MM07', 1),
-(12, 'MLV06', 'MM01', 1),
-(13, 'MLV06', 'MM02', 1),
-(14, 'MLV06', 'MM03', 1),
-(15, 'MLV06', 'MM04', 1),
-(16, 'MLV06', 'MM05', 1),
-(17, 'MLV06', 'MM06', 1),
-(18, 'MLV06', 'MM07', 0),
-(19, 'MLV01', 'MM04', 0),
-(20, 'MLV01', 'MM08', 1);
+(1, 'MLV04', 'MM01', 1),
+(2, 'MLV04', 'MM02', 1),
+(3, 'MLV04', 'MM06', 1),
+(4, 'MLV04', 'MM08', 1),
+(5, 'MLV01', 'MM01', 1),
+(6, 'MLV01', 'MM03', 0),
+(7, 'MLV01', 'MM04', 1),
+(8, 'MLV01', 'MM09', 1),
+(9, 'MLV03', 'MM01', 1),
+(10, 'MLV03', 'MM05', 1),
+(11, 'MLV02', 'MM01', 1),
+(12, 'MLV02', 'MM07', 1),
+(13, 'MLV02', 'MM04', 1);
 
 -- --------------------------------------------------------
 
@@ -279,7 +273,10 @@ INSERT INTO `sms_service` (`id_sms`, `kode_pembayaran`, `phone_number`, `message
 (14, 'KWT160521092021', '085210785608', 'test test', 2, 'Notifikasi via WA', '2021-06-18 20:19:18'),
 (15, 'KWT160521010616', '083870701149', 'Pembayaran SPP Bulan Mei a/n Siti Amelia telah dilunasi pada tanggal 16/05/2021 sebesar Rp. 350.000', 2, 'Notifikasi via WA', '2021-06-18 20:20:56'),
 (16, 'Informasi Tunggakan', '083870701149', 'Dapat kami informasikan kepada wali murid a/n Bagol AlFath bahwasanya belum melakukan pembayaran SPP bulan Juni 2021. Mohon segera dilunasi agar tidak dikenakan denda / biaya tambahan dibulan berikutnya', 2, 'Notifikasi via WA', '2021-06-18 21:57:32'),
-(17, 'KWT170521115032', '083870701149', 'Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 21:58:03');
+(17, 'KWT170521115032', '083870701149', 'Pembayaran SPP Bulan April a/n Riki Apriadi telah dilunasi pada tanggal 17/05/2020 sebesar Rp. 300.000', 2, 'Notifikasi via WA', '2021-06-18 21:58:03'),
+(18, 'KWT250621025254', '085210785608', 'Pembayaran SPP bulan *Juni* a/n *Desti Handayani* kelas *7-1* telah dilunasi pada tanggal 25/06/21 sebesar *Rp. 200.000,-* \n \n _Bendahara SMP PGRI 32_', 2, 'Notifikasi via WA', '2021-06-25 14:53:03'),
+(19, 'KWT250621035148', '085210785608', 'Pembayaran SPP bulan *Juni* a/n *Eiza Dini Islami* kelas *7-1* telah dilunasi pada tanggal 25/06/21 sebesar *Rp. 250.000,-* \n \n _Bendahara SMP PGRI 32_', 2, 'Notifikasi via WA', '2021-06-25 15:51:57'),
+(23, 'KWT290621084136', '085210785608', 'Pembayaran SPP bulan *Juni* a/n *Riki Apriadi* kelas *7-1* telah dilunasi pada tanggal 29/06/21 sebesar *Rp. 150.000,-* \n \n _Bendahara SMP PGRI 32_', 2, 'Notifikasi via WA', '2021-06-29 08:41:40');
 
 -- --------------------------------------------------------
 
@@ -306,7 +303,10 @@ INSERT INTO `tb_pembayaran` (`inc_pembayaran`, `kode_pembayaran`, `jumlah_bayar`
 (1, 'KWT160521092021', 300000, '2021-05-15 19:08:04', 2021586712, 'USR004', 5, '2021'),
 (2, 'KWT160521010616', 350000, '2021-05-15 23:07:00', 2021586715, 'USR004', 5, '2021'),
 (3, 'KWT170521115032', 300000, '2020-05-17 04:50:52', 2021586713, 'USR004', 4, '2020'),
-(6, 'KWT210521080603', 300000, '2021-05-21 13:07:13', 2021586714, 'USR005', 5, '2021');
+(6, 'KWT210521080603', 300000, '2021-05-21 13:07:13', 2021586714, 'USR005', 5, '2021'),
+(7, 'KWT250621025254', 200000, '2021-06-25 07:53:03', 2021586711, 'USR004', 6, '2021'),
+(8, 'KWT250621035148', 250000, '2021-06-25 08:51:57', 2021586712, 'USR004', 6, '2021'),
+(12, 'KWT290621084136', 150000, '2021-06-29 01:41:40', 2021586713, 'USR004', 6, '2021');
 
 -- --------------------------------------------------------
 
@@ -504,19 +504,19 @@ ALTER TABLE `master_level`
 -- AUTO_INCREMENT for table `setting_level`
 --
 ALTER TABLE `setting_level`
-  MODIFY `inc_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `inc_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sms_service`
 --
 ALTER TABLE `sms_service`
-  MODIFY `id_sms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_sms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `inc_pembayaran` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
