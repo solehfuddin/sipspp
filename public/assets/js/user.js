@@ -282,6 +282,16 @@ $(document).ready(function() {
                         $('.erroruserFnameubah').html('');
                     }
 
+                    if (response.error.user_emailubah){
+                        $('#user_emailubah').addClass('is-invalid');
+                        $('.erroruserEmailubah').html(response.error.user_emailubah);
+                    }
+                    else
+                    {
+                        $('#user_emailubah').removeClass('is-invalid');
+                        $('.erroruserEmailubah').html('');
+                    }
+
                     if (response.error.user_photoubah){
                         $('#user_photoubah').addClass('is-invalid');
                         $('.erroruserPhotoubah').html(response.error.user_photoubah);
@@ -302,6 +312,9 @@ $(document).ready(function() {
                         'success',
                     ).then(function() {
                         $('#datatable-user').DataTable().ajax.reload();
+
+                        $('#user_emailubah').removeClass('is-invalid');
+                        $('.erroruserEmailubah').html('');
                     });
                 }
             },

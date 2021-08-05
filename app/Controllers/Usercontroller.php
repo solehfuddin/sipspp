@@ -199,11 +199,13 @@ class Usercontroller extends BaseController
                             'label' => 'Alamat email',
                             'rules' => [
                                 'required',
+                                'valid_email',
                                 'is_unique[tb_user.email]',
                             ],
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi',
-                                'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
+                                'valid_email'   => '{field} yang kamu masukkan tidak valid',
+                                'is_unique'	    => '{field} tidak boleh sama, masukkan email yang lain',
                             ],
                         ],
     
@@ -271,11 +273,13 @@ class Usercontroller extends BaseController
                             'label' => 'Alamat email',
                             'rules' => [
                                 'required',
+                                'valid_email',
                                 'is_unique[tb_user.email]',
                             ],
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi',
-                                'is_unique'	    => '{field} tidak boleh sama, masukkan nama agama yang lain'
+                                'valid_email'   => '{field} yang kamu masukkan tidak valid',
+                                'is_unique'	    => '{field} tidak boleh sama, masukkan email yang lain',
                             ],
                         ],
                     ]);
@@ -429,6 +433,20 @@ class Usercontroller extends BaseController
                                 'required' 		=> '{field} wajib terisi'
                             ],
                         ],
+
+                        'user_emailubah' => [
+                            'label' => 'Alamat email',
+                            'rules' => [
+                                'required',
+                                'valid_email',
+                                'is_unique[tb_user.email]',
+                            ],
+                            'errors' => [
+                                'required' 		=> '{field} wajib terisi',
+                                'valid_email'   => '{field} yang kamu masukkan tidak valid',
+                                'is_unique'	    => '{field} tidak boleh sama, masukkan email yang lain',
+                            ],
+                        ],
     
                         'user_photoubah' => [
                             'label' => 'Gambar',
@@ -455,6 +473,20 @@ class Usercontroller extends BaseController
                             'rules' => 'required',
                             'errors' => [
                                 'required' 		=> '{field} wajib terisi'
+                            ],
+                        ],
+
+                        'user_emailubah' => [
+                            'label' => 'Alamat email',
+                            'rules' => [
+                                'required',
+                                'valid_email',
+                                'is_unique[tb_user.email]',
+                            ],
+                            'errors' => [
+                                'required' 		=> '{field} wajib terisi',
+                                'valid_email'   => '{field} yang kamu masukkan tidak valid',
+                                'is_unique'	    => '{field} tidak boleh sama, masukkan email yang lain',
                             ],
                         ],
                     ]);
